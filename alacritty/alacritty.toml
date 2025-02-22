@@ -1,0 +1,28 @@
+
+[env]
+TERM = "xterm-256color"
+
+[general]
+import = [
+"themes/themes/ayu_dark.toml"
+]
+
+[font]
+size = 13
+normal = { family = "3270 Nerd Font", style = "Regular" }
+
+[terminal]
+
+shell = { program = "wsl.exe", args = ["~"] }
+
+
+[mouse]
+hide_when_typing = true
+
+[window]
+opacity = 0.96
+startup_mode = "Maximized"
+
+[cursor]
+style = { shape = "Underline", blinking = "On"}
+
