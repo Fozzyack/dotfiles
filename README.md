@@ -12,6 +12,6 @@ Once the repo is cloned make sure to run
 ## Remove
 To remove run the 
 ```
-uninstall
+./uninstall.sh
 ```
 
