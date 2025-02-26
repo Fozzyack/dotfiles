@@ -24,6 +24,15 @@ require("lazy").setup({
     { 'olivercederborg/poimandres.nvim'},
     { "xero/miasma.nvim"},
     { "kyazdani42/blue-moon" },
+    { "navarasu/onedark.nvim" },
+    { "shaunsingh/nord.nvim" },
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+    },
+    {"tiagovla/tokyodark.nvim"},
     {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		-- or                              , branch = '0.1.x',
@@ -65,7 +74,6 @@ require("lazy").setup({
 	},
 	{'williamboman/mason.nvim'},
 	{'williamboman/mason-lspconfig.nvim'},
-	{"zbirenbaum/copilot.lua"},
 	{'tpope/vim-fugitive'},
 	{
         'MunifTanjim/prettier.nvim',
@@ -105,12 +113,6 @@ require("lazy").setup({
             })
             vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
        end
-    },
-    {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
     },
     {
         "ellisonleao/glow.nvim", 
