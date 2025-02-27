@@ -1,5 +1,6 @@
 {
   "Abstract-cs": { "branch": "main", "commit": "c35d6187cc8c9208961d92e07155422fbeb08012" },
+  "ColorschemeFromHell-vim": { "branch": "master", "commit": "d07e2028bd17317698eca188e17ca0ac1618e507" },
   "LuaSnip": { "branch": "master", "commit": "03c8e67eb7293c404845b3982db895d59c0d1538" },
   "blue-moon": { "branch": "master", "commit": "85547247f2212843bdfd81c897c749526303fbe5" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "99290b3ec1322070bcfb9e846450a46f6efa50f0" },

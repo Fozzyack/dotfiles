@@ -20,7 +20,7 @@ shell = { program = "wsl.exe", args = ["~"] }
 hide_when_typing = true
 
 [window]
-opacity = 0.96
+opacity = 0.88
 startup_mode = "Maximized"
 
 [cursor]

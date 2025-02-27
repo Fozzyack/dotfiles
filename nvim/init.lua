@@ -26,6 +26,8 @@ require("lazy").setup({
     { "kyazdani42/blue-moon" },
     { "navarasu/onedark.nvim" },
     { "shaunsingh/nord.nvim" },
+    { "wolandark/ColorschemeFromHell-vim" },
+
     {
       "folke/tokyonight.nvim",
       lazy = false,
