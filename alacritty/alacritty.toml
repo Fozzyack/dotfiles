@@ -11,9 +11,11 @@ import = [
 size = 13
 normal = { family = "3270 Nerd Font", style = "Regular" }
 
-[terminal]
+# Disable below comments when copying to .../AppData/Roaming/alacritty
+# Used to start alacritty in wsl
+# [terminal]
+# shell = { program = "wsl.exe", args = ["~"] }
 
-shell = { program = "wsl.exe", args = ["~"] }
 
 
 [mouse]
