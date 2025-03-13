@@ -1,7 +1,7 @@
 
 -- List of all Colour Schemes installed
 -- This list is looped through when using the macro below
-local schemes = { "onedark", "blue-moon", "nord", "colorschemefromhell", "nightcity-afterlife", "nightcity-kabuki", "everblush", "material", "tokyonight", "tokyonight-night", "tokyodark", "poimandres", "abscs", "miasma" }
+local schemes = { "onedark", "catppuccin-mocha", "catppuccin-frappe", "catppuccin-macchiato", "neofusion", "aquarium", "blue-moon", "nord", "colorschemefromhell", "nightcity-afterlife", "nightcity-kabuki", "everblush", "material", "tokyonight", "tokyonight-night", "tokyodark", "poimandres", "abscs", "miasma" }
 local index = 1
 local selectedColour = "nightcity"
 local transparent = false
@@ -39,10 +39,50 @@ local tSet = {
 local one_dark_setup = {
     style = "darker"
 }
+local catppuccin_setup = {
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        treesitter = true,
+        notify = false,
+        mini = {
+            enabled = true,
+            indentscope_color = "",
+        },
+    }
+}
+local neofusion_setup = {
+    terminal_colors = true, -- add neovim terminal colors
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
+    },
+    strikethrough = true,
+    invert_selection = false,
+
+  invert_signs = false,
+  invert_tabline = false,
+
+  invert_intend_guides = false,
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  palette_overrides = {},
+  overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
+}
 
 -- Setting up Colourschemes with some of their setups
 -- could use better naming conventions and honestly 
 -- now that I'm reading this after a year I'm not sure if this works
+require("catppuccin").setup(catppuccin_setup)
+require("neofusion").setup(neofusion_setup)
 require("onedark").setup(one_dark_setup)
 require("nightcity").setup(nsSet)
 require("material").setup(mSet)
