@@ -3,14 +3,14 @@ require("FConfig")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -32,35 +32,35 @@ require("lazy").setup({
     { "wolandark/ColorschemeFromHell-vim" },
 
     {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
     },
     {"tiagovla/tokyodark.nvim"},
     {
-		'nvim-telescope/telescope.nvim', tag = '0.1.5',
-		-- or                              , branch = '0.1.x',
-		dependencies = { 'nvim-lua/plenary.nvim' }
-	},
-	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-	{'ThePrimeagen/harpoon'},
+        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        -- or                              , branch = '0.1.x',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+    {'ThePrimeagen/harpoon'},
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
-	{
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v3.x',
-		lazy = true,
-		config = false,
-	},
-	{
-		'neovim/nvim-lspconfig',
-		dependencies = {
-			{'hrsh7th/cmp-nvim-lsp'},
-		}
-	},
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        lazy = true,
+        config = false,
+    },
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            {'hrsh7th/cmp-nvim-lsp'},
+        }
+    },
     {
         "L3MON4D3/LuaSnip",
         -- follow latest release.
@@ -71,16 +71,16 @@ require("lazy").setup({
             {'saadparwaiz1/cmp_luasnip'}
         },
     },
-	{
-		'hrsh7th/nvim-cmp',
-		dependencies = {
-			{'L3MON4D3/LuaSnip'}
-		},
-	},
-	{'williamboman/mason.nvim'},
-	{'williamboman/mason-lspconfig.nvim'},
-	{'tpope/vim-fugitive'},
-	{
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            {'L3MON4D3/LuaSnip'}
+        },
+    },
+    {'williamboman/mason.nvim'},
+    {'williamboman/mason-lspconfig.nvim'},
+    {'tpope/vim-fugitive'},
+    {
         'MunifTanjim/prettier.nvim',
         dependencies = {
             {'jose-elias-alvarez/null-ls.nvim'},
@@ -89,21 +89,30 @@ require("lazy").setup({
     },
     {'ThePrimeagen/vim-be-good'},
     {
-      'stevearc/oil.nvim',
-      opts = {},
-      -- Optional dependencies
-      dependencies = { "nvim-tree/nvim-web-devicons" },
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
-      'nvimdev/dashboard-nvim',
-      event = 'VimEnter',
-      dependencies = { {'nvim-tree/nvim-web-devicons'}}
+        'nvimdev/dashboard-nvim',
+        event = 'VimEnter',
+        dependencies = { {'nvim-tree/nvim-web-devicons'}}
     },
     {
-      "karb94/neoscroll.nvim",
-      config = function ()
-        -- require('neoscroll').setup {} -- Comment / uncomment to enable / disable
-      end
+        "karb94/neoscroll.nvim",
+        config = function ()
+            -- require('neoscroll').setup {} -- Comment / uncomment to enable / disable
+        end
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
     },
     {
         'nvim-tree/nvim-tree.lua',
@@ -117,7 +126,7 @@ require("lazy").setup({
 
             })
             vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
-       end
+        end
     },
     {
         "ellisonleao/glow.nvim", 
@@ -125,19 +134,19 @@ require("lazy").setup({
         cmd = "Glow"
     },
     {'h-hg/fcitx.nvim'},
- --   {
- --    "folke/noice.nvim",
- --    event = "VeryLazy",
- --    opts = {
- --      -- add any options here
- --    },
- --    dependencies = {
- --      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
- --      "MunifTanjim/nui.nvim",
- --      -- OPTIONAL:
- --      --   `nvim-notify` is only needed, if you want to use the notification view.
- --      --   If not available, we use `mini` as the fallback
- --      "rcarriga/nvim-notify",
- --      }
- --  }, 
-})
+    --   {
+        --    "folke/noice.nvim",
+        --    event = "VeryLazy",
+        --    opts = {
+            --      -- add any options here
+            --    },
+            --    dependencies = {
+                --      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+                --      "MunifTanjim/nui.nvim",
+                --      -- OPTIONAL:
+                --      --   `nvim-notify` is only needed, if you want to use the notification view.
+                --      --   If not available, we use `mini` as the fallback
+                --      "rcarriga/nvim-notify",
+                --      }
+                --  }, 
+            })

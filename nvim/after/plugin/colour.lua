@@ -98,7 +98,19 @@ local hex_color = string.format("#%06x", bg_color)
 -- Keymaps
 -- This loops through the colours in the list at the top of the code
 vim.keymap.set("n", "<leader>n", function ()
+    print(index)
     index = index % #schemes + 1
+    print(index)
+    selectedColour = schemes[index]
+    vim.cmd.colorscheme(selectedColour)
+    bg_color = vim.api.nvim_get_hl_by_name("Normal", true).background
+    hex_color = string.format("#%06x", bg_color)
+    transparent = false -- upon changeing colour we reset the transparency to false
+end)
+
+-- This is to index through the list faster
+vim.keymap.set("n", "<leader>h", function ()
+    index = (index + 3) % #schemes
     selectedColour = schemes[index]
     vim.cmd.colorscheme(selectedColour)
     bg_color = vim.api.nvim_get_hl_by_name("Normal", true).background
