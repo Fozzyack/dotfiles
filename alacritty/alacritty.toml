@@ -8,7 +8,7 @@ import = [
 ]
 
 [font]
-size = 13
+size = 9 
 normal = { family = "3270 Nerd Font", style = "Regular" }
 
 # Disable below comments when copying to .../AppData/Roaming/alacritty
@@ -16,14 +16,18 @@ normal = { family = "3270 Nerd Font", style = "Regular" }
 # [terminal]
 # shell = { program = "wsl.exe", args = ["~"] }
 
+[terminal]
+shell = "fish"
+
 
 
 [mouse]
 hide_when_typing = true
 
 [window]
-opacity = 0.88
+opacity = 0.80
 startup_mode = "Maximized"
+padding = {x = 5, y = 5}
 
 [cursor]
 style = { shape = "Underline", blinking = "On"}

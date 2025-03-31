@@ -1,0 +1,7 @@
+theme = catppuccin-frappe
+shell-integration = fish
+
+background-opacity=0.5
+background-blur=true
+
+intial-command = "fish"

@@ -1,0 +1,37 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.bar {
+    background-color: rgba(0, 0, 0, 0);
+    color: #FFFFFF
+}
+
+#battery, #clock, #network, #bluetooth, #workspaces {
+    color: #FFFFFF;
+    padding: 0px 10px;
+    margin-left: 4px;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.active {
+    color: #ae00ff;
+}
+
+#workspaces button {
+    color: #FFFFFF;
+}
+
+#network {
+    padding-right: 10px;
+    margin-right: 3px;
+}
+
+#clock {
+    padding-top: 3px;
+}
+
+   
