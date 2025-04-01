@@ -9,10 +9,11 @@
     color: #FFFFFF
 }
 
-#battery, #clock, #network, #bluetooth, #workspaces {
+#battery, #clock, #network, #bluetooth, #cpu, #workspaces, #temperature, #wireplumber {
     color: #FFFFFF;
     padding: 0px 10px;
     margin-left: 4px;
+    margin-right: 4px;
     border-radius: 7px;
     background-color: rgba(0, 0, 0, 0.2);
 }
