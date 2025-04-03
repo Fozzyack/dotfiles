@@ -1,5 +1,7 @@
  
-# My dotfiles
+# My Arch Linux dotfiles
+
+Contains my Hyprland, alacritty, ghostty and neovim dotfiles.
 
 Just a collection of the dotfiles I use to personalise my setup / workflow. All this does is create dotfiles then
 creates symbolic links for each in the appropriate spots.
@@ -13,6 +15,14 @@ git clone https://github.com/Fozzyack/dotfiles.git
 cd dotfiles 
 ./scripts/install.sh 
 ```
+
+### Note
+
+You may have to edit 
+```bash
+~/dotfiles/config/hypr/hyprpaper.conf
+```
+Might move wallpaper collection to my dotfiles in the future
 
 ## Remove
 
