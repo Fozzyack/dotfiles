@@ -4,7 +4,7 @@ TERM = "xterm-256color"
 
 [general]
 import = [
-"themes/themes/ayu_dark.toml"
+"themes/ayu_dark.toml"
 ]
 
 [font]
