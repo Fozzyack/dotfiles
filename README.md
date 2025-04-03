@@ -1,32 +1,32 @@
  
 # My dotfiles
 
-Just a collection of the dotfiles I use to personalise my setup / workflow.
-All this does is create dotfiles then creates symbolic links for each in the appropriate spots.
+Just a collection of the dotfiles I use to personalise my setup / workflow. All this does is create dotfiles then
+creates symbolic links for each in the appropriate spots.
 
 ## Use 
+
 Once the repo is cloned make sure to run
-``` 
-./install.sh
+
+```  bash
+git clone https://github.com/Fozzyack/dotfiles.git 
+cd dotfiles 
+./scripts/install.sh 
 ```
+
 ## Remove
+
 To remove run the 
-```
-./uninstall.sh
+```bash
+./scripts/uninstall.sh 
 ```
 
 ### Optionals
 
-#### Figlet
-__Figlet__ fonts can be installed using
+The above scripts will install all dotfiles. You may have to remove some depending on your use cases. For example this
+installs both alacritty and ghostty configs.
 
-This just gets the fonts from a github repository and puts them in your figlet font directory
-```
-./figlet_font_install.sh
-```
-__Example Command__
-
-Example of adding a red login "Welcome" text using figlet
-```
-echo -e "\e[31m$(figlet Welcome -f 'ANSI Shadow')\e[0m"
+Also, the uninstall script also removes all the installed plugins from nvim which are stored in
+```bash
+~/.local/share/nvim
 ```
