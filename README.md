@@ -1,5 +1,5 @@
  
-# My Arch Linux dotfiles
+# My Arch Linux Dotfiles
 
 Contains my Hyprland, alacritty, ghostty, tmux and neovim dotfiles.
 
