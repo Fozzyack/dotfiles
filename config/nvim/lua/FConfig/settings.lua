@@ -28,3 +28,4 @@ vim.opt.updatetime = 50
 vim.opt.signcolumn = 'yes'
 
 vim.g.default_terminal = "tmux-256color"
+

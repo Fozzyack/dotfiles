@@ -17,15 +17,15 @@ vim.opt.rtp:prepend(lazypath)
 -- All Packages Here!
 require("lazy").setup({
 
-    { 'cryptomilk/nightcity.nvim', version = false },
-    { 'Everblush/nvim', name = 'everblush' },
-    { 'Abstract-IDE/Abstract-cs'},
-    { 'marko-cerovac/material.nvim'},
-    { "diegoulloao/neofusion.nvim", priority = 1000 , config = true},
-    { 'olivercederborg/poimandres.nvim'},
-    { 'frenzyexists/aquarium-vim'},
-    { 'catppuccin/nvim'},
-    { "xero/miasma.nvim"},
+    { 'cryptomilk/nightcity.nvim',        version = false },
+    { 'Everblush/nvim',                   name = 'everblush' },
+    { 'Abstract-IDE/Abstract-cs' },
+    { 'marko-cerovac/material.nvim' },
+    { "diegoulloao/neofusion.nvim",       priority = 1000,   config = true },
+    { 'olivercederborg/poimandres.nvim' },
+    { 'frenzyexists/aquarium-vim' },
+    { 'catppuccin/nvim' },
+    { "xero/miasma.nvim" },
     { "kyazdani42/blue-moon" },
     { "navarasu/onedark.nvim" },
     { "shaunsingh/nord.nvim" },
@@ -37,29 +37,18 @@ require("lazy").setup({
         priority = 1000,
         opts = {},
     },
-    {"tiagovla/tokyodark.nvim"},
+    { "tiagovla/tokyodark.nvim" },
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.5',
         -- or                              , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-    {'ThePrimeagen/harpoon'},
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { 'ThePrimeagen/harpoon' },
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
-    },
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        lazy = true,
-        config = false,
-    },
-    {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            {'hrsh7th/cmp-nvim-lsp'},
-        }
     },
     {
         "L3MON4D3/LuaSnip",
@@ -68,26 +57,20 @@ require("lazy").setup({
         -- install jsregexp (optional!).
         build = "make install_jsregexp",
         dependencies = {
-            {'saadparwaiz1/cmp_luasnip'}
+            { 'saadparwaiz1/cmp_luasnip' }
         },
     },
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
-            {'L3MON4D3/LuaSnip'}
+            { 'L3MON4D3/LuaSnip' }
         },
     },
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
-    {'tpope/vim-fugitive'},
-    {
-        'MunifTanjim/prettier.nvim',
-        dependencies = {
-            {'jose-elias-alvarez/null-ls.nvim'},
-            {'neovim/nvim-lspconfig'},
-        },
-    },
-    {'ThePrimeagen/vim-be-good'},
+    { "neovim/nvim-lspconfig" },
+    { "L3MON4D3/LuaSnip" },
+    { 'williamboman/mason.nvim' },
+    { 'tpope/vim-fugitive' },
+    { 'ThePrimeagen/vim-be-good' },
     {
         'stevearc/oil.nvim',
         opts = {},
@@ -97,11 +80,11 @@ require("lazy").setup({
     {
         'nvimdev/dashboard-nvim',
         event = 'VimEnter',
-        dependencies = { {'nvim-tree/nvim-web-devicons'}}
+        dependencies = { { 'nvim-tree/nvim-web-devicons' } }
     },
     {
         "karb94/neoscroll.nvim",
-        config = function ()
+        config = function()
             -- require('neoscroll').setup {} -- Comment / uncomment to enable / disable
         end
     },
@@ -116,7 +99,7 @@ require("lazy").setup({
     },
     {
         'nvim-tree/nvim-tree.lua',
-        config = function ()
+        config = function()
             require('nvim-tree').setup({
                 auto_reload_on_write = true,
                 update_focused_file = {
@@ -129,24 +112,44 @@ require("lazy").setup({
         end
     },
     {
-        "ellisonleao/glow.nvim", 
-        config = true, 
+        "ellisonleao/glow.nvim",
+        config = true,
         cmd = "Glow"
     },
-    {'h-hg/fcitx.nvim'},
-    --   {
-        --    "folke/noice.nvim",
-        --    event = "VeryLazy",
-        --    opts = {
-            --      -- add any options here
-            --    },
-            --    dependencies = {
-                --      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-                --      "MunifTanjim/nui.nvim",
-                --      -- OPTIONAL:
-                --      --   `nvim-notify` is only needed, if you want to use the notification view.
-                --      --   If not available, we use `mini` as the fallback
-                --      "rcarriga/nvim-notify",
-                --      }
-                --  }, 
+    { 'h-hg/fcitx.nvim' },
+    {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+            library = {
+                -- See the configuration section for more details
+                -- Load luvit types when the `vim.uv` word is found
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            },
+        },
+    },
+    { -- optional cmp completion source for require statements and module annotations
+        "hrsh7th/nvim-cmp",
+        opts = function(_, opts)
+            opts.sources = opts.sources or {}
+            table.insert(opts.sources, {
+                name = "lazydev",
+                group_index = 0, -- set group index to 0 to skip loading LuaLS completions
             })
+        end,
+    },
+    --    "folke/noice.nvim",
+    --    event = "VeryLazy",
+    --    opts = {
+    --      -- add any options here
+    --    },
+    --    dependencies = {
+    --      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --      "MunifTanjim/nui.nvim",
+    --      -- OPTIONAL:
+    --      --   `nvim-notify` is only needed, if you want to use the notification view.
+    --      --   If not available, we use `mini` as the fallback
+    --      "rcarriga/nvim-notify",
+    --      }
+    --  },
+})
