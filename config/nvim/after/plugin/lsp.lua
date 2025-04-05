@@ -16,6 +16,10 @@ lspconfig.clangd.setup {
 require'lspconfig'.tailwindcss.setup{}
 require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.ts_ls.setup{}
+require'lspconfig'.marksman.setup{}
+
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 vim.diagnostic.config({
   virtual_text = true, -- this enables inline diagnostics

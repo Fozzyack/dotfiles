@@ -63,14 +63,13 @@ require("lazy").setup({
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
-            { 'L3MON4D3/LuaSnip' }
+            { 'L3MON4D3/LuaSnip' },
+            { "hrsh7th/cmp-nvim-lsp" }
         },
     },
     { "neovim/nvim-lspconfig" },
-    { "L3MON4D3/LuaSnip" },
     { 'williamboman/mason.nvim' },
     { 'tpope/vim-fugitive' },
-    { 'ThePrimeagen/vim-be-good' },
     {
         'stevearc/oil.nvim',
         opts = {},
@@ -128,19 +127,4 @@ require("lazy").setup({
             },
         },
     },
-    {"saghen/blink.cmp"}
-    --    "folke/noice.nvim",
-    --    event = "VeryLazy",
-    --    opts = {
-    --      -- add any options here
-    --    },
-    --    dependencies = {
-    --      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    --      "MunifTanjim/nui.nvim",
-    --      -- OPTIONAL:
-    --      --   `nvim-notify` is only needed, if you want to use the notification view.
-    --      --   If not available, we use `mini` as the fallback
-    --      "rcarriga/nvim-notify",
-    --      }
-    --  },
 })
