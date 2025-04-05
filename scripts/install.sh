@@ -1,13 +1,13 @@
 #!/bin/bash
 
 echo "LINKING DOTFILES"
-ln -sf ~/dotfiles/config/nvim ~/.config/nvim
-ln -sf ~/dotfiles/config/rofi ~/.config/rofi
-ln -sf ~/dotfiles/config/ghostty ~/.config/ghostty
-ln -sf ~/dotfiles/config/hypr ~/.config/hypr
-ln -sf ~/dotfiles/config/waybar ~/.config/waybar
-ln -sf ~/dotfiles/config/alacritty ~/.config/alacritty
-ln -sf ~/dotfiles/config/tmux/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/configs/nvim ~/.config/nvim
+ln -sf ~/dotfiles/configs/rofi ~/.config/rofi
+ln -sf ~/dotfiles/configs/ghostty ~/.config/ghostty
+ln -sf ~/dotfiles/configs/hypr ~/.config/hypr
+ln -sf ~/dotfiles/configs/waybar ~/.config/waybar
+ln -sf ~/dotfiles/configs/alacritty ~/.config/alacritty
+ln -sf ~/dotfiles/configs/tmux/tmux.conf ~/.tmux.conf
 
 echo "SUCCESSFULLY INSTALLED!"
 echo "INPUTS DOTFILES FOR ALACRITTY AND GHOSTY"

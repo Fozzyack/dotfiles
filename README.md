@@ -8,6 +8,25 @@ creates symbolic links for each in the appropriate spots.
 
 ## Use 
 
+### NEW - DOTMAN
+
+Adds DOTMAN. A little program that helps managing dotfiles. Has a UI for installing and uninstalling certain dotfiles.
+
+Simply:
+```bash
+cd dotfiles
+./dotman
+
+```
+
+#### Organisation for dotman usage
+
+- Folders present in ```configs/``` will be installed to ```$USER/.confg/...```.
+- Other files will be moved to ```$USER/...```
+    - The installer will put a `.` infront of the file so all files in your ```configs/``` folder SHOULD NOT BE HIDDEN.
+
+### OLD - Script Install
+
 Once the repo is cloned make sure to run
 
 ```  bash
