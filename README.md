@@ -11,6 +11,7 @@ creates symbolic links for each in the appropriate spots.
 ### NEW - DOTMAN
 
 Adds DOTMAN. A little program that helps managing dotfiles. Has a UI for installing and uninstalling certain dotfiles.
+Can be found on the [dotman repository](https://github.com/Fozzyack/dotfile-manager)
 
 Simply:
 ```bash
@@ -19,7 +20,7 @@ cd dotfiles
 
 ```
 
-#### Organisation for dotman usage
+#### Organisation for dotman usage -- IMPORTANT if using dotman
 
 - Folders present in ```configs/``` will be installed to ```$USER/.confg/...```.
 - Other files will be moved to ```$USER/...```
