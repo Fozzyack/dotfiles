@@ -60,3 +60,9 @@ Also, the uninstall script also removes all the installed plugins from nvim whic
 ```bash
 ~/.local/share/nvim
 ```
+
+### Other
+
+Will probably need to install Langauge servers (otherwise neovim will probably be throwing some errors)
+
+Use ```:help lspconfig-all``` to view a guide on how to do this.
