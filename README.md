@@ -11,7 +11,7 @@ creates symbolic links for each in the appropriate spots.
 ### NEW - DOTMAN
 
 Adds DOTMAN. A little program that helps managing dotfiles. Has a UI for installing and uninstalling certain dotfiles.
-Can be found on the [dotman repository](https://github.com/Fozzyack/dotfile-manager)
+Can be found on the [dotman repository](https://github.com/Fozzyack/dotfile-manager).
 
 Simply:
 ```bash
