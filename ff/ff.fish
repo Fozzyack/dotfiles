@@ -1,7 +1,6 @@
 # FISH
 # This is the shell script that is run when installed using dotfiles
-set home $HOME
-set output ("$home/dotfiles/ff/ffcli" $argv)
+set output ("$HOME/dotfiles/ff/ffcli" $argv)
 set program_exit_status $status
 if test $program_exit_status -eq 5
     echo "USAGE:"

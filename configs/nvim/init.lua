@@ -23,7 +23,6 @@ require("lazy").setup({
     { 'marko-cerovac/material.nvim' },
     { "diegoulloao/neofusion.nvim",       priority = 1000,   config = true },
     { 'olivercederborg/poimandres.nvim' },
-    { 'frenzyexists/aquarium-vim' },
     { 'catppuccin/nvim' },
     { "xero/miasma.nvim" },
     { "kyazdani42/blue-moon" },
