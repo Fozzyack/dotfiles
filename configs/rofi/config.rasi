@@ -12,7 +12,7 @@ configuration {
     bg0:    #212121F2;
     bg1:    #2A2A2A;
     bg2:    #3D3D3D80;
-    bg3:    #AB47BCF2;
+    bg3:    #FF0000;
     fg0:    #E6E6E6;
     fg1:    #FFFFFF;
     fg2:    #969696;

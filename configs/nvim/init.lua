@@ -24,6 +24,11 @@ require("lazy").setup({
     { "diegoulloao/neofusion.nvim",       priority = 1000,   config = true },
     { 'olivercederborg/poimandres.nvim' },
     { 'catppuccin/nvim' },
+    {
+        "water-sucks/darkrose.nvim",
+        lazy = false,
+        priority = 1000,
+    },
     { "xero/miasma.nvim" },
     { "kyazdani42/blue-moon" },
     { "navarasu/onedark.nvim" },

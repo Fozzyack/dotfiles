@@ -1,6 +1,6 @@
 -- List of all Colour Schemes installed
 -- This list is looped through when using the macro below
-local schemes = { "catppuccin-mocha", "catppuccin-frappe", "catppuccin-macchiato", "onedark", "neofusion", "blue-moon", "nord", "colorschemefromhell", "nightcity-afterlife", "nightcity-kabuki", "everblush", "material", "tokyonight", "tokyonight-night", "tokyodark", "poimandres", "abscs", "miasma" }
+local schemes = { "darkrose", "catppuccin-mocha", "catppuccin-frappe", "catppuccin-macchiato", "onedark", "neofusion",  "everblush", "material", "tokyonight", "tokyodark"}
 local index = 1
 local selectedColour = "nightcity"
 local transparent = false
@@ -24,10 +24,6 @@ local eSet = {
     nvim_tree = {
         contrast = true,
     }
-}
-
-local pSet = {
-    disable_background = false
 }
 
 local tSet = {
@@ -76,17 +72,36 @@ local neofusion_setup = {
   dim_inactive = false,
   transparent_mode = false,
 }
+local drose_setup = {
+    -- Override colors
+    colors = {
+        orange = "#F87757",
+    },
+    -- Override existing or add new highlight groups
+    overrides = function(c)
+        return {
+            Class = { fg = c.magenta },
+            ["@variable"] = { fg = c.fg_dark },
+        }
+    end,
+    -- Styles to enable or disable
+    styles = {
+        bold = true, -- Enable bold highlights for some highlight groups
+        italic = true, -- Enable italic highlights for some highlight groups
+        underline = true, -- Enable underline highlights for some highlight groups
+    }
+}
+
 
 -- Setting up Colourschemes with some of their setups
 -- could use better naming conventions and honestly 
 -- now that I'm reading this after a year I'm not sure if this works
+require("darkrose").setup(drose_setup)
 require("catppuccin").setup(catppuccin_setup)
 require("neofusion").setup(neofusion_setup)
 require("onedark").setup(one_dark_setup)
-require("nightcity").setup(nsSet)
 require("material").setup(mSet)
 require("everblush").setup(eSet)
-require("poimandres").setup(pSet)
 require("tokyonight").setup(tSet)
 
 
