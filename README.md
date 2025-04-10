@@ -8,7 +8,7 @@ creates symbolic links for each in the appropriate spots.
 
 ## Use 
 
-### NEW - DOTMAN
+### DOTMAN
 
 Adds DOTMAN. A little program that helps managing dotfiles. Has a UI for installing and uninstalling certain dotfiles.
 Can be found on the [dotman repository](https://github.com/Fozzyack/dotfile-manager).
@@ -18,6 +18,30 @@ Simply:
 cd dotfiles
 ./dotman
 
+```
+
+### NEW - FF
+
+Adds FF. A Fuzzy finder program to find any file.
+There is no install method implemented yet.
+
+To test run:
+
+```
+cd ff
+source ./ffcli -s
+```
+
+### NEW - DFILE
+
+Adds DFILE. A small program to display file information.
+There is no install method implemented yet.
+
+To test run:
+
+```
+cd dfile 
+./dfile /path/to/file/or/directory
 ```
 
 #### Organisation for dotman usage -- IMPORTANT if using dotman
