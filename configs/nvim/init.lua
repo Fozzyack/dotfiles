@@ -17,24 +17,20 @@ vim.opt.rtp:prepend(lazypath)
 -- All Packages Here!
 require("lazy").setup({
 
-    { 'cryptomilk/nightcity.nvim',        version = false },
-    { 'Everblush/nvim',                   name = 'everblush' },
-    { 'Abstract-IDE/Abstract-cs' },
-    { 'marko-cerovac/material.nvim' },
-    { "diegoulloao/neofusion.nvim",       priority = 1000,   config = true },
-    { 'olivercederborg/poimandres.nvim' },
-    { 'catppuccin/nvim' },
+    -- ColorSchemes
+    --
+    --
+    { "cryptomilk/nightcity.nvim",        version = false },
+    { "Everblush/nvim", name = "everblush" },
+    { "marko-cerovac/material.nvim" },
+    { "diegoulloao/neofusion.nvim", priority = 1000, config = true },
+    { "catppuccin/nvim" },
     {
         "water-sucks/darkrose.nvim",
         lazy = false,
         priority = 1000,
     },
-    { "xero/miasma.nvim" },
-    { "kyazdani42/blue-moon" },
     { "navarasu/onedark.nvim" },
-    { "shaunsingh/nord.nvim" },
-    { "wolandark/ColorschemeFromHell-vim" },
-
     {
         "folke/tokyonight.nvim",
         lazy = false,
@@ -42,17 +38,20 @@ require("lazy").setup({
         opts = {},
     },
     { "tiagovla/tokyodark.nvim" },
+    -- 
+    --
+    -- End of ColorSchemes
     {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.5',
-        -- or                              , branch = '0.1.x',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.5",
+        -- or                              , branch = "0.1.x",
+        dependencies = { "nvim-lua/plenary.nvim" }
     },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    { 'ThePrimeagen/harpoon' },
+    { "ThePrimeagen/harpoon" },
     {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' }
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" }
     },
     {
         "L3MON4D3/LuaSnip",
@@ -61,49 +60,48 @@ require("lazy").setup({
         -- install jsregexp (optional!).
         build = "make install_jsregexp",
         dependencies = {
-            { 'saadparwaiz1/cmp_luasnip' }
+            { "saadparwaiz1/cmp_luasnip" }
         },
     },
     {
-        'hrsh7th/nvim-cmp',
+        "hrsh7th/nvim-cmp",
         dependencies = {
-            { 'L3MON4D3/LuaSnip' },
+            { "L3MON4D3/LuaSnip" },
             { "hrsh7th/cmp-nvim-lsp" }
         },
     },
     { "neovim/nvim-lspconfig" },
-    { 'williamboman/mason.nvim' },
-    { 'tpope/vim-fugitive' },
+    { "tpope/vim-fugitive" },
     {
-        'stevearc/oil.nvim',
+        "stevearc/oil.nvim",
         opts = {},
         -- Optional dependencies
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
-        'nvimdev/dashboard-nvim',
-        event = 'VimEnter',
-        dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+        "nvimdev/dashboard-nvim",
+        event = "VimEnter",
+        dependencies = { { "nvim-tree/nvim-web-devicons" } }
     },
     {
         "karb94/neoscroll.nvim",
         config = function()
-            -- require('neoscroll').setup {} -- Comment / uncomment to enable / disable
+            require("neoscroll").setup {} -- Comment / uncomment to enable / disable
         end
     },
     {
-        'MeanderingProgrammer/render-markdown.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-        ---@module 'render-markdown'
+        "MeanderingProgrammer/render-markdown.nvim",
+        -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+        -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+        ---@module "render-markdown"
         ---@type render.md.UserConfig
         opts = {},
     },
     {
-        'nvim-tree/nvim-tree.lua',
+        "nvim-tree/nvim-tree.lua",
         config = function()
-            require('nvim-tree').setup({
+            require("nvim-tree").setup({
                 auto_reload_on_write = true,
                 update_focused_file = {
                     enable = true,
@@ -119,7 +117,7 @@ require("lazy").setup({
         config = true,
         cmd = "Glow"
     },
-    { 'h-hg/fcitx.nvim' },
+    -- { "h-hg/fcitx.nvim" },
     {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files

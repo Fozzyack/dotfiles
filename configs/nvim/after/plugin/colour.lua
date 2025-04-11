@@ -1,32 +1,29 @@
 -- List of all Colour Schemes installed
 -- This list is looped through when using the macro below
-local schemes = { "darkrose", "catppuccin-mocha", "catppuccin-frappe", "catppuccin-macchiato", "onedark", "neofusion",  "everblush", "material", "tokyonight", "tokyodark"}
+local schemes = { "darkrose", "catppuccin-mocha", "onedark", "neofusion",  "everblush", "material", "tokyonight", "tokyodark"}
 local index = 1
 local selectedColour = "nightcity"
 local transparent = false
 -- Set initial colour
-local nsSet = {
-    terminal_colors = true,
-    on_highlights = function(groups, colours)
-        groups.String = { fg = colours.yellow, bg = colours.none}
-    end
-}
+
+
+
 -- Setting some defaults for some colours
 -- I think it was to attempt to get the background to become transparent with some colours
-local mSet = {
+local material_setup = {
     disable = {
         background = false,
         colored_cursor = true,
     }
 }
-local eSet = {
+local everblush_setup = {
     transparent_background = false,
     nvim_tree = {
         contrast = true,
     }
 }
 
-local tSet = {
+local tokyonight_setuo = {
     transparent = false,
     terminal_colors = true
 }
@@ -72,7 +69,7 @@ local neofusion_setup = {
   dim_inactive = false,
   transparent_mode = false,
 }
-local drose_setup = {
+local darkrose_setup = {
     -- Override colors
     colors = {
         orange = "#F87757",
@@ -96,13 +93,13 @@ local drose_setup = {
 -- Setting up Colourschemes with some of their setups
 -- could use better naming conventions and honestly 
 -- now that I'm reading this after a year I'm not sure if this works
-require("darkrose").setup(drose_setup)
+require("darkrose").setup(darkrose_setup)
 require("catppuccin").setup(catppuccin_setup)
 require("neofusion").setup(neofusion_setup)
 require("onedark").setup(one_dark_setup)
-require("material").setup(mSet)
-require("everblush").setup(eSet)
-require("tokyonight").setup(tSet)
+require("material").setup(material_setup)
+require("everblush").setup(everblush_setup)
+require("tokyonight").setup(tokyonight_setuo)
 
 
 vim.cmd.colorscheme(schemes[index])
