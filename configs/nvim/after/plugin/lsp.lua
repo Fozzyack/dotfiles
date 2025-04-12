@@ -1,31 +1,26 @@
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ['pyright'] = {},
-  },
-}
-
-lspconfig.clangd.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ['clangd'] = {},
-  },
-}
-
-require'lspconfig'.tailwindcss.setup{}
-require'lspconfig'.lua_ls.setup{}
-require'lspconfig'.ts_ls.setup{}
-require'lspconfig'.marksman.setup{}
-require'lspconfig'.cmake.setup{}
 
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- Sets up each of the LSP Servers
+-- See :help lspconfig-all
+-- Server-specific settings. See `:help lspconfig-setup`
+
+lspconfig.tailwindcss.setup{} -- TailwindCSS Server 
+lspconfig.lua_ls.setup{} -- Lua Language Server
+lspconfig.ts_ls.setup{} -- Typescript Language Server
+lspconfig.marksman.setup{} -- Marksman Language Server - Markdown
+lspconfig.cmake.setup{} -- CMake Language Server
+lspconfig.clangd.setup {} --C++ / C Language Server
+lspconfig.pyright.setup {} -- Python Language Server
+lspconfig.bashls.setup {} -- Bash Language Server
+
 
 vim.diagnostic.config({
-  virtual_text = true, -- this enables inline diagnostics
-  signs = true,
-  underline = true,
-  update_in_insert = false,
+    virtual_lines = true;
+    severity_sort = true;
+    -- virtual_text = true, -- this enables inline diagnostics
+    signs = true,
+    underline = true,
+    update_in_insert = false,
 })
 

@@ -1,7 +1,7 @@
 theme=ayu
 shell-integration="fish"
 
-background-opacity=0.7
+background-opacity=0.85
 background-blur=true
 background=#111111
 
