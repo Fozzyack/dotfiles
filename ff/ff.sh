@@ -2,7 +2,7 @@
 
 # If you are using bash as your shell
 
-output="$("$PWD/ffcli" "$@")"
+output="$("$HOME/dotfiles/ff/ffcli" "$@")"
 status=$?
 
 if [ $status -eq 5 ]; then
