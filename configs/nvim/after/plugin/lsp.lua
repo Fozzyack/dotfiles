@@ -10,7 +10,8 @@ lspconfig.lua_ls.setup{} -- Lua Language Server
 lspconfig.ts_ls.setup{} -- Typescript Language Server
 lspconfig.marksman.setup{} -- Marksman Language Server - Markdown
 lspconfig.cmake.setup{} -- CMake Language Server
-lspconfig.clangd.setup {} --C++ / C Language Server
+lspconfig.clangd.setup {} -- C++ / C Language Server
+lspconfig.csharp_ls.setup {} -- C# Language Server
 lspconfig.pyright.setup {} -- Python Language Server
 lspconfig.bashls.setup {} -- Bash Language Server
 
