@@ -1,6 +1,6 @@
 -- List of all Colour Schemes installed
 -- This list is looped through when using the macro below
-local schemes = { "darkrose", "catppuccin-mocha", "onedark", "neofusion",  "everblush", "material", "tokyonight", "tokyodark"}
+local schemes = { "catppuccin-mocha", "onedark", "neofusion", "darkrose",  "everblush", "material", "tokyonight", "tokyodark"}
 local index = 1
 local selectedColour = "nightcity"
 local transparent = false
