@@ -41,6 +41,10 @@ require("lazy").setup({
     -- 
     --
     -- End of ColorSchemes
+    --
+    --
+
+
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
