@@ -16,7 +16,7 @@ vim.lsp.enable("pyright") -- Python Language Server
 vim.lsp.enable("bashls") -- Bash Language Server
 vim.lsp.enable("omnisharp") -- OmniSharp (C#) Language Server
 vim.lsp.config["omnisharp"] = {
-    cmd = {"/home/fozzyack/.lsps/omnisharp/OmniSharp", "--languageserver"},
+    cmd = {"/home/fozzyack/.lsps/omnisharp/OmniSharp","-z", "--hostPID", "12345", "DotNet:enablePackageRestore=false", "--encoding", "utf-8", "--languageserver"},
     filetypes = { "cs", "vb", "razor", "cshtml" }
 }
 -- IF USING ROSLYN (DISABLE OMNISHARP)
