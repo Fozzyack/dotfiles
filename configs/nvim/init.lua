@@ -1,4 +1,5 @@
 require("FConfig")
+require("autocomplete")
 
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

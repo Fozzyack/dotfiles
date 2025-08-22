@@ -49,6 +49,10 @@ cd dfile
 - Folders present in ```configs/``` will be installed to ```$USER/.confg/...```.
 - Other files will be moved to ```$USER/...```
     - The installer will put a `.` infront of the file so all files in your ```configs/``` folder SHOULD NOT BE HIDDEN.
+### TMUX setup
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
 
 ### OLD - Script Install
 
@@ -58,6 +62,7 @@ Once the repo is cloned make sure to run
 git clone https://github.com/Fozzyack/dotfiles.git 
 cd dotfiles 
 ./scripts/install.sh 
+
 ```
 
 ### Note
@@ -90,3 +95,4 @@ Also, the uninstall script also removes all the installed plugins from nvim whic
 Will probably need to install Langauge servers (otherwise neovim will probably be throwing some errors)
 
 Use ```:help lspconfig-all``` to view a guide on how to do this.
+
