@@ -19,13 +19,17 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
     -- ColorSchemes
-    --
-    --
-    { "cryptomilk/nightcity.nvim",        version = false },
-    { "Everblush/nvim", name = "everblush" },
+
+    { "cryptomilk/nightcity.nvim",  version = false },
+    { "Everblush/nvim",             name = "everblush" },
     { "marko-cerovac/material.nvim" },
-    { "diegoulloao/neofusion.nvim", priority = 1000, config = true },
+    { "diegoulloao/neofusion.nvim", priority = 1000,   config = true },
     { "catppuccin/nvim" },
+    {
+        "hachy/eva01.vim",
+        lazy = false,
+        priority = 1000,
+    },
     {
         "water-sucks/darkrose.nvim",
         lazy = false,
@@ -39,13 +43,23 @@ require("lazy").setup({
         opts = {},
     },
     { "tiagovla/tokyodark.nvim" },
-    -- 
+    --
     --
     -- End of ColorSchemes
     --
     --
-
-
+    {
+        "sontungexpt/stcursorword",
+        event = "VeryLazy",
+        config = true,
+    },
+    {
+        'echasnovski/mini.nvim',
+        version = false,
+        config = function()
+            require('mini.indentscope').setup()
+        end
+    },
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
@@ -102,6 +116,9 @@ require("lazy").setup({
         ---@module "render-markdown"
         ---@type render.md.UserConfig
         opts = {},
+    },
+    {
+        "junegunn/vim-easy-align"
     },
     {
         "nvim-tree/nvim-tree.lua",
