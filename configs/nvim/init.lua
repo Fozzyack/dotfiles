@@ -90,7 +90,7 @@ require("lazy").setup({
         },
     },
     { "neovim/nvim-lspconfig" },
-    { "tpope/vim-fugitive" },
+    { "tpope/vim-fugitive" }, -- Github integration
     {
         "stevearc/oil.nvim",
         opts = {},
@@ -109,16 +109,11 @@ require("lazy").setup({
         end
     },
     {
-        "MeanderingProgrammer/render-markdown.nvim",
-        -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-        -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
-        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
-        ---@module "render-markdown"
-        ---@type render.md.UserConfig
-        opts = {},
+        "junegunn/vim-easy-align"
     },
     {
-        "junegunn/vim-easy-align"
+        "stevearc/conform.nvim",
+        opts = {}
     },
     {
         "nvim-tree/nvim-tree.lua",
@@ -134,11 +129,22 @@ require("lazy").setup({
             vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
         end
     },
+    -- Markdown Rendering
     {
         "ellisonleao/glow.nvim",
         config = true,
         cmd = "Glow"
     },
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+        -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+        ---@module "render-markdown"
+        ---@type render.md.UserConfig
+        opts = {},
+    },
+    -- Formatting null-ls and prettier
     -- { "h-hg/fcitx.nvim" },
     {
         "folke/lazydev.nvim",
