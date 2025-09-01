@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
         if format_on_save_enabled then
-            require("conform").format({ bufnr = args.buf, lsp_format = "fallback", async = true })
+            require("conform").format({ bufnr = args.buf, lsp_format = "fallback"})
         end
     end,
 })
