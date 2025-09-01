@@ -21,37 +21,6 @@ vim.lsp.config["omnisharp"] = {
     cmd = {"/home/fozzyack/.lsps/omnisharp/OmniSharp","-z", "--hostPID", "12345", "DotNet:enablePackageRestore=false", "--encoding", "utf-8", "--languageserver"},
     filetypes = { "cs", "vb", "razor", "cshtml" }
 }
--- IF USING ROSLYN (DISABLE OMNISHARP)
---vim.lsp.enable("roslyn_ls") -- roslyn (C#) Language Server
--- vim.lsp.config["roslyn_ls"] = {
---       cmd = {
---     'dotnet',
---     '/home/fozzyack/.lsps/roslyn/content/LanguageServer/linux-x64/Microsoft.CodeAnalysis.LanguageServer.dll',
---     '--logLevel', -- this property is required by the server
---     'Information',
---     '--extensionLogDirectory', -- this property is required by the server
---     '/home/fozzyack/.lsps/roslyn/content/LanguageServer/linux-x64/logs',
---     '--stdio',
---   },
--- 
--- }
-
-
-
--- LEGACY
--- lspconfig.tailwindcss.setup{} -- TailwindCSS Server 
--- lspconfig.lua_ls.setup{} -- Lua Language Server
--- lspconfig.ts_ls.setup{} -- Typescript Language Server
--- lspconfig.marksman.setup{} -- Marksman Language Server - Markdown
--- lspconfig.cmake.setup{} -- CMake Language Server
--- lspconfig.clangd.setup {} -- C++ / C Language Server
--- lspconfig.omnisharp.setup {
---     cmd = {
---         "/home/fozzyack/.omnisharp/OmniSharp", "-lsp"
---     }
--- }
--- lspconfig.pyright.setup {} -- Python Language Server
--- lspconfig.bashls.setup {} -- Bash Language Server
 
 vim.diagnostic.config({
     virtual_lines = true;
