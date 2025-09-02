@@ -3,6 +3,7 @@ conform.setup({
     formatters_by_ft = {
         javascript = { "prettierd", "prettier", stop_after_first = true },
         go = { "gofmt" },
+        python = {"autopep8", "black", stop_after_first = true, lsp_format = "fallback"}
     },
 })
 
