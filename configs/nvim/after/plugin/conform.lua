@@ -7,7 +7,6 @@ conform.setup({
     },
 })
 
-
 vim.keymap.set("n", "<leader>wt", function()
     print("Formatting file...")
     conform.format({
