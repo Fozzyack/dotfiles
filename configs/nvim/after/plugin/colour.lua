@@ -110,10 +110,9 @@ local hex_color = string.format("#%06x", bg_color)
 -- Keymaps
 -- This loops through the colours in the list at the top of the code
 vim.keymap.set("n", "<leader>n", function ()
-    print(index)
     index = index % #schemes + 1
-    print(index)
     selectedColour = schemes[index]
+    print(selectedColour)
     vim.cmd.colorscheme(selectedColour)
     bg_color = vim.api.nvim_get_hl_by_name("Normal", true).background
     hex_color = string.format("#%06x", bg_color)

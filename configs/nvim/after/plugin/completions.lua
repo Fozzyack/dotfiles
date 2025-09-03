@@ -1,5 +1,6 @@
 local cmp = require('cmp');
 
+
 cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -29,6 +30,7 @@ cmp.setup({
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'luasnip' }, -- For luasnip users.
+      { name = 'render-markdown' },
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
     }, {
