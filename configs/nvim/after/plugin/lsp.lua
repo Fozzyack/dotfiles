@@ -10,7 +10,7 @@ vim.lsp.enable("cssls") -- Visual Studio CSS
 vim.lsp.enable("html") --  Visual Studio HTML 
 vim.lsp.enable("lua_ls") -- Lua Language Server
 vim.lsp.enable("ts_ls") -- Typescript Language Server
-vim.lsp.enable("marksman") -- Marksman Language Server - Markdown
+-- vim.lsp.enable("marksman") -- Marksman Language Server - Markdown
 vim.lsp.enable("cmake") -- CMake Language Server
 vim.lsp.enable("pyright") -- Python Language Server
 vim.lsp.enable("bashls") -- Bash Language Server

@@ -3,7 +3,7 @@ conform.setup({
     formatters_by_ft = {
         javascript = { "prettierd", "prettier", stop_after_first = true },
         go = { "gofmt" },
-        python = {"autopep8", "black", stop_after_first = true, lsp_format = "fallback"}
+        python = { "autopep8", "black", stop_after_first = true, lsp_format = "fallback" }
     },
 })
 
@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
         if format_on_save_enabled then
-            require("conform").format({ bufnr = args.buf, lsp_format = "fallback"})
+            require("conform").format({ bufnr = args.buf, lsp_format = "fallback" })
         end
     end,
 })
