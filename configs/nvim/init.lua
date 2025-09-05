@@ -104,8 +104,10 @@ require("lazy").setup({
     },
     {
         "karb94/neoscroll.nvim",
+        enabled = false,
         config = function()
-            require("neoscroll").setup {} -- Comment / uncomment to enable / disable
+            require("neoscroll").setup({
+            }) -- Comment / uncomment to enable / disable
         end
     },
     {
