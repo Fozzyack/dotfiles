@@ -5,7 +5,6 @@
 -- Server-specific settings. See `:help lspconfig-setup`
 
 -- Allowing Neovim to Access the path with Roslyn
-vim.env.PATH = vim.env.PATH .. ":/home/fozzyack/.lsps/roslyn/content/LanguageServer/linux-x64"
 
 require("mason").setup({
     registries = {
