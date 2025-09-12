@@ -141,8 +141,26 @@ require("lazy").setup({
         ---@type render.md.UserConfig
         opts = {},
     },
-    -- Formatting null-ls and prettier
-    -- { "h-hg/fcitx.nvim" },
+    {
+        "seblyng/roslyn.nvim",
+        ---@module 'roslyn.config'
+        ---@type RoslynNvimConfig
+        opts = {
+            -- your configuration comes here; leave empty for default settings
+        },
+    },
+    {
+        "mason-org/mason.nvim",
+        opts = {
+            ui = {
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗"
+                }
+            }
+        }
+    },
     {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -155,3 +173,4 @@ require("lazy").setup({
         },
     },
 })
+
