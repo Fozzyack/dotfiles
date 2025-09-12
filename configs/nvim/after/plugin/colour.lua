@@ -1,6 +1,6 @@
 -- List of all Colour Schemes installed
 -- This list is looped through when using the macro below
-local schemes = { "neofusion", "eva01", "catppuccin-mocha", "onedark", "darkrose",  "everblush", "material", "tokyonight", "tokyodark"}
+local schemes = { "catppuccin-mocha", "neofusion", "eva01", "onedark", "darkrose",  "everblush", "material", "tokyonight", "tokyodark"}
 
 -- Set initial colour
 local index = 1
