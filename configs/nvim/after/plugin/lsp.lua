@@ -4,6 +4,9 @@
 -- See :help lspconfig-all
 -- Server-specific settings. See `:help lspconfig-setup`
 
+-- Allowing Neovim to Access the path with Roslyn
+vim.env.PATH = vim.env.PATH .. ":/home/fozzyack/.lsps/roslyn/content/LanguageServer/linux-x64"
+
 require("mason").setup({
     registries = {
         "github:mason-org/mason-registry",
@@ -23,8 +26,18 @@ vim.lsp.enable("bashls")      -- Bash Language Server
 vim.lsp.enable('gopls')       -- Go language server
 
 -- Allowing Neovim to Access the path with Roslyn
-vim.env.PATH = vim.env.PATH .. ":/home/fozzyack/.lsps/roslyn"
+vim.env.PATH = vim.env.PATH .. ":/home/fozzyack/.lsps/roslyn/content/LanguageServer/linux-x64"
 vim.lsp.config("roslyn", {
+
+    cmd = {
+        'dotnet',
+        '/home/fozzyack/.lsps/roslyn/content/LanguageServer/linux-x64/Microsoft.CodeAnalysis.LanguageServer.dll',
+        '--logLevel',          -- this property is required by the server
+        'Information',
+        '--extensionLogDirectory', -- this property is required by the server
+        "~/.lsps/log",
+        '--stdio',
+    },
     on_attach = function()
         print("This will run when the server attaches!")
     end,
