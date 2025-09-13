@@ -2,8 +2,13 @@ local conform = require("conform")
 conform.setup({
     formatters_by_ft = {
         javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true, lsp_format = "fallback" },
+        typescriptreact = { "prettierd", "prettier", stop_after_first = true, lsp_format = "fallback" },
+        markdown = { "doctoc" },
         go = { "gofmt" },
-        python = { "autopep8", "black", stop_after_first = true, lsp_format = "fallback" }
+        python = { "autopep8", "black", stop_after_first = true, lsp_format = "fallback" },
+        cs = { "csharpier", lsp_format = "fallback" }
     },
 })
 
