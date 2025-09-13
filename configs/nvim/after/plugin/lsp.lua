@@ -18,13 +18,15 @@ vim.lsp.enable("cssls")       -- Visual Studio CSS
 vim.lsp.enable("html")        --  Visual Studio HTML
 vim.lsp.enable("lua_ls")      -- Lua Language Server
 vim.lsp.enable("ts_ls")       -- Typescript Language Server
--- vim.lsp.enable("marksman") -- Marksman Language Server - Markdown
+vim.lsp.enable("marksman") -- Marksman Language Server - Markdown
 vim.lsp.enable("cmake")       -- CMake Language Server
 vim.lsp.enable("pyright")     -- Python Language Server
 vim.lsp.enable("bashls")      -- Bash Language Server
 vim.lsp.enable('gopls')       -- Go language server
 
 -- Allowing Neovim to Access the path with Roslyn
+-- Make sure to set the file your lsp is trying to execute to executable -> chmod +x [FILE THAT NEEDS TO BE EXECUTABLE]
+-- In this case its Microsoft.CodeAnalysis.LanguageServer
 vim.env.PATH = vim.env.PATH .. ":/home/fozzyack/.lsps/roslyn/content/LanguageServer/linux-x64"
 vim.lsp.config("roslyn", {
     on_attach = function()
@@ -40,12 +42,6 @@ vim.lsp.config("roslyn", {
         },
     },
 })
--- vim.lsp.enable("csharp_ls") -- csharp-ls minimal
--- vim.lsp.enable("omnisharp") -- Omnisharp - This needs work
--- vim.lsp.config("omnisharp", {
---     cmd = { "/home/fozzyack/.lsps/omnisharp/OmniSharp", "-z", "--hostPID", "12345", "DotNet:enablePackageRestore=false", "--encoding", "utf-8", "--languageserver" },
---     filetypes = {"cs", "vb", "razor", "cshtml"}
--- })
 
 vim.diagnostic.config({
     -- virtual_lines = true, -- this enables multi line diagnostics
