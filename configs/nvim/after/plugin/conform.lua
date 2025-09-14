@@ -1,38 +1,32 @@
 local conform = require("conform")
+
+
+
 conform.setup({
-    formatters_by_ft = {
-        javascript = { "prettierd", "prettier", stop_after_first = true },
-        javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-        typescript = { "prettierd", "prettier", stop_after_first = true, lsp_format = "fallback" },
-        typescriptreact = { "prettierd", "prettier", stop_after_first = true, lsp_format = "fallback" },
-        markdown = { "doctoc" },
-        go = { "gofmt" },
-        python = { "autopep8", "black", stop_after_first = true, lsp_format = "fallback" },
-        cs = { "csharpier", lsp_format = "fallback" }
-    },
+    javascript = { "prettierd", "prettier", stop_after_first = true },
+    typescript = { "prettierd", "prettier", stop_after_first = true },
+    typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+    cs = { "csharpier" },
+    python = { "autopep8", "black", stop_after_first = true }
 })
 
-vim.keymap.set("n", "<leader>wt", function()
-    print("Formatting file...")
-    conform.format({
-        lsp_format = "fallback",
-        async = true,
-        timeout_ms = 500
-    })
-end, { desc = "Formatting file" })
-
-local format_on_save_enabled = false
+local formatOnSave = false
 
 vim.keymap.set("n", "<leader>wr", function()
-    format_on_save_enabled = not format_on_save_enabled
-    print("Format on save " .. tostring(format_on_save_enabled))
-end, { desc = "Toggle Format on save" })
+    formatOnSave = not formatOnSave
+    print("Formatting on Save: " .. tostring(formatOnSave))
+end)
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
-        if format_on_save_enabled then
-            require("conform").format({ bufnr = args.buf, lsp_format = "fallback" })
+        if formatOnSave then
+            conform.format({ timeout_ms = 300, bufnr = args.buf, lsp_format = "fallback" })
         end
-    end,
+    end
 })
+
+vim.keymap.set("n", "<leader>wt", function()
+    print("Formatting Buffer")
+    conform.format({ async = true, lsp_format = "fallback" })
+end)
