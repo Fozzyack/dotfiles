@@ -41,7 +41,11 @@ vim.lsp.config('harper_ls', {
                 Spaces = true,
                 Matcher = true,
                 CorrectNumberSuffix = true
-            }
+            },
+            markdown = {
+                IgnoreLinkTitle = true
+            },
+            dialect = "Australian"
         }
     },
 })
