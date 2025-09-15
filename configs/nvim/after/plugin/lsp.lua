@@ -52,7 +52,7 @@ vim.lsp.config('harper_ls', {
 vim.env.PATH = vim.env.PATH .. ":/home/fozzyack/.lsps/roslyn/content/LanguageServer/linux-x64"
 vim.lsp.config("roslyn", {
     on_attach = function()
-        print("Roslyn Atached")
+        print("Roslyn Attached")
     end,
     settings = {
         ["csharp|inlay_hints"] = {
