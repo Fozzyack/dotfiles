@@ -5,6 +5,9 @@ return {
         priority = 1000, -- make sure to load this before all the other start plugins
     },
     {
+        "sainnhe/edge"
+    },
+    {
         'everviolet/nvim',
         name = 'evergarden',
         priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
