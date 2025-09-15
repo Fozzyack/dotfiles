@@ -1,10 +1,6 @@
 return {
-    {
-        "neovim/nvim-lspconfig",
-    },
-    {
-        "seblyng/roslyn.nvim",
-    },
+    { "neovim/nvim-lspconfig", },
+    { "seblyng/roslyn.nvim", },
     {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
