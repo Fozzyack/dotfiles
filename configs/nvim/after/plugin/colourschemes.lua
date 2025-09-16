@@ -1,16 +1,22 @@
 -- Holds all the colour schemes (The ones to rotate through)
 
-local colourSchemes = { "tokyonight", "evergarden-winter", "edge" }
+local colourSchemes = { "tokyonight", "kanagawa", "evergarden", "evergarden-winter", "catppuccin", "nord", "edge" }
 
 local currentColour = 1
 local transparent = false
 
+local function setIndentColour()
+    vim.cmd.highlight('IndentLine guifg=#4c4b59') -- Sets the indent colour (unselected)
+end
+
 -- Initial Setup
 vim.cmd([[colorscheme ]] .. colourSchemes[currentColour])
+setIndentColour()
 
 vim.keymap.set("n", "<leader>n", function()
     currentColour = (currentColour) % #colourSchemes + 1
     vim.cmd("colorscheme " .. colourSchemes[currentColour])
+    setIndentColour()
     transparent = false
 end)
 
@@ -24,6 +30,7 @@ vim.keymap.set("n", "<leader><leader>n", function()
         end
     else
         vim.cmd("colorscheme " .. colourSchemes[currentColour])
+        setIndentColour()
     end
     transparent = not transparent
 end)

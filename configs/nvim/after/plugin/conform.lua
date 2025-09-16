@@ -4,9 +4,9 @@ local conform = require("conform")
 
 conform.setup({
     formatters_by_ft = {
-        javascript = { "prettierd", "prettier", stop_after_first = true },
-        typescript = { "prettierd", "prettier", stop_after_first = true },
-        typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { "prettier", "prettierd", stop_after_first = true },
+        typescript = { "prettier", "prettierd", stop_after_first = true },
+        typescriptreact = { "prettier", "prettierd", stop_after_first = true },
         cs = { "csharpier" },
         python = { "autopep8", "black", stop_after_first = true }
     }
