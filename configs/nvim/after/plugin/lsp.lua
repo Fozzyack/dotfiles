@@ -13,6 +13,7 @@ vim.lsp.enable("marksman")    -- Marksman Language Server - Markdown
 vim.lsp.enable("cmake")       -- CMake Language Server
 vim.lsp.enable("pyright")     -- Python Language Server
 vim.lsp.enable("bashls")      -- Bash Language Server
+vim.lsp.enable('docker_compose_language_service') -- Docker compose lsp
 
 vim.lsp.enable('gopls')       -- Go language server
 vim.lsp.enable('harper_ls')   -- For Language Checking
