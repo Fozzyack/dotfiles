@@ -1,3 +1,4 @@
+-- Because this occurs during startup the setup has been placed here
 vim.keymap.set("n", "<leader>m", ":Dashboard<CR>")
 return {
     'nvimdev/dashboard-nvim',
