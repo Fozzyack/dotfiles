@@ -1,6 +1,6 @@
 return {
     { "neovim/nvim-lspconfig", },
-    { "seblyng/roslyn.nvim", },
+    { "seblyng/roslyn.nvim", }, -- Roslyn C# LSP
     {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files

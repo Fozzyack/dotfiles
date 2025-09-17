@@ -1,7 +1,7 @@
  
 # My Arch Linux Dotfiles
 
-Contains my Hyprland, alacritty, ghostty, tmux and neovim dotfiles.
+Contains my Hyprland, alacritty, ghostty, tmux and neovim dotfiles. (Any many more!)
 
 Just a collection of the dotfiles I use to personalise my setup / workflow. All this does is create dotfiles then
 creates symbolic links for each in the appropriate spots.
