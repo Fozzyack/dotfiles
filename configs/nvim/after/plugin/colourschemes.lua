@@ -10,11 +10,13 @@ local function setIndentColour()
 end
 
 local function makeTransparent()
-    local groups = { "Normal", "NormalFloat", "FloatBorder", "Pmenu" }
+    -- Removed "NormalFloat" from the list to keep highlighting
+    local groups = { "Normal", "FloatBorder", "Pmenu" }
     for _, group in ipairs(groups) do
         vim.api.nvim_set_hl(0, group, { bg = 'none' })
     end
 end
+
 
 -- Initial Setup
 vim.cmd([[colorscheme ]] .. colourSchemes[currentColour])
