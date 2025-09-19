@@ -1,5 +1,9 @@
 return {
     { "neovim/nvim-lspconfig", },
+    {
+        "mason-org/mason.nvim",
+        opts = {}
+    },
     { "seblyng/roslyn.nvim", },
     {
         "folke/lazydev.nvim",
