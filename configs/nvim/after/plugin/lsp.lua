@@ -11,49 +11,20 @@ require("mason").setup({
     },
 })
 
-vim.lsp.enable("tailwindcss")                     -- TailwindCSS Server
+
 vim.lsp.enable("cssls")                           -- Visual Studio CSS
-vim.lsp.enable("html")                            --  Visual Studio HTML
+vim.lsp.enable("html")                            -- Visual Studio HTML
 vim.lsp.enable("lua_ls")                          -- Lua Language Server
-vim.lsp.enable("ts_ls")                           -- Typescript Language Server
 vim.lsp.enable("marksman")                        -- Marksman Language Server - Markdown
 vim.lsp.enable("cmake")                           -- CMake Language Server
-vim.lsp.enable("pyright")                         -- Python Language Server
-vim.lsp.enable("bashls")                          -- Bash Language Server
 vim.lsp.enable('docker_compose_language_service') -- Docker compose lsp
-vim.lsp.enable("roslyn")
-
-vim.lsp.enable('gopls')     -- Go language server
-vim.lsp.enable('harper_ls') -- For Language Checking
-
--- Spell Checking
-vim.lsp.config('harper_ls', {
-    settings = {
-
-        ["harper-ls"] = {
-            linters = {
-                SpellCheck = true,
-                SpelledNumbers = false,
-                AnA = true,
-                SentenceCapitalization = true,
-
-                UnclosedQuotes = true,
-                WrongQuotes = false,
-                LongSentences = true,
-                RepeatedWords = true,
-
-                Spaces = true,
-                Matcher = true,
-                CorrectNumberSuffix = true
-            },
-            markdown = {
-                IgnoreLinkTitle = true
-            },
-            dialect = "Australian"
-        }
-    },
-
-})
+vim.lsp.enable("roslyn")                          -- C# Language Server
+vim.lsp.enable('gopls')                           -- Go language server
+vim.lsp.enable("tailwindcss")                     -- TailwindCSS Server
+-- vim.lsp.enable("ts_ls")                           -- Typescript Language Server
+vim.lsp.enable("vue_ls")
+vim.lsp.enable("vtsls")
+vim.lsp.enable('harper_ls')                       -- For Language Checking
 
 
 vim.diagnostic.config({

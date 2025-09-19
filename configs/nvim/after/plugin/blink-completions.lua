@@ -14,34 +14,15 @@ blink.setup({
         -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = 'mono'
     },
-    fuzzy = {
-        sorts = {
-            "exact",
-            "score",
-            "sort_text",
-            "label",
-        }
-    },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
-        keyword = { range = 'full' },
-        trigger = {
-            show_on_trigger_character = true,
-            show_on_blocked_trigger_characters = {}, -- Will try to run on spaces, new lines and tabs
-        },
         auto_brackets = { enabled = false },
         menu = { border = "single", auto_show = true },
         documentation = {
             auto_show = true,
             window = { border = 'single' },
         },
-        list = {
-            selection = {
-                preselect = true,
-                auto_insert = true
-            }
-        }
     },
     signature = { window = { border = "single" } },
 
