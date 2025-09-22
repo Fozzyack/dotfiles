@@ -30,11 +30,6 @@ blink.setup({
             show_on_trigger_character = true,
             show_on_blocked_trigger_characters = {}, -- Will try to run on spaces, new lines and tabs
         },
-        auto_brackets = { enabled = false },
-        ghost_text = {
-            enabled = true,
-            show_without_menu = false
-        },
         menu = { border = "single", auto_show = true },
         documentation = {
             auto_show = true,
@@ -43,7 +38,7 @@ blink.setup({
         list = {
             selection = {
                 preselect = true,
-                auto_insert = false
+                auto_insert = true,
             }
         }
     },
