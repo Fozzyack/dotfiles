@@ -7,11 +7,14 @@ ts.setup {
 
     sync_install = false,
 
-    ignore_install = { },
+    ignore_install = {},
 
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = true,
+        -- disable = function(lang, buf)
+        --     return vim.bo[buf].filetype == "razor"
+        -- end,
     },
 
 

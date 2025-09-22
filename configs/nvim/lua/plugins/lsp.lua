@@ -4,7 +4,21 @@ return {
         "mason-org/mason.nvim",
         opts = {}
     },
-    { "seblyng/roslyn.nvim", },
+    {
+        "seblyng/roslyn.nvim",
+        ft = {"cs", "razor"} ,
+        dependencies = {
+            { "tris203/rzls.nvim", config = true}
+        }, 
+        init = function ()
+            vim.filetype.add({
+                extension = {
+                    razor = "razor",
+                    cshtml = "razor"
+                }
+            })
+        end
+    },
     {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files

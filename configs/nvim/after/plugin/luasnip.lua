@@ -4,6 +4,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 ls.filetype_extend("typescript", { "javascript" })
 ls.filetype_extend("typescriptreact", { "html" })
+ls.filetype_extend("razor", { "html" })
 -- Setting up other snippets
 
 local s = ls.snippet
