@@ -1,0 +1,15 @@
+@define-color text-primary #c6d0f5;
+@define-color surface #1a1b26;
+@define-color surface-hover rgb(41, 42, 53);
+@define-color text-muted #babbf1;
+@define-color accent #99d1db;
+@define-color accent-soft rgba(153, 209, 219, 0.1);
+@define-color accent-strong rgba(153, 209, 219, 0.2);
+@define-color warning #e78284;
+@define-color bluetooth-muted #888888;
+@define-color bluetooth-active #2196f3;
+@define-color success #a6d189;
+@define-color tooltip-text #dddddd;
+@define-color tooltip-border rgba(255, 255, 255, 0.1);
+@define-color soft rgba(0, 0, 0, 0.1);
+@define-color strong rgba(0, 0, 0, 0.2);

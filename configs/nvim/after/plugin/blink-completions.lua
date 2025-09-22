@@ -14,14 +14,6 @@ blink.setup({
         -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = 'mono'
     },
-    fuzzy = {
-        sorts = {
-            "exact",
-            "score",
-            "sort_text",
-            "label",
-        }
-    },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {

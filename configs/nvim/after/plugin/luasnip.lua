@@ -1,13 +1,10 @@
 local ls = require("luasnip")
 -- Setting up "friendly-snippets"
 require("luasnip.loaders.from_vscode").lazy_load()
-ls.filetype_extend("typescript", {"javascript"})
-ls.filetype_extend("typescriptreact", {"html", "javascript", "typescript"}) -- Setting TypeScript React
 
---
-
-
--- Setting up other snippets 
+ls.filetype_extend("typescript", { "javascript" })
+ls.filetype_extend("typescriptreact", { "html" })
+-- Setting up other snippets
 
 local s = ls.snippet
 local i = ls.insert_node
@@ -24,8 +21,8 @@ ls.setup({
 
 
 vim.keymap.set({ "i" }, "<C-K>", function() ls.expand() end, { silent = true })
-vim.keymap.set({"i", "s"}, "<C-l>", function() ls.jump( 1) end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-h>", function() ls.jump(-1) end, {silent = true})
+vim.keymap.set({ "i", "s" }, "<C-l>", function() ls.jump(1) end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-h>", function() ls.jump(-1) end, { silent = true })
 
 vim.keymap.set({ "i", "s" }, "<C-E>", function()
     if ls.choice_active() then

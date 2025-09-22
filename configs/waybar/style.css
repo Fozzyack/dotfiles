@@ -1,38 +1,189 @@
+@import "./var.css";
+
+/* --- Global Styles --- */
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 12px;
+  font-family: 'SF Pro Text', 'Inter', 'Segoe UI, NotoSans Nerd Font', sans-serif;
+  font-size: 13px;
+  min-height: 0;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-bottom: 2px;
 }
 
-.bar {
-    background-color: rgba(0, 0, 0, 0);
-    color: #FFFFFF
+/* --- Waybar Container --- */
+#waybar {
+  background: transparent;
+  color: @text-primary;
+  margin: 0px;
+  font-weight: 500;
 }
 
-#battery, #clock, #network, #bluetooth, #cpu, #workspaces, #temperature, #wireplumber {
-    color: #FFFFFF;
-    padding: 0px 10px;
-    margin-left: 4px;
-    margin-right: 4px;
-    border-radius: 7px;
-    background-color: rgba(0, 0, 0, 0.2);
+/* --- Left Modules (Individual, Fully Rounded Blocks - With Horizontal Spacing & Simple Hover) --- */
+#workspaces,
+#custom-uptime,
+#cpu {
+  background-color: @surface;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
+  border-radius: 6px; /* These modules are always rounded */
+  box-shadow: 0 1px 3px @soft;
+  min-width: 0;
+  border: none;
+  /* Transition for background-color and color only */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-#workspaces button.active {
-    color: #ff0000;
+#workspaces {
+  padding: 2px;
+  margin-left: 7px; /* Margin from the far left edge */
+  margin-right: 5px; /* Spacing after the workspaces module */
+}
+
+#custom-uptime {
+  margin-right: 5px; /* Spacing after the uptime module */
+}
+
+/* Simple Hover effects for individual left modules - BRIGHTER COLOR */
+#custom-uptime:hover,
+#cpu:hover {
+  background-color: @surface-hover; /* Brighter highlight */
 }
 
 #workspaces button {
-    color: #FFFFFF;
+  color: @text-muted;
+  border-radius: 5px; /* Workspaces buttons are always rounded */
+  padding: 0.3rem 0.6rem;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  outline: none;
 }
 
-#network {
-    padding-right: 10px;
-    margin-right: 3px;
+#workspaces button.active {
+  color: @accent;
+  background-color: @accent-soft;
+  box-shadow: inset 0 0 0 1px @accent-strong;
+}
+
+#workspaces button:hover {
+  background: @surface-hover; /* Reference bright hover color */
+  color: @text-primary;
+}
+
+/* --- Center Module (Individual, Fully Rounded Block - With Simple Hover) --- */
+#clock {
+  background-color: @surface;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0px;
+  border-radius: 6px; /* This module is always rounded */
+  box-shadow: 0 1px 3px @accent-strong;
+  min-width: 0;
+  border: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Simple Hover effect for clock module - BRIGHTER COLOR */
+#clock:hover {
+  background-color: @accent-soft; /* Brighter highlight */
+}
+
+/* --- Right Modules (Single, Seamless Bar ) --- */
+#bluetooth,
+#pulseaudio,
+#backlight,
+#network,
+#custom-lock,
+#battery {
+  background-color: @surface;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0px; 
+  border-radius: 0;
+  box-shadow: none;
+  min-width: 0;
+  border: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#bluetooth:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#network:hover,
+#custom-lock:hover,
+#battery:hover {
+  background-color: @surface-hover;
+}
+
+#bluetooth {
+  margin-left: 0px; 
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+#battery {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-right: 7px;
+}
+
+#custom-uptime {
+  color: @text-muted;
+}
+#cpu {
+  color: @text-primary;
 }
 
 #clock {
-    padding-top: 3px;
+  color: @accent;
+  font-weight: 500;
 }
 
-   
+#pulseaudio {
+  color: @text-primary;
+}
+#backlight {
+  color: @text-primary;
+}
+
+#network {
+  color: @text-primary;
+}
+
+#network.disconnected {
+  color: @warning;
+}
+
+#custom-lock {
+  color: @text-muted;
+}
+#bluetooth {
+  color: @bluetooth-muted;
+  font-size: 16px;
+}
+#bluetooth.on {
+  color: @bluetooth-active;
+}
+#bluetooth.connected {
+  color: @accent;
+}
+#battery {
+  color: @accent;
+}
+#battery.charging {
+  color: @success;
+}
+#battery.warning:not(.charging) {
+  color: @warning;
+}
+
+/* --- Tooltip Styles --- */
+tooltip {
+  background-color: @surface;
+  color: @tooltip-text;
+  padding: 5px 12px;
+  margin: 5px 0px;
+  border-radius: 6px;
+  border: 1px solid @tooltip-border;
+  box-shadow: 0 4px 12px @strong;
+  font-size: 12px;
+}
+
