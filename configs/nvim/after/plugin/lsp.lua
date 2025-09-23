@@ -26,22 +26,22 @@ vim.lsp.config("tailwindcss", {
     filetypes = { "razor", "typescriptreact" }
 })
 vim.lsp.enable("tailwindcss") -- TailwindCSS Server
--- vim.lsp.enable("ts_ls")                           -- Typescript Language Server
+-- vim.lsp.enable("ts_ls")       -- Typescript Language Server
 vim.lsp.enable("vue_ls")
 vim.lsp.enable("vtsls")
 vim.lsp.enable('harper_ls') -- For Language Checking
 
-local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
-local cmd = {
-    "roslyn",
-    "--stdio",
-    "--logLevel=Information",
-    "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
-    "--razorSourceGenerator=" .. vim.fs.joinpath(rzls_path, "Microsoft.CodeAnalysis.Razor.Compiler.dll"),
-    "--razorDesignTimePath=" .. vim.fs.joinpath(rzls_path, "Targets", "Microsoft.NET.Sdk.Razor.DesignTime.targets"),
-    "--extension",
-    vim.fs.joinpath(rzls_path, "RazorExtension", "Microsoft.VisualStudioCode.RazorExtension.dll"),
-}
+-- local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
+-- local cmd = {
+--     "roslyn",
+--     "--stdio",
+--     "--logLevel=Information",
+--     "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+--     "--razorSourceGenerator=" .. vim.fs.joinpath(rzls_path, "Microsoft.CodeAnalysis.Razor.Compiler.dll"),
+--     "--razorDesignTimePath=" .. vim.fs.joinpath(rzls_path, "Targets", "Microsoft.NET.Sdk.Razor.DesignTime.targets"),
+--     "--extension",
+--     vim.fs.joinpath(rzls_path, "RazorExtension", "Microsoft.VisualStudioCode.RazorExtension.dll"),
+-- }
 
 vim.lsp.config("roslyn", {
     cmd = cmd,

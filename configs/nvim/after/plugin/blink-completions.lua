@@ -15,26 +15,6 @@ blink.setup({
         nerd_font_variant = 'mono'
     },
 
-    -- (Default) Only show the documentation popup when manually triggered
-    completion = {
-        keyword = { range = 'full' },
-        trigger = {
-            show_on_trigger_character = true,
-            show_on_blocked_trigger_characters = {}, -- Will try to run on spaces, new lines and tabs
-        },
-        menu = { border = "single", auto_show = true },
-        documentation = {
-            auto_show = true,
-            window = { border = 'single' },
-        },
-        list = {
-            selection = {
-                preselect = true,
-                auto_insert = true,
-            }
-        }
-    },
-    signature = { window = { border = "single" } },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
