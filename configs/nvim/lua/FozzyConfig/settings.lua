@@ -10,7 +10,8 @@ vim.smartindent = true
 -- windows doesnt like changing the width of certain cursor types
 -- Remeber: you can look at the documentation (:help guicursor)
 
-vim.opt.guicursor = 'n-v-c:block,i-ci-ve:hor40,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff100-blinkon1500-Cursor'
+vim.opt.guicursor = 'n-v-c:block,i-ci-ve:hor40,r-cr:hor20,o:hor50,a:blinkwait10-blinkoff5-blinkon5-Cursor'
+
 
 vim.opt.mouse = 'a'
 vim.opt.tabstop = 4
