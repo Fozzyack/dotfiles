@@ -47,6 +47,7 @@ vim.lsp.config("roslyn", {
     cmd = cmd,
     handlers = require("rzls.roslyn_handlers"),
     on_attach = function(client, bufnr)
+        vim.cmd.highlight('IndentLine guifg=#4c4b59') -- Sets the indent colour (unselected)
         if vim.bo[bufnr] == "razor" then
             client.server_capabilities.semanticTokensProvider = nil
         end
