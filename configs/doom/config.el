@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-city-lights)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -75,18 +75,40 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq read-process-output-max (* 3 1024 1024)) ;; 3mb
-(setq lsp-idle-delay 0.500)
-(setq company-minimum-prefix-length 1
-      company-idle-delay 0.0) ;; default is 0.2
-
+;; Make completions appear instantly
+;; (setq company-idle-delay 0)
+;; (setq company-minimum-prefix-length 1)
+(setq doom-terminal-p (not (display-graphic-p)))
+(setq term-terminal-parameter 'color)
+(setq term-term-name "xterm-256color")
 (use-package treesit-auto
   :config
   (setq treesit-auto-install 'prompt)  ;; prompt to install missing grammars
   (global-treesit-auto-mode))
 
+(global-corfu-mode 1)
+(setq corfu-auto t
+      corfu-auto-delay 0
+      corfu-auto-prefix 1)
+
+(use-package lsp-mode
+  :hook (
+         (tsx-ts-mode . react-lsp-setup)
+         )
+  :commands lsp-deferred)
+
+(defun react-lsp-setup()
+  (setq-local lsp-enabled-clients '(ts-ls tailwindcss))
+  (lsp-deferred)
+  )
+;; Tailwind client for lsp-mode
 (use-package lsp-tailwindcss
   :after lsp-mode
   :init
+  ;; Make Tailwind run as an add-on in buffers (keeps it alongside ts-ls)
   (setq lsp-tailwindcss-add-on-mode t))
-(setq +format-with-lsp t)
+
+(map! :n "C-S-h"  #'windmove-swap-states-left
+      :n "C-S-l" #'windmove-swap-states-right
+      :n "C-S-k"    #'windmove-swap-states-up
+      :n "C-S-j"  #'windmove-swap-states-down)
