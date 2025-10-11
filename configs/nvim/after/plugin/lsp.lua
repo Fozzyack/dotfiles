@@ -56,10 +56,10 @@ vim.lsp.config("roslyn", {
 vim.lsp.enable("roslyn")
 
 vim.diagnostic.config({
-    -- virtual_lines = true, -- this enables multi line diagnostics
+    virtual_lines = true, -- this enables multi line diagnostics
     severity_sort = true,
 
-    virtual_text = true, -- this enables inline diagnostics signs = true,
+    -- virtual_text = true, -- this enables inline diagnostics signs = true,
     underline = true,
     update_in_insert = false,
 })
