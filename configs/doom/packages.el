@@ -55,4 +55,4 @@
 
 
 (package! treesit-auto)
-(package! lsp-tailwindcss)
+(package! lsp-tailwindcss :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))

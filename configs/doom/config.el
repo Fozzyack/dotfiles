@@ -92,21 +92,20 @@
       corfu-auto-prefix 1)
 
 (use-package lsp-mode
-  :hook (
-         (tsx-ts-mode . react-lsp-setup)
-         )
+  :hook ((tsx-ts-mode . my/react-lsp-setup))
   :commands lsp-deferred)
 
-(defun react-lsp-setup()
-  (setq-local lsp-enabled-clients '(ts-ls tailwindcss))
-  (lsp-deferred)
-  )
+(defun my/react-lsp-setup()
+  (setq-local lsp-enabled-clients '(ts-ls tailwindcss prettier))
+  (lsp-deferred))
 ;; Tailwind client for lsp-mode
 (use-package lsp-tailwindcss
   :after lsp-mode
   :init
   ;; Make Tailwind run as an add-on in buffers (keeps it alongside ts-ls)
   (setq lsp-tailwindcss-add-on-mode t))
+(after! lsp-tailwindcss
+  (add-to-list 'lsp-tailwindcss-major-modes 'tsx-ts-mode))
 
 (map! :n "C-S-h"  #'windmove-swap-states-left
       :n "C-S-l" #'windmove-swap-states-right
