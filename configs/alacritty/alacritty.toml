@@ -1,15 +1,16 @@
 
 [env]
 TERM = "xterm-256color"
+COLORTERM = "truecolor"
 
 [general]
 import = [
-"themes/ayu_dark.toml"
+    "themes/ayu_dark.toml"
 ]
 
 [font]
-size             = 9
-normal           = { family = "3270 Nerd Font", style = "Regular" }
+size = 9
+normal = { family = "3270 Nerd Font", style = "Regular" }
 
 # Disable below comments when copying to .../AppData/Roaming/alacritty
 # Used to start alacritty in wsl
@@ -17,17 +18,16 @@ normal           = { family = "3270 Nerd Font", style = "Regular" }
 # shell = { program = "wsl.exe", args = ["~"] }
 
 [terminal]
-shell            = "fish"
-
-
+shell = "fish"
 
 [mouse]
 hide_when_typing = true
 
 [window]
-opacity          = 0.80
-padding          = {x       = 5, y                    = 5}
+opacity = 0.80
+padding = { x = 5, y = 0 }
+# padding = {x = 5, y = 5}
 
 [cursor]
-style            = { shape  = "Underline", blinking   = "On"}
+style = { shape  = "Underline", blinking   = "On"}
 
