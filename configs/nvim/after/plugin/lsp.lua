@@ -29,7 +29,7 @@ vim.lsp.enable("tailwindcss") -- TailwindCSS Server
 -- vim.lsp.enable("ts_ls")       -- Typescript Language Server
 vim.lsp.enable("vue_ls")
 vim.lsp.enable("vtsls")
-vim.lsp.enable('harper_ls') -- For Language Checking
+-- vim.lsp.enable('harper_ls') -- For Language Checking
 
 -- local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
 -- local cmd = {
