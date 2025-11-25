@@ -1,7 +1,25 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": {},
-  "theme": "everforest",
+  "provider": {
+      "kimi": {
+        "npm": "@ai-sdk/openai-compatible",
+        "name": "Kimi",
+        "options": {
+          "baseURL": "https://api.kimi.com/coding/v1",
+          "apiKey": "sk-kimi-J7gBxeGRt8SQpkDgMR2zYUuGcaSNs0b0lwcUGeGUx72opb5FkneCW3SOJ8KnfaNp"
+        },
+        "models": {
+          "kimi-for-coding": {
+            "name": "Kimi for Coding",
+            "limit": {
+              "context": 262144,
+              "output": 32768
+            }
+          }
+        }
+      }
+   },
+  "theme": "github",
   "permission": {
       "edit": "ask",
       "bash": "ask"
