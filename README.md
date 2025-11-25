@@ -90,6 +90,13 @@ Also, the uninstall script also removes all the installed plugins from nvim whic
 ~/.local/share/nvim
 ```
 
+### Backup Configs
+
+The `config-backup` folder stores extra configs like fish. This is a config that may have to be copied inside its config
+folder.
+
+- Here because I can't be bothered to automate the installation of the fish config.
+
 ### Other
 
 Will probably need to install Langauge servers (otherwise neovim will probably be throwing some errors)
