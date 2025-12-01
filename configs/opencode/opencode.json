@@ -1,26 +1,27 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": {
-      "kimi": {
-        "npm": "@ai-sdk/openai-compatible",
-        "name": "Kimi",
-        "options": {
-          "baseURL": "https://api.kimi.com/coding/v1",
-        },
-        "models": {
-          "kimi-for-coding": {
-            "name": "Kimi for Coding",
-            "limit": {
-              "context": 262144,
-              "output": 32768
-            }
-          }
-        }
-      }
-   },
-  "theme": "github",
+
   "permission": {
       "edit": "ask",
       "bash": "ask"
+  },
+
+  "provider": {
+    "kimi-for-coding": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Kimi For Coding",
+      "options": {
+        "baseURL": "https://api.kimi.com/coding/v1"
+      },
+      "models": {
+        "kimi-for-coding": {
+          "name": "Kimi For Coding",
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          }
+        }
+      }
+    }
   }
 }
