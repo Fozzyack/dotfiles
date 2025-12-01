@@ -6,7 +6,6 @@
         "name": "Kimi",
         "options": {
           "baseURL": "https://api.kimi.com/coding/v1",
-          "apiKey": "sk-kimi-J7gBxeGRt8SQpkDgMR2zYUuGcaSNs0b0lwcUGeGUx72opb5FkneCW3SOJ8KnfaNp"
         },
         "models": {
           "kimi-for-coding": {
