@@ -4,6 +4,7 @@ end
 function ff; source ~/dotfiles/ff/ff.fish $argv; end
 function dfile; ~/dotfiles/dfile/dfile $argv; end
 alias ls exa
+starship init fish | source
 
 export PATH="$PATH:/home/fozzyack/.dotnet/tools"
 export PATH="$PATH:$(go env GOPATH)/bin"
