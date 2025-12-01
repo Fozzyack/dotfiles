@@ -28,11 +28,11 @@ vim.lsp.config("tailwindcss", {
 vim.lsp.enable("tailwindcss") -- TailwindCSS Server
 vim.lsp.enable("djls") -- python DJANGO
 vim.lsp.enable('pyright') -- Python
--- vim.lsp.enable("ts_ls")       -- Typescript Language Server
-vim.lsp.enable("vue_ls")
-vim.lsp.enable("vtsls")
 vim.lsp.enable("clangd")
 vim.lsp.enable("bashls")
+vim.lsp.enable("vue_ls")
+vim.lsp.enable('vtsls')
+-- vim.lsp.enable("ts_ls")
 -- vim.lsp.enable('harper_ls') -- For Language Checking
 
 -- local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
