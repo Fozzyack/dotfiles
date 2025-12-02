@@ -18,14 +18,19 @@ set --export PATH $BUN_INSTALL/bin $PATH
 fzf --fish | source
 fzf_configure_bindings --history=\cr --directory=\cf --variables=\cv --git_log=\ch --git_status=\cg
 
-
-#  some extra things
-alias ls exa
+#  extra things
+alias ls exa # Uses exa instead of ls
 function ff; source ~/dotfiles/ff/ff.fish $argv; end
 function dfile; ~/dotfiles/dfile/dfile $argv; end
 
 # Prompt manager
 starship init fish | source
+
+# github
+alias gp="git push"
+alias gP="git pull"
+alias ga="git add ."
+alias gc="git commit"
 
 # For GPG keys to work (git stuff)
 set -x GPG_TTY (tty)
