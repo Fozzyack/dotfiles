@@ -28,9 +28,11 @@ starship init fish | source
 
 # github
 alias gp="git push"
-alias gP="git pull"
+alias gpl="git pull"
 alias ga="git add ."
 alias gc="git commit"
+alias gs="git status"
+alias gl="git log"
 
 # For GPG keys to work (git stuff)
 set -x GPG_TTY (tty)
