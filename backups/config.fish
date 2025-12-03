@@ -7,9 +7,6 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:/home/fozzyack/.runnables/zen"
 export PATH="$PATH:/home/fozzyack/.config/emacs/bin"
 
-# Fastfetch (displays system info)
-fastfetch
-
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
