@@ -48,7 +48,8 @@ alias ga="git add"
 alias gaa="git add ."
 alias gc="git commit"
 alias gs="git status"
-alias gl="git log"
+alias gl="git log --oneline --graph --decorate"
 alias gd="git diff"
+alias gb="git branch"
 
 # ALIASES END ----------------
