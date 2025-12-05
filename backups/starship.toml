@@ -3,21 +3,21 @@
 format = """
 [░▒▓](#FF9966)\
 [ 🐟 ](bg:#FF9966 fg:#2C1810)\
-[](bg:#FFD4A3 fg:#FF9966)\
+[ ](bg:#FFD4A3 fg:#FF9966)\
 $directory\
 [](fg:#FFD4A3 bg:#4A90A4)\
 $git_branch\
 $git_status\
 $git_state\
-[](fg:#4A90A4 bg:#87CEEB)\
+[ ](fg:#4A90A4 bg:#87CEEB)\
 $nodejs\
 $python\
 $rust\
 $golang\
 $php\
-[](fg:#87CEEB bg:#E8B4A0)\
+[ ](fg:#87CEEB bg:#E8B4A0)\
 $time\
-[](fg:#E8B4A0)\
+[](fg:#E8B4A0)\
 \n$character
 """
 
@@ -40,11 +40,11 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:#4A90A4"
-format = '[[ $symbol $branch ](fg:#E6F7FF bg:#4A90A4)]($style)'
+format = '[[  $symbol $branch ](fg:#E6F7FF bg:#4A90A4)]($style)'
 
 [git_status]
 style = "bg:#4A90A4"
-format = '[[($all_status$ahead_behind )](fg:#E6F7FF bg:#4A90A4)]($style)'
+format = '[[ ($all_status$ahead_behind )](fg:#E6F7FF bg:#4A90A4)]($style)'
 
 [git_state]
 style = "bg:#4A90A4"
@@ -52,7 +52,7 @@ cherry_pick = '[🍒 PICKING]'
 merge = '[🌳 MERGING]'
 rebase = '[🌵 REBASING]'
 revert = '[🔙 REVERTING]'
-format = '[[\($state( $progress_current of $progress_total)\)](fg:#E6F7FF bg:#4A90A4)]($style) '
+format = '[[ \($state( $progress_current of $progress_total)\)](fg:#E6F7FF bg:#4A90A4)]($style) '
 
 [nodejs]
 symbol = ""
@@ -83,4 +83,4 @@ format = '[[ $symbol ($version) ($virtualenv) ](fg:#2C1810 bg:#87CEEB)]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#E8B4A0"
-format = '[[  $time ](fg:#2C1810 bg:#E8B4A0)]($style)'
+format = '[[   $time ](fg:#2C1810 bg:#E8B4A0)]($style)'
