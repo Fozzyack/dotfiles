@@ -1,31 +1,32 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[░▒▓](#FFA100)\
-[ Frasier ](bg:#FFA100 fg:#090c0c)\
-[](bg:#D9B814 fg:#FFA100)\
+[░▒▓](#FF9966)\
+[ Frasier ](bg:#FF9966 fg:#2C1810)\
+[](bg:#FFD4A3 fg:#FF9966)\
 $directory\
-[](fg:#D9B814 bg:#034405)\
+[](fg:#FFD4A3 bg:#4A90A4)\
 $git_branch\
 $git_status\
-[](fg:#034405 bg:#212736)\
+$git_state\
+[](fg:#4A90A4 bg:#87CEEB)\
 $nodejs\
 $python\
 $rust\
 $golang\
 $php\
-[](fg:#212736 bg:#1d2230)\
+[](fg:#87CEEB bg:#E8B4A0)\
 $time\
-[ ](fg:#1d2230)\
+[](fg:#E8B4A0)\
 \n$character
 """
 
 [character]
-success_symbol = '[>](bold green)'
-error_symbol = '[>](bold red)'
+success_symbol = '[>](bold #66CC99)'
+error_symbol = '[>](bold #FF6B6B)'
 
 [directory]
-style = "fg:#090c0c bg:#D9B814"
+style = "fg:#2C1810 bg:#FFD4A3"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -37,41 +38,49 @@ truncation_symbol = "…/"
 "Pictures" = " "
 
 [git_branch]
-symbol = ""
-style = "bg:#057009"
-format = '[[ $symbol $branch ](fg:#17FF00 bg:#034405)]($style)'
+symbol = ""
+style = "bg:#4A90A4"
+format = '[[ $symbol $branch ](fg:#E6F7FF bg:#4A90A4)]($style)'
 
 [git_status]
-style = "bg:#057009"
-format = '[[($all_status$ahead_behind )](fg:#17FF00 bg:#034405)]($style)'
+style = "bg:#4A90A4"
+format = '[[($all_status$ahead_behind )](fg:#E6F7FF bg:#4A90A4)]($style)'
+
+[git_state]
+style = "bg:#4A90A4"
+cherry_pick = '[🍒 PICKING]'
+merge = '[🌳 MERGING]'
+rebase = '[🌵 REBASING]'
+revert = '[🔙 REVERTING]'
+format = '[[\($state( $progress_current of $progress_total)\)](fg:#E6F7FF bg:#4A90A4)]($style) '
 
 [nodejs]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+symbol = ""
+style = "bg:#87CEEB"
+format = '[[ $symbol ($version) ](fg:#2C1810 bg:#87CEEB)]($style)'
 
 [rust]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+symbol = ""
+style = "bg:#87CEEB"
+format = '[[ $symbol ($version) ](fg:#2C1810 bg:#87CEEB)]($style)'
 
 [golang]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+symbol = ""
+style = "bg:#87CEEB"
+format = '[[ $symbol ($version) ](fg:#2C1810 bg:#87CEEB)]($style)'
 
 [php]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+symbol = ""
+style = "bg:#87CEEB"
+format = '[[ $symbol ($version) ](fg:#2C1810 bg:#87CEEB)]($style)'
 
 [python]
 symbol = "🐍"
-style = "bg:#079C0C"
-format = '[[ $symbol ($version) ($virtualenv) ](fg:#769ff0 bg:#212736)]($style)'
+style = "bg:#87CEEB"
+format = '[[ $symbol ($version) ($virtualenv) ](fg:#2C1810 bg:#87CEEB)]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+style = "bg:#E8B4A0"
+format = '[[  $time ](fg:#2C1810 bg:#E8B4A0)]($style)'
