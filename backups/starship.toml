@@ -2,7 +2,7 @@
 
 format = """
 [░▒▓](#FF9966)\
-[ Frasier ](bg:#FF9966 fg:#2C1810)\
+[ 🐟 ](bg:#FF9966 fg:#2C1810)\
 [](bg:#FFD4A3 fg:#FF9966)\
 $directory\
 [](fg:#FFD4A3 bg:#4A90A4)\
