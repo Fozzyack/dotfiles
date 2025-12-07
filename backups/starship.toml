@@ -6,9 +6,9 @@ format = """
 [ ](bg:#FFD4A3 fg:#FF9966)\
 $directory\
 [](fg:#FFD4A3 bg:#4A90A4)\
+$git_state\
 $git_branch\
 $git_status\
-$git_state\
 [ ](fg:#4A90A4 bg:#87CEEB)\
 $nodejs\
 $python\
@@ -48,11 +48,11 @@ format = '[[ ($all_status$ahead_behind )](fg:#E6F7FF bg:#4A90A4)]($style)'
 
 [git_state]
 style = "bg:#4A90A4"
-cherry_pick = '[🍒 PICKING]'
-merge = '[🌳 MERGING]'
-rebase = '[🌵 REBASING]'
-revert = '[🔙 REVERTING]'
-format = '[[ \($state( $progress_current of $progress_total)\)](fg:#E6F7FF bg:#4A90A4)]($style) '
+cherry_pick = '\[🍒 PICKING\]'
+merge = '\[🌳 MERGING\]'
+rebase = '\[🌵 REBASING\]'
+revert = '\[🔙 REVERTING\]'
+format = '[[ $state($progress_current of $progress_total)](fg:#E6F7FF bg:#4A90A4)]($style)'
 
 [nodejs]
 symbol = ""
