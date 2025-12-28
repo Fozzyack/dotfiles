@@ -37,8 +37,9 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
 # Navigation
-alias ..="cd .."
-alias ...="cd ../../../"
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
 alias ....="cd ../../../../"
 
 # github

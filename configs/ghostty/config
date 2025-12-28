@@ -1,5 +1,5 @@
 theme = Deep
-background-opacity = 0.83
+background-opacity = 0.8
 background-blur = true
 keybind = shift+enter=text:\n
 shell-integration = fish
