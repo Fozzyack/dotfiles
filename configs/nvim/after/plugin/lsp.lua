@@ -32,6 +32,7 @@ vim.lsp.enable("clangd")
 vim.lsp.enable("bashls")
 vim.lsp.enable("vue_ls")
 vim.lsp.enable('vtsls')
+vim.lsp.enable('postgres_lsp')
 -- vim.lsp.enable("ts_ls")
 -- vim.lsp.enable('harper_ls') -- For Language Checking
 
