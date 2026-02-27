@@ -6,6 +6,8 @@
       "bash": "ask"
   },
 
+  "theme": "system",
+
   "provider": {
     "kimi-for-coding": {
       "npm": "@ai-sdk/anthropic",
