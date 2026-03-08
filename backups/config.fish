@@ -54,4 +54,37 @@ alias gl="git log --oneline --graph --decorate"
 alias gd="git diff"
 alias gb="git branch"
 
+# github (cont - multirepo)
+
+function gf
+    git -C ~/code/hobby/squares/frontend $argv
+end
+
+function gb
+    git -C ~/code/hobby/squares/backend $argv
+end
+
+alias gfp="gf push"
+alias gfpl="gf pull"
+alias gfa="gf add"
+alias gfaa="gf add ."
+alias gfc="gf commit"
+alias gfs="gf status"
+alias gfss="gf status -sb"
+alias gfl="gf log --oneline --graph --decorate"
+alias gfd="gf diff"
+alias gfb="gf branch"
+
+alias gbp="gb push"
+alias gbpl="gb pull"
+alias gba="gb add"
+alias gbaa="gb add ."
+alias gbc="gb commit"
+alias gbs="gb status"
+alias gbss="gb status -sb"
+alias gbl="gb log --oneline --graph --decorate"
+alias gbd="gb diff"
+alias gbb="gb branch"
+
+
 # ALIASES END ----------------
