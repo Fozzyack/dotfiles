@@ -47,6 +47,8 @@ vim.lsp.enable('postgres_lsp')
 --     "--extension",
 --     vim.fs.joinpath(rzls_path, "RazorExtension", "Microsoft.VisualStudioCode.RazorExtension.dll"),
 -- }
+--
+
 
 vim.lsp.config("roslyn", {
     cmd = cmd,
