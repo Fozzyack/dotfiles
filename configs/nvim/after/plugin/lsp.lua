@@ -23,7 +23,7 @@ vim.lsp.enable("cmake")                           -- CMake Language Server
 vim.lsp.enable('docker_compose_language_service') -- Docker compose lsp
 vim.lsp.enable('gopls')                           -- Go language server
 vim.lsp.config("tailwindcss", {
-    filetypes = { "razor", "typescriptreact" }
+    filetypes = { "razor", "typescriptreact", "html" }
 })
 vim.lsp.enable("tailwindcss") -- TailwindCSS Server
 vim.lsp.enable("djls") -- python DJANGO
