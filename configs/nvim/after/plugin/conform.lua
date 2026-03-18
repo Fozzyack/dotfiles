@@ -1,7 +1,5 @@
 local conform = require("conform")
 
-
-
 conform.setup({
     formatters_by_ft = {
         javascript = { "prettier", "prettierd", stop_after_first = true },
