@@ -5,3 +5,4 @@ require("supermaven-nvim").setup({
         accept_word = "<C-h>",
     },
 })
+

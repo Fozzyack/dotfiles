@@ -1,6 +1,14 @@
 -- Holds all the colour schemes (The ones to rotate through)
 
-local colourSchemes = {"kanagawa", "tokyonight", "evergarden", "evergarden-winter", "catppuccin", "nord", "edge" }
+local colourSchemes = {
+    "kanagawa",
+    "nord",
+    "elflord",
+    "tokyonight",
+    "evergarden",
+    "catppuccin",
+    "edge"
+}
 
 local currentColour = 1
 local transparent = false
