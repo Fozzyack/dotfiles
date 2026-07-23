@@ -20,12 +20,12 @@ return {
                 "lua",
                 "vim",
                 "vimdoc",
-                "query",
                 "go",
                 "python",
                 "bash",
                 "c",
-                "cpp"
+                "cpp",
+                "sql"
             })
 
             vim.api.nvim_create_autocmd("FileType", {

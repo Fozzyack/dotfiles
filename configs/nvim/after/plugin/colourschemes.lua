@@ -1,12 +1,14 @@
 -- Holds all the colour schemes (The ones to rotate through)
 
 local colourSchemes = {
-    "kanagawa",
     "nord",
-    "elflord",
     "tokyonight",
+    "ashen",
+    "kanagawa",
+    "onedark",
     "evergarden",
     "catppuccin",
+    "elflord",
     "edge"
 }
 
@@ -21,10 +23,9 @@ local function makeTransparent()
     -- Removed "NormalFloat" from the list to keep highlighting
     local groups = { "Normal", "FloatBorder", "Pmenu" }
     for _, group in ipairs(groups) do
-        vim.api.nvim_set_hl(0, group, { bg = 'none' })
+        vim.api.nvim_set_hl(0, group, { bg = 'NONE' })
     end
 end
-
 
 -- Initial Setup
 vim.cmd([[colorscheme ]] .. colourSchemes[currentColour])
@@ -46,7 +47,6 @@ vim.keymap.set("n", "<leader><leader>n", function()
         setIndentColour()
     else
         vim.cmd("colorscheme " .. colourSchemes[currentColour])
-        setIndentColour()
     end
     transparent = not transparent
 end)

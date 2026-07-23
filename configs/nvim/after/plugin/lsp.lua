@@ -29,47 +29,21 @@ vim.lsp.config('tailwindcss', {
     filetypes = { "html", "typescriptreact", "svelte" },
 })
 vim.lsp.enable("tailwindcss") -- TailwindCSS Server
-vim.lsp.enable("djls") -- python DJANGO
-vim.lsp.enable('pyright') -- Python
+vim.lsp.enable("djls")        -- python DJANGO
+vim.lsp.enable('pyright')     -- Python
 vim.lsp.enable("clangd")
 vim.lsp.enable("bashls")
 vim.lsp.enable("vue_ls")
 vim.lsp.enable('vtsls')
-vim.lsp.enable('postgres_lsp')
+vim.lsp.enable('sqls')
 vim.lsp.config('svelte', {
-    cmd = {'svelteserver', '--stdio'},
+    cmd = { 'svelteserver', '--stdio' },
     filetypes = { 'svelte' },
     root_markers = { '.git', 'svelte.config.js', 'svelte.config.ts', 'package.json' },
 })
 vim.lsp.enable('svelte')
 -- vim.lsp.enable("ts_ls")
 -- vim.lsp.enable('harper_ls') -- For Language Checking
-
--- local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
--- local cmd = {
---     "roslyn",
---     "--stdio",
---     "--logLevel=Information",
---     "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
---     "--razorSourceGenerator=" .. vim.fs.joinpath(rzls_path, "Microsoft.CodeAnalysis.Razor.Compiler.dll"),
---     "--razorDesignTimePath=" .. vim.fs.joinpath(rzls_path, "Targets", "Microsoft.NET.Sdk.Razor.DesignTime.targets"),
---     "--extension",
---     vim.fs.joinpath(rzls_path, "RazorExtension", "Microsoft.VisualStudioCode.RazorExtension.dll"),
--- }
---
-
-
-vim.lsp.config("roslyn", {
-    cmd = cmd,
-    handlers = require("rzls.roslyn_handlers"),
-    on_attach = function(client, bufnr)
-        vim.cmd.highlight('IndentLine guifg=#4c4b59') -- Sets the indent colour (unselected)
-        if vim.bo[bufnr] == "razor" then
-            client.server_capabilities.semanticTokensProvider = nil
-        end
-    end
-})
-vim.lsp.enable("roslyn")
 
 vim.diagnostic.config({
     virtual_lines = true, -- this enables multi line diagnostics
