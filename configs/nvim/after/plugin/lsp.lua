@@ -53,3 +53,11 @@ vim.diagnostic.config({
     underline = true,
     update_in_insert = false,
 })
+
+-- Keymaps to supress and unsupress diagnostics
+vim.keymap.set('n', '<leader><leader>r', function ()
+    vim.diagnostic.enable(false, { bufnr = 0 })
+end) 
+vim.keymap.set('n', '<leader><leader>e', function ()
+    vim.diagnostic.enable(true, { bufnr = 0 })
+end)
