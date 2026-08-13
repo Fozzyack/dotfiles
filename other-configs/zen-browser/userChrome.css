@@ -1,0 +1,16 @@
+/*
+ *  When using DWM Blur a glassy pane occurs over the status tab this usechrome.css fixes that Open the about:config
+ *  page. 
+ *
+ *  To Enable User Chrome open about:config
+ *  Search for devtools.debugger.remote-enabled and toggle it to true.
+ *  Search for devtools.chrome.enabled and toggle it to true. 
+ *  Search for toolkit.legacyUserProfileCustomizations.stylesheets and toggle it to true. 
+ *
+ *  These settings are required for userChrome.css to work.
+ */
+#statuspanel-label {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
