@@ -1,10 +1,10 @@
 -- Holds all the colour schemes (The ones to rotate through)
 
 local colourSchemes = {
-    "nord",
+    "kanagawa",
     "tokyonight",
     "ashen",
-    "kanagawa",
+    "nord",
     "onedark",
     "evergarden",
     "catppuccin",
