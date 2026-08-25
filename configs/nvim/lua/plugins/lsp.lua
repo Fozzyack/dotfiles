@@ -6,11 +6,11 @@ return {
     },
     {
         "seblyng/roslyn.nvim",
-        ft = {"cs", "razor"} ,
+        ft = { "cs", "razor" },
         dependencies = {
-            { "tris203/rzls.nvim", config = true}
-        }, 
-        init = function ()
+            { "tris203/rzls.nvim", config = true }
+        },
+        init = function()
             vim.filetype.add({
                 extension = {
                     razor = "razor",
@@ -28,6 +28,12 @@ return {
                 -- Load luvit types when the `vim.uv` word is found
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
             },
+        },
+    },
+    {
+        "j-hui/fidget.nvim",
+        opts = {
+            -- options
         },
     },
 }

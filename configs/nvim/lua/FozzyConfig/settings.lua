@@ -32,5 +32,16 @@ vim.g.default_terminal = "tmux-256color"
 -- unsure if this is actually works on linux
 
 -- windows doesnt like changing the width of certain cursor types
--- Remeber: you can look at the documentation (:help guicursor)
-vim.opt.guicursor = "n:block-Cursor,i:hor20-Cursor"
+-- Remember: you can look at the documentation (:help guicursor)
+-- Also - check to make sure colourschemes do not OVERRIDE THE CURSOR
+vim.opt.guicursor = table.concat({
+    "n:block-Cursor",     -- normal
+    "v:block-Cursor",     -- visual
+    "i:hor25-Cursor",     -- insert
+    "c:hor20-Cursor",     -- command-line
+    "r:ver25-Cursor",     -- replace
+    "cr:ver25-Cursor",    -- command-line replace
+    "o:hor20-Cursor",     -- operator-pending
+    "sm:block-Cursor",    -- showmatch
+    "t:block-TermCursor", -- terminal
+}, ",")
