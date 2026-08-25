@@ -24,7 +24,9 @@ return {
         lazy = false,
         priority = 1000,
         dependencies = { 'rktjmp/lush.nvim' },
-        opts = {},
+        opts = {
+            guicursor = false,
+        },
     },
     {
         "rebelot/kanagawa.nvim",
