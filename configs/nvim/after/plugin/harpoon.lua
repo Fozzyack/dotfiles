@@ -8,7 +8,14 @@
 
 local harpoon = require("harpoon");
 
-harpoon:setup()
+harpoon:setup({
+    settings = {
+
+        -- Getting Harpoon to sync when opening and closing then menu and not on read and write
+        save_on_toggle = true, -- save the state to BACKING LIST on UI close 
+        sync_on_ui_close = true, -- save the state to FS on UI close
+    }
+})
 
 vim.keymap.set("n", "<leader>e", function()
     harpoon.ui:toggle_quick_menu(harpoon:list())
