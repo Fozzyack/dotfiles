@@ -2,6 +2,7 @@
 
 local colourSchemes = {
     "kanagawa",
+    "bluloco-dark",
     "tokyonight",
     "ashen",
     "nord",

@@ -20,6 +20,13 @@ return {
     },
     { "ficcdaf/ashen.nvim" },
     {
+        'uloco/bluloco.nvim',
+        lazy = false,
+        priority = 1000,
+        dependencies = { 'rktjmp/lush.nvim' },
+        opts = {},
+    },
+    {
         "rebelot/kanagawa.nvim",
         opts = {
             compile = false,  -- enable compiling the colorscheme
