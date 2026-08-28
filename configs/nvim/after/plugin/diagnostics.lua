@@ -1,0 +1,25 @@
+vim.diagnostic.config({
+    virtual_lines = true, -- multi-line diagnostics
+    virtual_text = false, -- inline diagnostics
+    severity_sort = true,
+    underline = true,
+    update_in_insert = true,
+})
+
+-- Keymaps to supress and unsupress diagnostics
+vim.keymap.set('n', '<leader><leader>r', function()
+    vim.diagnostic.enable(false, { bufnr = 0 })
+end)
+vim.keymap.set('n', '<leader><leader>e', function()
+    vim.diagnostic.enable(true, { bufnr = 0 })
+end)
+vim.keymap.set('n', '<leader>di', function()
+    vim.diagnostic.open_float()
+end)
+
+vim.keymap.set('n', ']j', function()
+    vim.diagnostic.jump({count = 1})
+end)
+vim.keymap.set('n', ']k', function()
+    vim.diagnostic.jump({count = -1})
+end)
