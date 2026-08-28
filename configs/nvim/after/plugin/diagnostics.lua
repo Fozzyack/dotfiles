@@ -1,6 +1,6 @@
 vim.diagnostic.config({
-    virtual_lines = true, -- multi-line diagnostics
-    virtual_text = false, -- inline diagnostics
+    virtual_text = true, -- inline diagnostics
+    virtual_lines = false, -- multi-line diagnostics
     severity_sort = true,
     underline = true,
     update_in_insert = true,
@@ -13,7 +13,7 @@ end)
 vim.keymap.set('n', '<leader><leader>e', function()
     vim.diagnostic.enable(true, { bufnr = 0 })
 end)
-vim.keymap.set('n', '<leader>di', function()
+vim.keymap.set('n', '<leader><leader>d', function()
     vim.diagnostic.open_float()
 end)
 
