@@ -3,7 +3,7 @@ vim.diagnostic.config({
     virtual_lines = false, -- multi-line diagnostics
     severity_sort = true,
     underline = true,
-    update_in_insert = true,
+    update_in_insert = false, -- stop displaying diagnostics when in insert mode
 })
 
 -- Keymaps to supress and unsupress diagnostics
