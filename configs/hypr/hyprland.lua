@@ -22,6 +22,13 @@ hl.monitor({
     scale    = "1",
 })
 
+hl.monitor({
+    output   = "DP-3",
+    mode     = "1920x1080",
+    position = "-1920x0",
+    scale    = "1",
+})
+
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -163,6 +170,16 @@ hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "
 hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
+
+
+for i = 1, 11, 1 do
+    if i % 2 == 0 then
+        hl.workspace_rule({ workspace = tostring(i), monitor = "DP-3"});
+        goto continue
+    end
+    hl.workspace_rule({ workspace = tostring(i), monitor = "eDP-1"});
+    ::continue::
+end
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
