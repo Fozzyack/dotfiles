@@ -6,7 +6,7 @@ conform.setup({
         typescript = { "prettier", "prettierd", stop_after_first = true },
         typescriptreact = { "prettier", "prettierd", stop_after_first = true },
         cs = { "csharpier" },
-        python = { "autopep8", stop_after_first = true },
+        python = { "autopep8", "black", stop_after_first = true, lsp_format = "fallback" },
         c = { "clang-format" },
     }
 })
