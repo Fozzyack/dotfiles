@@ -1,8 +1,5 @@
 return {
     {
-        "lewis6991/gitsigns.nvim"
-    },
-    {
         "NeogitOrg/neogit",
         lazy = true,
         dependencies = {
@@ -15,5 +12,8 @@ return {
         keys = {
             { "<leader><leader>g", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
         }
-    }
+    },
+    {
+        "lewis6991/gitsigns.nvim"
+    },
 }
