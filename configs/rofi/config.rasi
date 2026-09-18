@@ -1,117 +1,128 @@
-/* ROUNDED THEME FOR ROFI */
-/* Author: Newman Sanchez (https://github.com/newmanls) */
+/* Floating launcher styled to match the Waybar palette. */
 
 configuration {
     modes: [combi];
-    combi-modi: [window, drun, run, ssh];
-    display-combi: "Search: ";
+    combi-modi: [drun, window, run, ssh];
+    display-combi: "";
     icon-theme: "Papirus";
+    show-icons: true;
+    drun-display-format: "{name}";
 }
 
 * {
-    bg0:    #212121F2;
-    bg1:    #2A2A2A;
-    bg2:    #3D3D3D80;
-    bg3:    #FF0000;
-    fg0:    #E6E6E6;
-    fg1:    #FFFFFF;
-    fg2:    #969696;
-    fg3:    #3D3D3D;
-    font:   "Roboto 12";
+    background:         #11121AEF;
+    surface:            #1A1B26;
+    surface-hover:      #292A35;
+    accent:             #99D1DB;
+    accent-soft:        #99D1DB1A;
+    text:               #C6D0F5;
+    text-muted:         #838BA7;
+    border:             #99D1DB33;
 
     background-color:   transparent;
-    text-color:         @fg0;
+    text-color:         @text;
+    font:               "Inter 12";
 
-    margin:     0px;
-    padding:    0px;
-    spacing:    0px;
-
+    margin:             0px;
+    padding:            0px;
+    spacing:            0px;
 }
 
 window {
-    location:       north;
-    y-offset:       calc(50% - 176px);
-    width:          480;
-    border-radius:  24px;
-
-    background-color:   @bg0;
+    location:           center;
+    anchor:             center;
+    width:              560px;
+    border:             1px;
+    border-color:       @border;
+    border-radius:      14px;
+    background-color:   @background;
 }
 
 mainbox {
-    padding:    12px;
+    padding:            16px;
+    spacing:            12px;
 }
 
 inputbar {
-    background-color:   @bg1;
-    border-color:       @bg3;
-
-    border:         2px;
-    border-radius:  16px;
-
-    padding:    8px 16px;
-    spacing:    8px;
-    children:   [ prompt, entry ];
+    padding:            11px 14px;
+    spacing:            12px;
+    border:             1px;
+    border-color:       @border;
+    border-radius:      9px;
+    background-color:   @surface;
+    children:           [prompt, entry];
 }
 
 prompt {
-    text-color: @fg2;
+    text-color:         @accent;
 }
 
 entry {
-    placeholder:        "start typing...";
-    placeholder-color:  rgba(255, 255, 255, 0.3);
-    text-color: #FFFFFF;
+    placeholder:        "Search apps, windows, and commands";
+    placeholder-color:  @text-muted;
+    text-color:         @text;
 }
 
 message {
-    margin:             12px 0 0;
-    border-radius:      16px;
-    border-color:       @bg2;
-    background-color:   @bg2;
+    padding:            10px 14px;
+    border-radius:      9px;
+    background-color:   @surface;
 }
 
 textbox {
-    padding:    8px 24px;
+    text-color:         @text-muted;
 }
 
 listview {
-    background-color:   transparent;
-
-    margin:     12px 0 0;
-    lines:      8;
-    columns:    1;
-    spacing:    5px;
-
-    fixed-height: false;
+    lines:              7;
+    columns:            1;
+    spacing:            5px;
+    fixed-height:       false;
+    scrollbar:          false;
+    cycle:              true;
+    dynamic:            true;
 }
 
 element {
-    padding:        8px 16px;
-    children: [element-text, element-icon];
-    spacing:        0px;
-    border-radius:  16px;
-}
-element normal normal, element alternate normal{
-    background-color: rgba(39, 27, 106, 0.2);
-    text-color: #FFFFFF;
-}
-element normal active {
-    text-color: @bg3;
+    padding:            9px 12px;
+    spacing:            12px;
+    border-radius:      8px;
+    background-color:   transparent;
+    children:           [element-icon, element-text];
 }
 
+element normal normal,
+element alternate normal {
+    background-color:   transparent;
+    text-color:         @text;
+}
+
+element normal active,
 element alternate active {
-    text-color: @bg3;
+    background-color:   transparent;
+    text-color:         @accent;
 }
 
-element selected normal, element selected active {
-    background-color:   @bg3;
+element normal urgent,
+element alternate urgent {
+    background-color:   transparent;
+    text-color:         #E78284;
+}
+
+element selected normal,
+element selected active,
+element selected urgent {
+    background-color:   @accent-soft;
+    text-color:         @accent;
 }
 
 element-icon {
-    size:           1em;
-    vertical-align: 0.5;
+    size:               24px;
+    background-color:   transparent;
 }
 
 element-text {
-    text-color: inherit;
+    vertical-align:     0.5;
+    background-color:   transparent;
+    text-color:         inherit;
 }
