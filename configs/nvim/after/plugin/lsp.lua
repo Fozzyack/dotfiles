@@ -31,7 +31,7 @@ vim.lsp.config('tailwindcss', {
 vim.lsp.enable("tailwindcss") -- TailwindCSS Server
 vim.lsp.enable("djls")        -- python DJANGO
 vim.lsp.enable('pyright')     -- Python
-vim.lsp.enable("clangd")
+
 vim.lsp.enable("bashls")
 vim.lsp.enable("vue_ls")
 vim.lsp.enable('vtsls')
@@ -44,3 +44,6 @@ vim.lsp.config('svelte', {
 vim.lsp.enable('svelte')
 -- vim.lsp.enable("ts_ls")
 -- vim.lsp.enable('harper_ls') -- For Language Checking
+
+vim.lsp.enable("clangd")
+vim.lsp.enable("zls")
