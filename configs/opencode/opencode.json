@@ -1,21 +1,40 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "lsp": true,
+  "share": "manual",
+  "autoupdate": "notify",
+  "snapshot": true,
+  "formatter": true,
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "tail_turns": 12
+  },
+  "tool_output": {
+    "max_lines": 1000,
+    "max_bytes": 32768
+  },
   "permission": {
-    "edit" : "ask",
+    "edit": "ask",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
     "bash": {
       "*": "ask",
-      "git *": "allow",
-      "npm *": "allow",
       "rm *": "deny",
-      "grep *": "allow"
-    },
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow"
+    }
   },
   "mcp": {
-      "mobbin-mcp-server": {
-          "type": "remote",
-          "url": "https://api.mobbin.com/mcp",
-          "enabled": true
-      },
-  },
+    "mobbin-mcp-server": {
+      "type": "remote",
+      "url": "https://api.mobbin.com/mcp",
+      "enabled": true
+    }
+  }
 }
