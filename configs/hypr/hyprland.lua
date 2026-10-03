@@ -45,9 +45,9 @@ for i = 1, 11, 1 do
     if i % 2 == 0 then
         hl.workspace_rule({ workspace = tostring(i), monitor = "DP-3" });
         goto continue
-    elseif i % 3 == 0 then
-        hl.workspace_rule({ workspace = tostring(i), monitor = "HDMI-A-1" });
-        goto continue
+    -- elseif i % 3 == 0 then
+    --     hl.workspace_rule({ workspace = tostring(i), monitor = "HDMI-A-1" });
+    --     goto continue
     end
     hl.workspace_rule({ workspace = tostring(i), monitor = "eDP-1" });
     ::continue::
