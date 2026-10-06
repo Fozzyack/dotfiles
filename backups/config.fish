@@ -2,10 +2,9 @@ if status is-interactive # Commands to run in interactive sessions can go here
 end
 
 # Adding to the path
-export PATH="$PATH:/home/fozzyack/.dotnet/tools"
 export PATH="$PATH:$(go env GOPATH)/bin"
-export PATH="$PATH:/home/fozzyack/.runnables/zen"
-export PATH="$PATH:/home/fozzyack/.config/emacs/bin"
+export PATH="$PATH:$HOME/.runnables/zen"
+export PATH="$HOME/.local/zig/0.17.0:$PATH" # Remove this when pacman gets new zig version
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
