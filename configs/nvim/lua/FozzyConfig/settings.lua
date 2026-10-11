@@ -4,9 +4,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.smartindent = true
 
-
-
-
 vim.opt.mouse = 'a'
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -37,7 +34,7 @@ vim.g.default_terminal = "tmux-256color"
 vim.opt.guicursor = table.concat({
     "n:block-Cursor",     -- normal
     "v:block-Cursor",     -- visual
-    "i:hor25-Cursor",     -- insert
+    "i:ver25-Cursor",     -- insert
     "c:hor20-Cursor",     -- command-line
     "r:ver25-Cursor",     -- replace
     "cr:ver25-Cursor",    -- command-line replace
