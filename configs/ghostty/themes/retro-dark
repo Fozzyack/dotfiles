@@ -1,16 +1,16 @@
-# Retro dark palette, mirrored from wezterm.lua
+# Retro dark palette from wezterm.lua, with a deeper charcoal background
 # charcoal, burnt orange, teal, and warm cream
 
-background = #090d0e
+background = #040607
 foreground = #e5d5b7
 cursor-color = #ff851b
-cursor-text = #090d0e
+cursor-text = #040607
 selection-background = #315653
 selection-foreground = #fff0d5
 
-# Match WezTerm's teal pane separators and charcoal inactive-pane tint.
+# Match WezTerm's teal pane separators; dim inactive panes with the background.
 split-divider-color = #66b2a5
-unfocused-split-fill = #090d0e
+unfocused-split-fill = #040607
 
 # ANSI: black, red, green, yellow, blue, magenta, cyan, white
 palette = 0=#202829
