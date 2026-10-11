@@ -1,0 +1,29 @@
+# Retro dark palette, mirrored from wezterm.lua
+# charcoal, burnt orange, teal, and warm cream
+
+background = #090d0e
+foreground = #e5d5b7
+cursor-color = #ff851b
+cursor-text = #090d0e
+selection-background = #315653
+selection-foreground = #fff0d5
+
+# ANSI: black, red, green, yellow, blue, magenta, cyan, white
+palette = 0=#202829
+palette = 1=#cf6b56
+palette = 2=#8fa878
+palette = 3=#e88728
+palette = 4=#6f9fa6
+palette = 5=#b58b95
+palette = 6=#58a99b
+palette = 7=#d8c9ad
+
+# Brights
+palette = 8=#64736e
+palette = 9=#ed8b6f
+palette = 10=#b0c795
+palette = 11=#ff9b38
+palette = 12=#93bec4
+palette = 13=#d3abb5
+palette = 14=#86d1bf
+palette = 15=#fff0d5

@@ -1,5 +1,27 @@
-theme = Deep
-background-opacity = 0.8
+# Keep the charcoal, orange, teal, and cream palette.
+theme = retro-dark
+
+# Classic terminal-style type with Nerd Font icons and extra leading.
+# font-family = Terminess Nerd Font Mono
+# font-size = 15
+# adjust-cell-height = 8%
+
+# Frosted glass without washing out the text.
+background-opacity = 0.9
 background-blur = true
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+window-theme = dark
+gtk-titlebar = false
+
+# Calm cursor and less visual noise.
+cursor-style = bar
+cursor-style-blink = false
+mouse-hide-while-typing = true
+unfocused-split-opacity = 0.85
+resize-overlay = never
+
+# Existing shell behavior.
 keybind = shift+enter=text:\n
 shell-integration = fish
