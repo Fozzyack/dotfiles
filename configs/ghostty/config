@@ -4,8 +4,8 @@ theme = retro-dark
 # Keep theme colours exact rather than adjusting low-contrast text.
 minimum-contrast = 1
 
-# Classic terminal-style type with Nerd Font icons and extra leading.
-# font-family = Terminess Nerd Font Mono
+# Retro monospace type with Nerd Font icons.
+font-family = Terminess Nerd Font Mono
 # font-size = 15
 # adjust-cell-height = 8%
 

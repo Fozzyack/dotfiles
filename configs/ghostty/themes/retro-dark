@@ -2,11 +2,11 @@
 # charcoal, burnt orange, teal, and warm cream
 
 background = #040607
-foreground = #e5d5b7
+foreground = #e8d3a2
 cursor-color = #ff851b
 cursor-text = #040607
 selection-background = #315653
-selection-foreground = #fff0d5
+selection-foreground = #fff0c7
 
 # Match WezTerm's teal pane separators; dim inactive panes with the background.
 split-divider-color = #66b2a5
@@ -20,7 +20,7 @@ palette = 3=#e88728
 palette = 4=#6f9fa6
 palette = 5=#b58b95
 palette = 6=#58a99b
-palette = 7=#d8c9ad
+palette = 7=#dcc89f
 
 # Brights
 palette = 8=#64736e
@@ -30,4 +30,4 @@ palette = 11=#ff9b38
 palette = 12=#93bec4
 palette = 13=#d3abb5
 palette = 14=#86d1bf
-palette = 15=#fff0d5
+palette = 15=#fff0c7
