@@ -401,3 +401,5 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+ hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")

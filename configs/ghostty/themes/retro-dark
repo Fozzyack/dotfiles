@@ -8,6 +8,10 @@ cursor-text = #090d0e
 selection-background = #315653
 selection-foreground = #fff0d5
 
+# Match WezTerm's teal pane separators and charcoal inactive-pane tint.
+split-divider-color = #66b2a5
+unfocused-split-fill = #090d0e
+
 # ANSI: black, red, green, yellow, blue, magenta, cyan, white
 palette = 0=#202829
 palette = 1=#cf6b56

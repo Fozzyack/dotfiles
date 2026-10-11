@@ -1,14 +1,19 @@
 # Keep the charcoal, orange, teal, and cream palette.
 theme = retro-dark
 
+# Keep theme colours exact rather than adjusting low-contrast text.
+minimum-contrast = 1
+
 # Classic terminal-style type with Nerd Font icons and extra leading.
 # font-family = Terminess Nerd Font Mono
 # font-size = 15
 # adjust-cell-height = 8%
 
 # Frosted glass without washing out the text.
-background-opacity = 0.9
-background-blur = true
+background-opacity = 0.88
+# Keep explicit cell backgrounds opaque, like WezTerm's text_background_opacity.
+background-opacity-cells = false
+background-blur = 100
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
