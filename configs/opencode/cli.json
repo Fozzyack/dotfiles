@@ -5,7 +5,8 @@
       "agent.cycle": "tab"
   },
   "theme": {
-    "name": "system"
+    "name": "retro-dark",
+    "mode": "dark"
   },
   "diffs": {
     "wrap": "word"
