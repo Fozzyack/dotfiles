@@ -10,7 +10,7 @@ minimum-contrast = 1
 # adjust-cell-height = 8%
 
 # Frosted glass without washing out the text.
-background-opacity = 0.85
+background-opacity = 0.83
 # Keep explicit cell backgrounds opaque, like WezTerm's text_background_opacity.
 background-opacity-cells = false
 background-blur = true
