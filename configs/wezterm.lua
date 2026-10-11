@@ -2,6 +2,7 @@ local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 local act = wezterm.action
 
+-- Note: This is mainly used for my windows config
 -- Windows host, WSL shell. Keep your existing font and launch behavior.
 config.default_prog = { "wsl.exe", "~" }
 config.font = wezterm.font "Hurmit Nerd Font"
