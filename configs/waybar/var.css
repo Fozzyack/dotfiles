@@ -1,4 +1,4 @@
-/* Retro dark palette shared with Ghostty, WezTerm, and Starship. */
+/* WezTerm / Starship base palette; Ghostty's deeper charcoal for the glass. */
 @define-color base #090d0e;
 @define-color mantle #060909;
 @define-color surface #2b3e3e;
@@ -18,5 +18,4 @@
 @define-color success #8fa878;
 
 /* Dark glass, kept opaque enough for legible text over wallpapers. */
-@define-color panel rgba(6, 9, 9, 0.94);
-@define-color shadow rgba(4, 6, 7, 0.65);
+@define-color panel rgba(4, 6, 7, 0.92);

@@ -1,131 +1,158 @@
 {
+  // Retro console: navigation / telemetry | local clock | hardware / tray.
   "layer": "top",
   "position": "top",
-  "height": 40,
-  "margin-top": 6,
+  "height": 42,
+  "margin-top": 8,
   "margin-left": 10,
   "margin-right": 10,
-  "margin-bottom": 0,
-  "spacing" : 0,
+  "margin-bottom": 2,
+  "spacing": 0,
+  "reload_style_on_change": true,
+
   "modules-left": [
-  "hyprland/workspaces",
-  "custom/uptime",
-  "cpu"
+    "custom/launcher",
+    "hyprland/workspaces",
+    "custom/uptime",
+    "cpu",
+    "memory"
   ],
-
   "modules-center": ["clock"],
-
   "modules-right": [
+    "idle_inhibitor",
     "bluetooth",
     "network",
-    "pulseaudio", 
+    "pulseaudio",
     "backlight",
     "battery",
+    "tray"
   ],
 
+  "custom/launcher": {
+    "format": "❯ SYS",
+    "tooltip-format": "SYSTEM CONSOLE\nLeft: application launcher\nRight: Ghostty terminal",
+    "on-click": "rofi -show combi",
+    "on-click-right": "ghostty"
+  },
+
   "hyprland/workspaces": {
-    "format": "{name}"
+    "format": "{name}",
+    "all-outputs": false,
+    "sort-by": "number"
   },
 
-  "bluetooth": {
-    "format": "󰂲",
-    "format-on": "{icon}",
-    "format-off": "{icon}", 
-    "format-connected":"{icon}",
-    "format-icons":{
-        "on":"󰂯",
-        "off": "󰂲",
-        "connected": "󰂱",
-        },
-    "on-click": "blueman-manager",
-    "tooltip-format-connected":"{device_enumerate}"
+  "custom/uptime": {
+    "format": "UP {}",
+    "exec": "awk '{d=int($1/86400); h=int($1/3600)%24; m=int($1/60)%60; if (d>0) printf \"%dd %02dh\\n\",d,h; else printf \"%02dh %02dm\\n\",h,m}' /proc/uptime",
+    "interval": 60,
+    "tooltip-format": "SYSTEM UPTIME\nTime since boot"
   },
 
-  "custom/music": {
-    "format": "  {}",
-    "escape": true,
+  "cpu": {
+    "interval": 3,
+    "format": "CPU {icon} {usage:2}%",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "states": {"warning": 75, "critical": 90},
+    "on-click": "ghostty -e btop"
+  },
+
+  "memory": {
     "interval": 5,
-    "tooltip": false,
-    "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
-    "on-click": "playerctl play-pause",
-    "max-length": 50
+    "format": "RAM {percentage:2}%",
+    "tooltip-format": "MEMORY\n{used:0.1f} GiB used / {total:0.1f} GiB total\nClick: system monitor",
+    "states": {"warning": 80, "critical": 95},
+    "on-click": "ghostty -e btop"
   },
 
   "clock": {
     "timezone": "Australia/Perth",
-    "tooltip": false,
+    "interval": 1,
     "format": "{:%H:%M:%S  ·  %a %d %b}",
-    "interval": 1
+    "format-alt": "{:%Y-%m-%d  ·  %H:%M:%S}",
+    "tooltip-format": "<b>{:%B %Y} · PERTH</b>\n\n<tt>{calendar}</tt>\nLeft: date format · Right: month/year\nScroll: browse calendar",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ff851b'><b>{}</b></span>",
+        "weekdays": "<span color='#66b2a5'>{}</span>",
+        "today": "<span color='#ff851b'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {"activated": "󰅶", "deactivated": "󰾪"},
+    "tooltip-format-activated": "KEEP AWAKE: ON\nClick to allow idle sleep / locking",
+    "tooltip-format-deactivated": "KEEP AWAKE: OFF\nClick to inhibit idle sleep / locking"
+  },
+
+  "bluetooth": {
+    "format": "󰂲",
+    "format-on": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": "BLUETOOTH · {status}\nClick: Bluetooth manager",
+    "tooltip-format-connected": "BLUETOOTH · {num_connections} connected\n{device_enumerate}",
+    "on-click": "if command -v blueman-manager >/dev/null 2>&1; then blueman-manager; else ghostty -e bluetoothctl; fi"
   },
 
   "network": {
-    "format-wifi": "󰤢",
-    "format-ethernet": "󰈀 ",
-    "format-disconnected": "󰤠 ",
+    "format-wifi": "{icon} {signalStrength}%",
+    "format-ethernet": "󰈀 LAN",
+    "format-linked": "󰈀 LINK",
+    "format-disconnected": "󰤠 OFF",
+    "format-disabled": "󰤭 OFF",
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
     "interval": 5,
-    "tooltip-format": "{essid} ({signalStrength}%)",
+    "tooltip-format": "NETWORK · {ifname}\n{ipaddr}",
+    "tooltip-format-wifi": "WLAN · {essid}\n{ipaddr} · {signalStrength}%\n↓ {bandwidthDownBytes}  ↑ {bandwidthUpBytes}\nClick: connection editor",
+    "tooltip-format-ethernet": "LAN · {ifname}\n{ipaddr}\n↓ {bandwidthDownBytes}  ↑ {bandwidthUpBytes}\nClick: connection editor",
+    "tooltip-format-disconnected": "NETWORK OFFLINE\nClick: connection editor",
+    "tooltip-format-disabled": "WIRELESS DISABLED\nClick: connection editor",
     "on-click": "nm-connection-editor"
-
- },
-
-  "cpu": {
-    "interval": 1,
-    "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "on-click": "ghostty -e htop"
   },
 
-  "memory": {
-    "interval": 30,
-    "format": "  {used:0.1f}G/{total:0.1f}G",
-    "tooltip-format": "Memory"
-  },
-
-  "custom/uptime": {
-    "format": "{}",
-    "format-icon": [""], 
-    "tooltip": false,
-    "interval": 1600,
-    "exec": "$HOME/.config/waybar/scripts/uptime.sh"
-  },
-  
-  "backlight": {
-        "format": "{icon}  {percent}%",
-        "format-icons": ["","󰃜", "󰃛", "󰃞","󰃝","󰃟","󰃠"],
-        "tooltip": false
-  },
-  
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "default": ["", "", " "]
-    },
-    "on-click": "pavucontrol"
+    "format": "{icon} {volume}%",
+    "format-muted": " MUTE",
+    "format-icons": {"default": ["", "", ""]},
+    "scroll-step": 2,
+    "max-volume": 100,
+    "tooltip-format": "AUDIO · {desc}\nLeft: mixer · Right: mute\nScroll: volume",
+    "on-click": "if command -v pavucontrol >/dev/null 2>&1; then pavucontrol; else ghostty -e alsamixer -D pulse; fi",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  },
+
+  "backlight": {
+    "format": "󰃠 {percent}%",
+    "tooltip-format": "DISPLAY · {percent}%\nScroll: brightness",
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl --min-value=1 set 5%-"
   },
 
   "battery": {
-        "interval":2,
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-full": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-  },
-  
-  "custom/lock": {
-  "tooltip": false,
-  "on-click": "sh -c '(sleep 0s; hyprlock)' & disown",
-  "format" : ""
+    "interval": 10,
+    "states": {"warning": 30, "critical": 15},
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} FULL",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "tooltip-format": "BATTERY · {capacity}%\n{timeTo}\nClick: remaining time",
+    "format-icons": ["", "", "", "", ""]
   },
 
-
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
 }

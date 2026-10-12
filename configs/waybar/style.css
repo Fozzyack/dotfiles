@@ -1,157 +1,134 @@
 @import "./var.css";
 
-/* Pixel-like terminal lettering; the same primary font as Ghostty/WezTerm. */
+/* Terminess matches the pixel-like lettering in Ghostty and WezTerm.
+ * Waybar uses GTK3 CSS: keep the panel effects native to GTK. */
 * {
-  font-family: 'Terminess Nerd Font Mono', 'JetBrainsMono Nerd Font', 'NotoSans Nerd Font', monospace;
+  font-family: 'Terminess Nerd Font Mono', 'JetBrainsMono Nerd Font', monospace;
   font-size: 16px;
   font-weight: normal;
   min-height: 0;
-  padding: 0;
   border: none;
+  border-radius: 0;
+  padding: 0;
   text-shadow: none;
 }
 
+/* One muted teal frame around the smoked-glass panel. */
 window#waybar {
-  background: transparent;
+  background: @panel;
   color: @text-primary;
+  border: 1px solid @surface;
+  border-radius: 2px;
+  box-shadow: none;
 }
 
-/* Three compact console housings, rather than soft rounded pills.
- * Frame the containers so hidden hardware modules never leave square ends. */
 .modules-left,
 .modules-center,
 .modules-right {
-  background: @panel;
-  border: 1px solid @surface;
-  border-radius: 3px;
-  box-shadow: 0 3px 0 @shadow;
-  margin: 3px 0 5px;
-  padding: 2px;
+  margin: 5px;
 }
 
-.modules-left,
-.modules-right {
-  border-top-color: @teal;
+/* Muted teal command key; flat workspace highlights inside the outer frame. */
+#custom-launcher {
+  background: @surface;
+  color: @text-primary;
+  padding: 0 10px;
+  margin-right: 8px;
 }
 
-.modules-center {
-  background-image: linear-gradient(to bottom, @accent-soft, transparent);
-  border-color: @accent-border;
-  border-top-color: @accent;
+#custom-launcher:hover {
+  background: @surface-hover;
 }
 
-/* Numbered workspace keycaps: orange is the selected key, teal is hover. */
 #workspaces {
-  padding: 0;
-  margin-right: 2px;
+  margin-right: 6px;
 }
 
 #workspaces button {
   color: @text-muted;
   background: transparent;
-  border: 1px solid transparent;
-  border-radius: 2px;
   min-width: 22px;
-  padding: 1px 6px;
-  margin-right: 2px;
+  padding: 0 5px;
+  margin-right: 3px;
   box-shadow: none;
   outline: none;
-  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+  transition: background-color 120ms ease, color 120ms ease;
 }
 
-#workspaces button.empty {
-  color: @text-muted;
+#workspaces button.visible {
+  color: @teal;
 }
 
 #workspaces button.active {
   color: @mantle;
   background: @accent;
-  border-color: @accent;
 }
 
 #workspaces button:hover {
   color: @text-primary;
-  background: @surface;
-  border-color: @teal;
-}
-
-#workspaces button.active:hover {
-  color: @mantle;
-  background: @burnt-orange;
-  border-color: @accent;
+  background: @surface-hover;
 }
 
 #workspaces button.urgent {
   color: @mantle;
   background: @error;
-  border-color: @error;
 }
 
-/* Inset readouts and thin dividers inside the left/right housings. */
+/* Spacing separates the readouts without additional frames or dividers. */
 #custom-uptime,
 #cpu,
 #memory,
-#custom-music,
+#idle_inhibitor,
 #bluetooth,
+#network,
 #pulseaudio,
 #backlight,
-#network,
-#custom-lock,
 #battery {
-  background: transparent;
-  padding: 0 10px;
-  margin: 0;
-  border-left: 1px solid @surface;
-  border-radius: 0;
-  min-width: 0;
+  padding: 0 9px;
   transition: background-color 120ms ease, color 120ms ease;
 }
 
-#custom-uptime:hover,
 #cpu:hover,
 #memory:hover,
-#custom-music:hover,
+#idle_inhibitor:hover,
 #bluetooth:hover,
+#network:hover,
 #pulseaudio:hover,
 #backlight:hover,
-#network:hover,
-#custom-lock:hover,
 #battery:hover {
   background: @teal-soft;
 }
 
-#bluetooth {
-  border-left: none;
-}
-
-#custom-uptime,
-#custom-lock {
+#custom-uptime {
   color: @text-muted;
 }
 
-#cpu {
+#cpu,
+#network,
+#bluetooth.connected {
   color: @teal;
 }
 
-/* The amber clock is the focal readout of the panel. */
-#clock {
-  color: @accent;
-  padding: 0 14px;
-  border-radius: 2px;
-  transition: background-color 120ms ease;
-}
-
-#clock:hover {
-  background: @accent-soft;
-}
-
+#memory,
 #pulseaudio,
 #backlight,
-#memory,
-#custom-music {
+#battery {
   color: @text-primary;
 }
 
+/* Unboxed amber clock. The fixed-width font keeps seconds steady. */
+#clock {
+  background: transparent;
+  color: @accent;
+  padding: 0 14px;
+  font-feature-settings: "tnum";
+}
+
+#clock:hover {
+  background-color: @surface;
+}
+
+#idle_inhibitor.deactivated,
 #bluetooth,
 #bluetooth.off,
 #bluetooth.disabled,
@@ -159,18 +136,25 @@ window#waybar {
   color: @text-muted;
 }
 
-#bluetooth.on,
-#bluetooth.connected,
-#network {
+#bluetooth.on {
   color: @teal;
 }
 
-#network.disconnected {
+#idle_inhibitor.activated {
+  color: @mantle;
+  background: @accent;
+}
+
+#network.disconnected,
+#network.disabled {
   color: @error;
 }
 
-#battery {
-  color: @text-primary;
+#network.linked,
+#cpu.warning,
+#memory.warning,
+#battery.warning:not(.charging):not(.plugged) {
+  color: @warning;
 }
 
 #battery.charging,
@@ -182,27 +166,46 @@ window#waybar {
   color: @success;
 }
 
-#battery.warning:not(.charging):not(.plugged) {
-  color: @warning;
-}
-
+#cpu.critical,
+#memory.critical,
 #battery.critical:not(.charging):not(.plugged) {
   color: @mantle;
   background: @error;
-  border-radius: 2px;
 }
 
-/* Matching dark tooltip cards, without glow or flashing alerts. */
-tooltip {
+#tray {
+  padding: 0 6px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  background: @accent-soft;
+  box-shadow: inset 0 -2px 0 @accent;
+}
+
+/* Calendar and device cards share the console's squared-off frame. */
+tooltip,
+menu {
   background: @mantle;
   color: @text-primary;
-  padding: 8px 12px;
-  border-radius: 3px;
   border: 1px solid @surface;
   border-top-color: @teal;
-  box-shadow: 0 3px 0 @shadow;
+  border-radius: 2px;
 }
 
 tooltip label {
   color: @text-primary;
+  padding: 8px 12px;
+}
+
+menuitem {
+  padding: 5px 10px;
+}
+
+menuitem:hover {
+  background: @surface;
+  color: @accent;
 }

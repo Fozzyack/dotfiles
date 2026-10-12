@@ -1,27 +1,26 @@
-/* Floating launcher styled to match the Waybar palette. */
+/* Retro console launcher, matching Ghostty, Starship, and Waybar. */
 
 configuration {
     modes: [combi];
     combi-modi: [drun, window, run, ssh];
-    display-combi: "";
+    display-combi: "❯ SYS";
     icon-theme: "Papirus";
     show-icons: true;
     drun-display-format: "{name}";
 }
 
 * {
-    background:         #11121AEF;
-    surface:            #1A1B26;
-    surface-hover:      #292A35;
-    accent:             #99D1DB;
-    accent-soft:        #99D1DB1A;
-    text:               #C6D0F5;
-    text-muted:         #838BA7;
-    border:             #99D1DB33;
+    background:         #040607F5;
+    surface:            #2b3e3e;
+    accent:             #ff851b;
+    teal:               #66b2a5;
+    text:               #e5d5b7;
+    text-muted:         #7c8b85;
+    error:              #cf6b56;
 
     background-color:   transparent;
     text-color:         @text;
-    font:               "Inter 12";
+    font:               "Terminess Nerd Font Mono 14";
 
     margin:             0px;
     padding:            0px;
@@ -31,41 +30,42 @@ configuration {
 window {
     location:           center;
     anchor:             center;
-    width:              560px;
+    width:              640px;
     border:             1px;
-    border-color:       @border;
-    border-radius:      14px;
+    border-color:       @surface;
+    border-radius:      2px;
     background-color:   @background;
 }
 
 mainbox {
-    padding:            16px;
-    spacing:            12px;
+    padding:            18px;
+    spacing:            14px;
+    children:           [inputbar, message, listview, textbox-hint];
 }
 
 inputbar {
-    padding:            11px 14px;
+    padding:            8px 10px;
     spacing:            12px;
-    border:             1px;
-    border-color:       @border;
-    border-radius:      9px;
-    background-color:   @surface;
+    border:             0px;
+    border-radius:      0px;
+    background-color:   transparent;
     children:           [prompt, entry];
 }
 
 prompt {
-    text-color:         @accent;
+    text-color:         @teal;
 }
 
 entry {
-    placeholder:        "Search apps, windows, and commands";
+    placeholder:        "Search apps, windows, commands, SSH...";
     placeholder-color:  @text-muted;
     text-color:         @text;
 }
 
 message {
     padding:            10px 14px;
-    border-radius:      9px;
+    border:             0px;
+    border-radius:      0px;
     background-color:   @surface;
 }
 
@@ -73,20 +73,30 @@ textbox {
     text-color:         @text-muted;
 }
 
+textbox-hint {
+    str:                "↑↓ select   ·   ↵ launch   ·   esc close";
+    expand:             false;
+    padding:            6px 10px 0px;
+    text-color:         @text-muted;
+    font:               "Terminess Nerd Font Mono 12";
+}
+
 listview {
+    border:             0px;
     lines:              7;
     columns:            1;
-    spacing:            5px;
-    fixed-height:       false;
+    spacing:            3px;
+    fixed-height:       true;
     scrollbar:          false;
     cycle:              true;
-    dynamic:            true;
+    dynamic:            false;
 }
 
 element {
-    padding:            9px 12px;
+    padding:            10px 12px;
     spacing:            12px;
-    border-radius:      8px;
+    border:             0px;
+    border-radius:      0px;
     background-color:   transparent;
     children:           [element-icon, element-text];
 }
@@ -100,24 +110,28 @@ element alternate normal {
 element normal active,
 element alternate active {
     background-color:   transparent;
-    text-color:         @accent;
+    text-color:         @teal;
 }
 
 element normal urgent,
 element alternate urgent {
     background-color:   transparent;
-    text-color:         #E78284;
+    text-color:         @error;
 }
 
 element selected normal,
-element selected active,
-element selected urgent {
-    background-color:   @accent-soft;
+element selected active {
+    background-color:   @surface;
     text-color:         @accent;
 }
 
+element selected urgent {
+    background-color:   @surface;
+    text-color:         @error;
+}
+
 element-icon {
-    size:               24px;
+    size:               22px;
     background-color:   transparent;
 }
 
