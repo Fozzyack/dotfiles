@@ -1,15 +1,22 @@
-@define-color text-primary #c6d0f5;
-@define-color surface #1a1b26;
-@define-color surface-hover rgb(41, 42, 53);
-@define-color text-muted #babbf1;
-@define-color accent #99d1db;
-@define-color accent-soft rgba(153, 209, 219, 0.1);
-@define-color accent-strong rgba(153, 209, 219, 0.2);
-@define-color warning #e78284;
-@define-color bluetooth-muted #888888;
-@define-color bluetooth-active #2196f3;
-@define-color success #a6d189;
-@define-color tooltip-text #dddddd;
-@define-color tooltip-border rgba(255, 255, 255, 0.1);
-@define-color soft rgba(0, 0, 0, 0.1);
-@define-color strong rgba(0, 0, 0, 0.2);
+/* Retro dark palette shared with Ghostty, WezTerm, and Starship. */
+@define-color base #090d0e;
+@define-color mantle #060909;
+@define-color surface #2b3e3e;
+@define-color surface-hover #315653;
+@define-color text-primary #e5d5b7;
+@define-color text-muted #7c8b85;
+
+/* Orange keycaps and teal instrument-panel trim. */
+@define-color accent #ff851b;
+@define-color burnt-orange #e88728;
+@define-color accent-soft rgba(232, 135, 40, 0.12);
+@define-color accent-border rgba(232, 135, 40, 0.55);
+@define-color teal #66b2a5;
+@define-color teal-soft rgba(102, 178, 165, 0.12);
+@define-color warning #e88728;
+@define-color error #cf6b56;
+@define-color success #8fa878;
+
+/* Dark glass, kept opaque enough for legible text over wallpapers. */
+@define-color panel rgba(6, 9, 9, 0.94);
+@define-color shadow rgba(4, 6, 7, 0.65);

@@ -1,7 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  "margin-bottom": -10,
+  "height": 40,
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-bottom": 0,
   "spacing" : 0,
   "modules-left": [
   "hyprland/workspaces",
@@ -20,11 +24,7 @@
   ],
 
   "hyprland/workspaces": {
-    "format": "{name}: {icon}",
-    "format-icons": {
-      "active": "",
-      "default": ""
-    }
+    "format": "{name}"
   },
 
   "bluetooth": {
@@ -54,7 +54,7 @@
   "clock": {
     "timezone": "Australia/Perth",
     "tooltip": false,
-    "format": "{:%H:%M:%S  -  %A, %d}",
+    "format": "{:%H:%M:%S  ·  %a %d %b}",
     "interval": 1
   },
 
@@ -129,4 +129,3 @@
 
 
 }
-

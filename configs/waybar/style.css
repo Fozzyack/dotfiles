@@ -1,189 +1,208 @@
 @import "./var.css";
 
-/* --- Global Styles --- */
+/* Pixel-like terminal lettering; the same primary font as Ghostty/WezTerm. */
 * {
-  font-family: 'SF Pro Text', 'Inter', 'Segoe UI, NotoSans Nerd Font', sans-serif;
-  font-size: 13px;
+  font-family: 'Terminess Nerd Font Mono', 'JetBrainsMono Nerd Font', 'NotoSans Nerd Font', monospace;
+  font-size: 16px;
+  font-weight: normal;
   min-height: 0;
-  padding-right: 0px;
-  padding-left: 0px;
-  padding-bottom: 2px;
+  padding: 0;
+  border: none;
+  text-shadow: none;
 }
 
-/* --- Waybar Container --- */
-#waybar {
+window#waybar {
   background: transparent;
   color: @text-primary;
-  margin: 0px;
-  font-weight: 500;
 }
 
-/* --- Left Modules (Individual, Fully Rounded Blocks - With Horizontal Spacing & Simple Hover) --- */
-#workspaces,
-#custom-uptime,
-#cpu {
-  background-color: @surface;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
-  border-radius: 6px; /* These modules are always rounded */
-  box-shadow: 0 1px 3px @soft;
-  min-width: 0;
-  border: none;
-  /* Transition for background-color and color only */
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-#workspaces {
+/* Three compact console housings, rather than soft rounded pills.
+ * Frame the containers so hidden hardware modules never leave square ends. */
+.modules-left,
+.modules-center,
+.modules-right {
+  background: @panel;
+  border: 1px solid @surface;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 @shadow;
+  margin: 3px 0 5px;
   padding: 2px;
-  margin-left: 7px; /* Margin from the far left edge */
-  margin-right: 5px; /* Spacing after the workspaces module */
 }
 
-#custom-uptime {
-  margin-right: 5px; /* Spacing after the uptime module */
+.modules-left,
+.modules-right {
+  border-top-color: @teal;
 }
 
-/* Simple Hover effects for individual left modules - BRIGHTER COLOR */
-#custom-uptime:hover,
-#cpu:hover {
-  background-color: @surface-hover; /* Brighter highlight */
+.modules-center {
+  background-image: linear-gradient(to bottom, @accent-soft, transparent);
+  border-color: @accent-border;
+  border-top-color: @accent;
+}
+
+/* Numbered workspace keycaps: orange is the selected key, teal is hover. */
+#workspaces {
+  padding: 0;
+  margin-right: 2px;
 }
 
 #workspaces button {
   color: @text-muted;
-  border-radius: 5px; /* Workspaces buttons are always rounded */
-  padding: 0.3rem 0.6rem;
   background: transparent;
-  transition: all 0.2s ease-in-out;
-  border: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  min-width: 22px;
+  padding: 1px 6px;
+  margin-right: 2px;
+  box-shadow: none;
   outline: none;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+#workspaces button.empty {
+  color: @text-muted;
 }
 
 #workspaces button.active {
-  color: @accent;
-  background-color: @accent-soft;
-  box-shadow: inset 0 0 0 1px @accent-strong;
+  color: @mantle;
+  background: @accent;
+  border-color: @accent;
 }
 
 #workspaces button:hover {
-  background: @surface-hover; /* Reference bright hover color */
   color: @text-primary;
+  background: @surface;
+  border-color: @teal;
 }
 
-/* --- Center Module (Individual, Fully Rounded Block - With Simple Hover) --- */
-#clock {
-  background-color: @surface;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px;
-  border-radius: 6px; /* This module is always rounded */
-  box-shadow: 0 1px 3px @accent-strong;
-  min-width: 0;
-  border: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+#workspaces button.active:hover {
+  color: @mantle;
+  background: @burnt-orange;
+  border-color: @accent;
 }
 
-/* Simple Hover effect for clock module - BRIGHTER COLOR */
-#clock:hover {
-  background-color: @accent-soft; /* Brighter highlight */
+#workspaces button.urgent {
+  color: @mantle;
+  background: @error;
+  border-color: @error;
 }
 
-/* --- Right Modules (Single, Seamless Bar ) --- */
+/* Inset readouts and thin dividers inside the left/right housings. */
+#custom-uptime,
+#cpu,
+#memory,
+#custom-music,
 #bluetooth,
 #pulseaudio,
 #backlight,
 #network,
 #custom-lock,
 #battery {
-  background-color: @surface;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px; 
+  background: transparent;
+  padding: 0 10px;
+  margin: 0;
+  border-left: 1px solid @surface;
   border-radius: 0;
-  box-shadow: none;
   min-width: 0;
-  border: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 120ms ease, color 120ms ease;
 }
 
+#custom-uptime:hover,
+#cpu:hover,
+#memory:hover,
+#custom-music:hover,
 #bluetooth:hover,
 #pulseaudio:hover,
 #backlight:hover,
 #network:hover,
 #custom-lock:hover,
 #battery:hover {
-  background-color: @surface-hover;
+  background: @teal-soft;
 }
 
 #bluetooth {
-  margin-left: 0px; 
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  border-left: none;
 }
 
-#battery {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  margin-right: 7px;
-}
-
-#custom-uptime {
-  color: @text-muted;
-}
-#cpu {
-  color: @text-primary;
-}
-
-#clock {
-  color: @accent;
-  font-weight: 500;
-}
-
-#pulseaudio {
-  color: @text-primary;
-}
-#backlight {
-  color: @text-primary;
-}
-
-#network {
-  color: @text-primary;
-}
-
-#network.disconnected {
-  color: @warning;
-}
-
+#custom-uptime,
 #custom-lock {
   color: @text-muted;
 }
-#bluetooth {
-  color: @bluetooth-muted;
-  font-size: 16px;
+
+#cpu {
+  color: @teal;
 }
-#bluetooth.on {
-  color: @bluetooth-active;
-}
-#bluetooth.connected {
+
+/* The amber clock is the focal readout of the panel. */
+#clock {
   color: @accent;
+  padding: 0 14px;
+  border-radius: 2px;
+  transition: background-color 120ms ease;
 }
+
+#clock:hover {
+  background: @accent-soft;
+}
+
+#pulseaudio,
+#backlight,
+#memory,
+#custom-music {
+  color: @text-primary;
+}
+
+#bluetooth,
+#bluetooth.off,
+#bluetooth.disabled,
+#pulseaudio.muted {
+  color: @text-muted;
+}
+
+#bluetooth.on,
+#bluetooth.connected,
+#network {
+  color: @teal;
+}
+
+#network.disconnected {
+  color: @error;
+}
+
 #battery {
-  color: @accent;
+  color: @text-primary;
 }
-#battery.charging {
+
+#battery.charging,
+#battery.plugged {
+  color: @teal;
+}
+
+#battery.full {
   color: @success;
 }
-#battery.warning:not(.charging) {
+
+#battery.warning:not(.charging):not(.plugged) {
   color: @warning;
 }
 
-/* --- Tooltip Styles --- */
-tooltip {
-  background-color: @surface;
-  color: @tooltip-text;
-  padding: 5px 12px;
-  margin: 5px 0px;
-  border-radius: 6px;
-  border: 1px solid @tooltip-border;
-  box-shadow: 0 4px 12px @strong;
-  font-size: 12px;
+#battery.critical:not(.charging):not(.plugged) {
+  color: @mantle;
+  background: @error;
+  border-radius: 2px;
 }
 
+/* Matching dark tooltip cards, without glow or flashing alerts. */
+tooltip {
+  background: @mantle;
+  color: @text-primary;
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: 1px solid @surface;
+  border-top-color: @teal;
+  box-shadow: 0 3px 0 @shadow;
+}
+
+tooltip label {
+  color: @text-primary;
+}
