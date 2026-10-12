@@ -8,3 +8,4 @@ SETUVAR _fisher_plugins:jorgebucaran/fisher\x1epatrickf1/fzf\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_complete_path:/home/fozzyack/\x2econfig/fish/completions\x1e/etc/fish/completions\x1e/home/fozzyack/\x2elocal/share/fish/vendor_completions\x2ed\x1e/usr/share/fish/vendor_completions\x2ed\x1e/home/fozzyack/\x2ecache/fish/generated_completions\x1e/usr/share/fzf
 SETUVAR fish_function_path:/home/fozzyack/\x2econfig/fish/functions\x1e/etc/fish/functions\x1e/home/fozzyack/\x2elocal/share/fish/vendor_functions\x2ed\x1e/usr/share/fish/vendor_functions\x2ed\x1e/usr/share/fzf
+SETUVAR fish_user_paths:/home/fozzyack/\x2eopencode/bin

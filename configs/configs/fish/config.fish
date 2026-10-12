@@ -88,3 +88,6 @@ alias gbb="gb branch"
 
 
 # ALIASES END ----------------
+
+# opencode
+fish_add_path /home/fozzyack/.opencode/bin
