@@ -10,7 +10,7 @@ configuration {
 }
 
 * {
-    background:         #040607F5;
+    background:         #040607D9;
     surface:            #2b3e3e;
     accent:             #ff851b;
     teal:               #66b2a5;
