@@ -5,6 +5,7 @@ end
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.runnables/zen"
 export PATH="$HOME/.local/zig/0.17.0:$PATH" # Remove this when pacman gets new zig version
+export EDITOR=nvim
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
