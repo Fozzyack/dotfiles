@@ -1,105 +1,103 @@
- 
 # My Arch Linux Dotfiles
 
-Contains my Hyprland, alacritty, ghostty, tmux and neovim dotfiles. (Any many more!)
+My personal Arch Linux setup, with dotfiles for Hyprland, Alacritty, Ghostty, WezTerm, tmux, Neovim, Fish, and more.
 
-Just a collection of the dotfiles I use to personalise my setup / workflow. All this does is create dotfiles then
-creates symbolic links for each in the appropriate spots.
+Configurations live in this repository and are symlinked into your home directory. Review them before installing: these are tailored to my setup and workflow.
 
-## Use 
+## Getting started
 
-### DOTMAN
-
-Adds DOTMAN. A little program that helps managing dotfiles. Has a UI for installing and uninstalling certain dotfiles.
-Can be found on the [dotman repository](https://github.com/Fozzyack/dotfile-manager).
-
-Simply:
 ```bash
-cd dotfiles
-./dotman
-
+git clone https://github.com/Fozzyack/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+mkdir -p ~/.config
+./temperz
 ```
 
-### NEW - FF
+Back up your existing configurations first. Keep this repository in place after installation, since the symlinks point to its files.
 
-Adds FF. A Fuzzy finder program to find any file.
-There is no install method implemented yet.
+## Temperz
 
-To test run:
+[Temperz](https://github.com/Fozzyack/temperz) is a small Zig CLI for managing dotfiles and development tools. A Linux x86-64 executable is included as `./temperz`; run it from this repository's root so it can find `configs/`.
 
+Its interactive terminal menu supports:
+
+- **Install configs:** Select individual configs or install all of them. Existing destination paths are skipped rather than overwritten.
+- **Remove configs:** Remove corresponding paths from your home directory without deleting the repository sources. Missing paths are skipped.
+- **Install dependencies:** Run individual commands or all commands from `configs/install.config`. Batch installation stops at the first failure.
+- **Pull updates:** Run `git pull` in the current repository.
+
+Type a menu number and press Enter. Empty input exits the main menu or processes all items in a config/dependency submenu. Set `NO_COLOR=1` to disable colors.
+
+> **Removal warning:** Temperz does not check whether a matching destination is a symlink before removing it. Review the selected paths carefully, especially if installation skipped an existing file.
+
+### Repository layout
+
+| Location | Purpose |
+| --- | --- |
+| `configs/configs/` | Files and directories linked into `~/.config/` |
+| `configs/home/` | Files and directories linked into `~/` |
+| `configs/install.config` | Dependency installation commands, one shell command per line |
+| `other-configs/` | Extra configurations for manual setup |
+
+Temperz preserves entry names; it does **not** add a leading dot. For example, `configs/home/wezterm.lua` becomes `~/wezterm.lua`, while `configs/configs/nvim/` becomes `~/.config/nvim/`.
+
+The dependency commands currently use `paru`, which must already be installed. Review `configs/install.config` before running it, and only use trusted commands.
+
+### Building Temperz from source
+
+If the bundled executable is unsuitable for your system, build it from the [Temperz repository](https://github.com/Fozzyack/temperz) with Zig:
+
+```bash
+git clone https://github.com/Fozzyack/temperz.git ~/temperz
+cd ~/temperz
+zig build
+cd ~/dotfiles
+~/temperz/zig-out/bin/temperz
 ```
-cd ff
-source ./ffcli -s
-```
 
-### NEW - DFILE
+## Setup notes
 
-Adds DFILE. A small program to display file information.
-There is no install method implemented yet.
+### tmux
 
-To test run:
+Install the tmux Plugin Manager (TPM):
 
-```
-cd dfile 
-./dfile /path/to/file/or/directory
-```
-
-#### Organisation for dotman usage -- IMPORTANT if using dotman
-
-- Folders present in ```configs/``` will be installed to ```$USER/.confg/...```.
-- Other files will be moved to ```$USER/...```
-    - The installer will put a `.` infront of the file so all files in your ```configs/``` folder SHOULD NOT BE HIDDEN.
-### TMUX setup
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-### OLD - Script Install
+### Hyprland wallpapers
 
-Once the repo is cloned make sure to run
+Edit `configs/configs/hypr/hyprpaper.conf` to match your monitor names and wallpaper paths. The referenced wallpapers under `~/wallpaper/` are not included in this repository.
 
-```  bash
-git clone https://github.com/Fozzyack/dotfiles.git 
-cd dotfiles 
-./scripts/install.sh 
+### Neovim
 
-```
+You may need to install language servers for the languages you use. In Neovim, run `:help lspconfig-all` for configuration guidance.
 
-### Note
+## Extra tools
 
-You may have to edit 
+### FF
+
+A fuzzy finder for files and directories. There is no automated installation method yet; run the included executable directly:
+
 ```bash
-~/dotfiles/config/hypr/hyprpaper.conf
+cd ~/dotfiles/ff
+./ffcli -s
 ```
-Might move wallpaper collection to my dotfiles in the future
 
-## Remove
+Shell wrappers are available in `ff/ff.sh` and `ff/ff.fish`.
 
-To remove run the 
+### DFILE
+
+A small tool for displaying file or directory information. There is no automated installation method yet:
+
 ```bash
-./scripts/uninstall.sh 
+cd ~/dotfiles/dfile
+./dfile /path/to/file/or/directory
 ```
 
-### Optionals
+## Legacy tools
 
-The above scripts will install all dotfiles. You may have to remove some depending on your use cases. For example this
-installs both alacritty and ghostty configs.
+- **DOTMAN:** The previous dotfile manager is available in the [dotfile-manager repository](https://github.com/Fozzyack/dotfile-manager). It is not bundled here; use Temperz for the current repository layout.
+- **Shell scripts:** `scripts/install.sh` and `scripts/uninstall.sh` are retained for reference. The installer still uses the old `~/dotfiles/configs/<app>` paths and is not compatible with the current layout without edits.
 
-Also, the uninstall script also removes all the installed plugins from nvim which are stored in
-```bash
-~/.local/share/nvim
-```
-
-### Backup Configs
-
-The `config-backup` folder stores extra configs like fish. This is a config that may have to be copied inside its config
-folder.
-
-- Here because I can't be bothered to automate the installation of the fish config.
-
-### Other
-
-Will probably need to install Langauge servers (otherwise neovim will probably be throwing some errors)
-
-Use ```:help lspconfig-all``` to view a guide on how to do this.
-
+> **Legacy uninstall warning:** `scripts/uninstall.sh` also deletes `~/.local/share/nvim`, including installed Neovim plugins and other data. Prefer Temperz for managing the current configs.
