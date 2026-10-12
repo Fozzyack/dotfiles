@@ -2,7 +2,7 @@
 
 # ~/dotfiles
 
-**Fozzyack's Arch Linux control room.**
+**My Arch Linux Configuration!**
 
 A keyboard-first home for my desktop, terminals, and development tools.
 
