@@ -5,9 +5,8 @@ local act = wezterm.action
 -- Note: This is mainly used for my windows config
 -- Windows host, WSL shell. Keep your existing font and launch behavior.
 config.default_prog = { "wsl.exe", "~" }
-config.font = wezterm.font "Hurmit Nerd Font"
-config.font_size = 11.5
-
+config.font = wezterm.font "Terminess Nerd Font Mono"
+config.font_size = 12
 -- Retro dark: charcoal, burnt orange, teal, and warm cream.
 local palette = {
     base = "#090d0e",
