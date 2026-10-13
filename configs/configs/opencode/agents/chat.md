@@ -1,6 +1,7 @@
 ---
 description: General-purpose conversational assistant for questions, explanations, brainstorming, and web research
 mode: primary
+color: "#b58b95"
 permissions:
   - action: edit
     resource: "*"

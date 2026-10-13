@@ -1,6 +1,7 @@
 ---
 description: Plans dependency-aware work, delegates independent tasks concurrently, and verifies integrated results
 mode: primary
+color: "#93bec4"
 permissions:
   - action: subagent
     resource: "*"

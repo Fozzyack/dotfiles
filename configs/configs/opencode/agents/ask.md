@@ -1,6 +1,7 @@
 ---
 description: Answers questions and explains code without editing files or running shell commands
 mode: primary
+color: "#8fa878"
 permissions:
   - action: edit
     resource: "*"

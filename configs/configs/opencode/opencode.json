@@ -1,5 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "agents": {
+    "build": {
+      "color": "#ff851b"
+    },
+    "plan": {
+      "color": "#66b2a5"
+    }
+  },
   "lsp": true,
   "share": "manual",
   "autoupdate": "notify",
