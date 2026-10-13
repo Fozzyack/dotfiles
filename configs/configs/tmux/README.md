@@ -13,17 +13,21 @@ The square status labels suit Ghostty's Terminess Nerd Font Mono.
 - Hostname and date disappear in narrower terminals to leave room for windows.
 - Pane backgrounds and the status bar's gaps use the terminal's transparency.
 - Copy mode, menus, popups, and the large clock (`Ctrl+s t`) share the palette.
+- The default cursor is an orange blinking bar, matching WezTerm and Ghostty.
+  Fish's companion `../fish/conf.d/cursor.fish` restores the bar after commands.
 
 ## Apply
 
 From the repository root, reload into the running tmux server:
 
 ```sh
-tmux source-file "$PWD/configs/home/tmux/tmux.conf"
+tmux source-file "$PWD/configs/configs/tmux/tmux.conf"
 ```
 
-For automatic loading, link `tmux.conf` to `~/.config/tmux/tmux.conf` or
-`~/.tmux.conf` using your dotfiles setup. New sessions use `tmux-256color`.
+For automatic loading, deploy this directory to `~/.config/tmux` using your
+dotfiles setup. Keep `theme.conf` beside `tmux.conf`; the import resolves relative
+to the loaded config, not the working directory. If using `~/.tmux.conf` instead,
+place `theme.conf` at `~/theme.conf`. New sessions use `tmux-256color`.
 
 ## Plugins and controls
 
@@ -36,5 +40,6 @@ TPM path when present, otherwise `~/.tmux/plugins/tpm`.
 - `Ctrl+s I` installs plugins; `Ctrl+s U` updates them.
 - After deploying the config, `Ctrl+s Alt+u` removes unused plugin checkouts.
 
-Colors live in the theme section of `tmux.conf`; Ghostty and tmux palettes are
-maintained separately.
+All tmux appearance settings live in `theme.conf`, imported after plugins load.
+`tmux.conf` keeps terminal capabilities, controls, plugins, and session behavior.
+Ghostty and tmux palettes are maintained separately.
