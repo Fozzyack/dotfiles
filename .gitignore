@@ -1,4 +1,3 @@
 lazy-lock.*
 **/tmux/plugins/*
 **/opencode/service.json
-*.png
