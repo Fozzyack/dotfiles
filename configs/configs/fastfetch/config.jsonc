@@ -1,87 +1,119 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    // Deploy this directory, including render-logo.py and the terminal-sized portrait.
+    // Native Ghostty (Kitty) / WezTerm (iTerm) image, selected automatically.
+    // tmux needs `set -g allow-passthrough on`.
+    // The resized PNG keeps the encoded image below tmux's 1 MiB input-buffer limit.
     "logo": {
-        "type": "small",
+        "type": "raw",
+        "source": "\"$(python3 \"${XDG_CONFIG_HOME:-$HOME/.config}/fastfetch/render-logo.py\")\"",
+        "width": 36,
+        "height": 18,
+        "position": "left",
         "padding": {
-            "top": 1,
-            "right": 2
+            "right": 3
         }
     },
     "display": {
-        "separator": ">  ",
+        "separator": "  /  ",
         "color": {
-            "separator": "red"
+            "keys": "#ff851b",
+            "title": "#ff9b38",
+            "output": "#e8a15b",
+            "separator": "#66b2a5"
         },
-        "constants": [
-            "───────────────────────────────────────────────────────────────────────────",
-            "│\u001b[75C│\u001b[75D"
-        ]
+        "bar": {
+            "width": 8,
+            "char": {
+                "elapsed": "■",
+                "total": "·"
+            },
+            "border": {
+                "left": "[",
+                "right": "]"
+            },
+            "color": {
+                "elapsed": "#ff851b",
+                "total": "#315653",
+                "border": "#66b2a5"
+            }
+        },
+        "percent": {
+            "type": 2,
+            "color": {
+                "green": "#ff851b",
+                "yellow": "#ff9b38",
+                "red": "#cf6b56"
+            }
+        }
     },
     "modules": [
         {
-            "format": "{#1}{#keys}╭{$1}╮\u001b[76D {user-name-colored}{at-symbol-colored}{host-name-colored} 🖥  ",
+            "format": "{#title}▐ {#1}{user-name}{#separator} // {#title}{host-name}{#}",
             "type": "title"
         },
         {
-            "key": "{$2}{#31} kernel   ",
-            "type": "kernel"
+            "type": "custom",
+            "format": "{#title}▀▀ {#1}S Y S T E M {#separator}─────────────────{#}"
         },
         {
-            "key": "{$2}{#32}󰅐 uptime   ",
-            "type": "uptime"
-        },
-        {
-            "key": "{$2}{#33}{icon} distro   ",
+            "key": "OS    ",
             "type": "os"
         },
         {
-            "key": "{$2}{#34}󰇄 desktop  ",
-            "type": "de"
+            "key": "KERNEL",
+            "type": "kernel"
         },
         {
-            "key": "{$2}{#35} term     ",
+            "key": "UPTIME",
+            "type": "uptime"
+        },
+        {
+            "key": "WM    ",
+            "type": "wm"
+        },
+        {
+            "key": "TERM  ",
             "type": "terminal"
         },
         {
-            "key": "{$2}{#36} shell    ",
+            "key": "SHELL ",
             "type": "shell"
         },
         {
-            "key": "{$2}{#35}󰍛 cpu      ",
+            "type": "custom",
+            "format": "{#title}▀▀ {#1}H A R D W A R E {#separator}─────────────{#}"
+        },
+        {
+            "key": "CPU   ",
             "type": "cpu",
             "showPeCoreCount": true,
             "temp": true
         },
         {
-            "key": "{$2}{#34}󰍛 gpu      ",
-            "type": "gpu"
+            "key": "GPU   ",
+            "type": "gpu",
+            "format": "{name}"
         },
         {
-            "key": "{$2}{#33}󰉉 disk     ",
+            "key": "RAM   ",
+            "type": "memory",
+            "format": "{percentage-bar} {#output}{used} / {total}"
+        },
+        {
+            "key": "DISK  ",
             "type": "disk",
-            "folders": "/"
+            "folders": "/",
+            "format": "{size-percentage-bar} {#output}{size-used} / {size-total}"
         },
         {
-            "key": "{$2}{#32} memory   ",
-            "type": "memory"
-        },
-        {
-            "key": "{$2}{#31}󰩟 network  ",
+            "key": "NET   ",
             "type": "localip",
             "format": "{ipv4} ({ifname})"
         },
         {
-            "format": "{#1}{#keys}├{$1}┤",
-            "type": "custom"
-        },
-        {
-            "key": "{$2}{#39} colors   ",
-            "type": "colors",
-            "symbol": "circle"
-        },
-        {
-            "format": "{#1}{#keys}╰{$1}╯",
-            "type": "custom"
+            "type": "custom",
+            "format": "{#title}▄▄▄▄ {#keys}▄▄▄▄ {#output}▄▄▄▄ {#separator}▄▄▄▄ {##315653}▄▄▄▄{#}"
         }
     ]
 }

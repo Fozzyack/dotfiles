@@ -1,5 +1,3 @@
-if status is-interactive # Commands to run in interactive sessions can go here
-end
 
 # Adding to the path
 export PATH="$PATH:$(go env GOPATH)/bin"
