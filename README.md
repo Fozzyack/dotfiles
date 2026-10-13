@@ -83,6 +83,7 @@ Type a menu number and press Enter. Empty input exits the main menu or processes
 ├── configs/
 │   ├── configs/       → ~/.config/
 │   ├── home/          → ~/
+│   ├── windows/         Windows dotfiles for manual setup
 │   └── install.config   Dependency commands, one per line
 ├── other-configs/      Extra configs for manual setup
 ├── ff/                 Fuzzy file finder
@@ -111,6 +112,10 @@ cd ~/dotfiles
 </details>
 
 ## Setup notes
+
+### Windows dotfiles
+
+Windows-specific dotfiles are available in [`configs/windows/`](configs/windows/), including `.glzr/`, `alacritty/`, and `.wezterm.lua`. These are **not installed by Temperz** and require manual setup on Windows.
 
 ### tmux
 
