@@ -23,7 +23,7 @@ starship init fish | source
 # Render after Fish initializes the terminal; startup screen switches can clear images.
 function fish_greeting
     if isatty stdout; and command -q fastfetch
-        command fastfetch
+        fastfetch
     end
 end
 

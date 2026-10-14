@@ -1,13 +1,17 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    // Deploy this directory, including render-logo.py and the terminal-sized portrait.
-    // Native Ghostty (Kitty) / WezTerm (iTerm) image, selected automatically.
+    // fastfetch.py selects native Ghostty (Kitty) / WezTerm (Sixel) rendering.
+    // Fastfetch owns image sizing and text alignment; no raw-image cache is needed.
+    // Native Sixel/Kitty rendering needs Fastfetch's ImageMagick feature on Linux.
     // tmux needs `set -g allow-passthrough on`.
-    // The resized PNG keeps the encoded image below tmux's 1 MiB input-buffer limit.
+    // tmux + Sixel needs a Sixel-enabled tmux build; Kitty passthrough uses
+    // kitty-direct, which requires the host terminal to access the local PNG.
+    // Zellij receives native graphics; Ghostty's Kitty path requires Zellij 0.45+.
+    // Windows/WSL requires a recent WezTerm build with updated ConPTY support.
     "logo": {
-        "type": "raw",
-        "source": "\"$(python3 \"${XDG_CONFIG_HOME:-$HOME/.config}/fastfetch/render-logo.py\")\"",
-        "width": 36,
+        "type": "sixel",
+        "source": "\"${XDG_CONFIG_HOME:-$HOME/.config}/fastfetch/retro-anime-cyberpunk-portrait-terminal.png\"",
+        "width": 40,
         "height": 18,
         "position": "left",
         "padding": {

@@ -1,0 +1,133 @@
+// RETRO DARK — mirrors ../../tmux/theme.conf.
+// Charcoal #040607 / cream #e8d3a2 / orange #ff851b / teal #66b2a5.
+// Uses Zellij's native compact bar; its contents differ from tmux's clock/status.
+themes {
+    retro-dark {
+        text_unselected {
+            base "#e8d3a2"
+            background "#040607"
+            emphasis_0 "#ff851b"
+            emphasis_1 "#66b2a5"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#cf6b56"
+        }
+        text_selected {
+            base "#fff0c7"
+            background "#315653"
+            emphasis_0 "#ff851b"
+            emphasis_1 "#66b2a5"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#cf6b56"
+        }
+        // Inactive tabs: cream on charcoal; active tabs: dark on orange.
+        ribbon_unselected {
+            base "#e8d3a2"
+            background "#202829"
+            emphasis_0 "#cf6b56"
+            emphasis_1 "#66b2a5"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#ff851b"
+        }
+        ribbon_selected {
+            base "#040607"
+            background "#ff851b"
+            emphasis_0 "#040607"
+            emphasis_1 "#040607"
+            emphasis_2 "#315653"
+            emphasis_3 "#202829"
+        }
+        table_title {
+            base "#66b2a5"
+            background "#040607"
+            emphasis_0 "#ff851b"
+            emphasis_1 "#e8d3a2"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#cf6b56"
+        }
+        table_cell_unselected {
+            base "#e8d3a2"
+            background "#040607"
+            emphasis_0 "#ff851b"
+            emphasis_1 "#66b2a5"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#cf6b56"
+        }
+        table_cell_selected {
+            base "#fff0c7"
+            background "#315653"
+            emphasis_0 "#ff851b"
+            emphasis_1 "#66b2a5"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#cf6b56"
+        }
+        list_unselected {
+            base "#e8d3a2"
+            background "#040607"
+            emphasis_0 "#ff851b"
+            emphasis_1 "#66b2a5"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#cf6b56"
+        }
+        list_selected {
+            base "#fff0c7"
+            background "#315653"
+            emphasis_0 "#ff851b"
+            emphasis_1 "#66b2a5"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#cf6b56"
+        }
+        // Thin muted dividers, teal focus, orange mode indication.
+        frame_unselected {
+            base "#202829"
+            background "#040607"
+            emphasis_0 "#64736e"
+            emphasis_1 "#64736e"
+            emphasis_2 "#64736e"
+            emphasis_3 "#64736e"
+        }
+        frame_selected {
+            base "#66b2a5"
+            background "#040607"
+            emphasis_0 "#ff851b"
+            emphasis_1 "#e8d3a2"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#66b2a5"
+        }
+        frame_highlight {
+            base "#ff851b"
+            background "#040607"
+            emphasis_0 "#e8d3a2"
+            emphasis_1 "#ff851b"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#66b2a5"
+        }
+        exit_code_success {
+            base "#86d1bf"
+            background "#040607"
+            emphasis_0 "#66b2a5"
+            emphasis_1 "#e8d3a2"
+            emphasis_2 "#86d1bf"
+            emphasis_3 "#ff851b"
+        }
+        exit_code_error {
+            base "#cf6b56"
+            background "#040607"
+            emphasis_0 "#ff851b"
+            emphasis_1 "#e8d3a2"
+            emphasis_2 "#cf6b56"
+            emphasis_3 "#fff0c7"
+        }
+        multiplayer_user_colors {
+            player_1 "#66b2a5"
+            player_2 "#ff851b"
+            player_3 "#86d1bf"
+            player_4 "#e8d3a2"
+            player_5 "#cf6b56"
+            player_6 "#6f9fa6"
+            player_7 "#b58b95"
+            player_8 "#8fa878"
+            player_9 "#93bec4"
+            player_10 "#d3abb5"
+        }
+    }
+}
