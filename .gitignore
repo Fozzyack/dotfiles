@@ -2,3 +2,5 @@ lazy-lock.*
 **/tmux/plugins/*
 **/opencode/service.json
 **/service.json
+__pycache__/
+*.py[cod]
