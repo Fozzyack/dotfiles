@@ -30,3 +30,59 @@ resize-overlay = never
 # Existing shell behavior.
 keybind = shift+enter=text:\n
 shell-integration = fish
+
+# WezTerm-style leader: press Ctrl+S, release it, then press the command key.
+# Ghostty sequences wait indefinitely rather than timing out after two seconds.
+# Keep other Ghostty shortcuts at their defaults.
+keybind = ctrl+s>ctrl+b=text:\x02
+# Send a literal Ctrl+S when needed (the leader otherwise consumes it).
+keybind = ctrl+s>ctrl+s=text:\x13
+keybind = ctrl+s>c=new_tab
+keybind = ctrl+s>n=next_tab
+keybind = ctrl+s>p=previous_tab
+# Shift+5 is %, and Shift+' is double quote on a US keyboard.
+keybind = ctrl+s>shift+5=new_split:right
+keybind = ctrl+s>shift+'=new_split:down
+# Ghostty has no equivalent to WezTerm's labeled pane swap (leader+w).
+keybind = ctrl+s>h=goto_split:left
+keybind = ctrl+s>j=goto_split:down
+keybind = ctrl+s>k=goto_split:up
+keybind = ctrl+s>l=goto_split:right
+keybind = ctrl+s>z=toggle_split_zoom
+keybind = ctrl+s>x=close_surface
+# Match WezTerm's close confirmation, including when the shell is idle.
+confirm-close-surface = always
+
+keybind = ctrl+s>1=goto_tab:1
+keybind = ctrl+s>2=goto_tab:2
+keybind = ctrl+s>3=goto_tab:3
+keybind = ctrl+s>4=goto_tab:4
+keybind = ctrl+s>5=goto_tab:5
+keybind = ctrl+s>6=goto_tab:6
+keybind = ctrl+s>7=goto_tab:7
+keybind = ctrl+s>8=goto_tab:8
+keybind = ctrl+s>9=last_tab
+
+# Ghostty has no persistent resize key table: repeat Ctrl+S, r, direction.
+# Resize amounts are pixels, not WezTerm's cells; use a small 10px step.
+keybind = ctrl+s>r>h=resize_split:left,10
+keybind = ctrl+s>r>j=resize_split:down,10
+keybind = ctrl+s>r>k=resize_split:up,10
+keybind = ctrl+s>r>l=resize_split:right,10
+keybind = ctrl+s>r>left=resize_split:left,10
+keybind = ctrl+s>r>down=resize_split:down,10
+keybind = ctrl+s>r>up=resize_split:up,10
+keybind = ctrl+s>r>right=resize_split:right,10
+keybind = ctrl+s>r>escape=ignore
+keybind = ctrl+s>r>enter=ignore
+keybind = ctrl+s>escape=ignore
+
+# Direct shortcuts from WezTerm.
+keybind = alt+enter=toggle_fullscreen
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+shift+e=new_split:down
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+z=toggle_split_zoom
