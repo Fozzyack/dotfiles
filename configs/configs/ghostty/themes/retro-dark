@@ -1,7 +1,8 @@
-# Retro dark palette from wezterm.lua, with a deeper charcoal background
+# Retro dark palette from wezterm.lua
 # charcoal, burnt orange, teal, and warm cream
 
-background = #040607
+# Matches WezTerm's base background (palette.base).
+background = #090d0e
 foreground = #e8d3a2
 cursor-color = #ff851b
 cursor-text = #040607

@@ -10,14 +10,14 @@ font-family = Terminess Nerd Font Mono
 # adjust-cell-height = 8%
 
 # Frosted glass without washing out the text.
-background-opacity = 0.70
+background-opacity = 0.8
 # Keep explicit cell backgrounds opaque, like WezTerm's text_background_opacity.
 background-opacity-cells = false
 background-blur = true
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
-window-theme = dark
+# window-theme = dark
 gtk-titlebar = false
 
 # Calm cursor and less visual noise.

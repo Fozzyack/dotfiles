@@ -79,10 +79,13 @@ local menu        = "rofi -show combi"
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
 -- end)
 
+
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar & hyprpaper")
 end)
 
+-- dofile("/home/fozzyack/code/gtk-widgets/hyprland-widgets.lua")
+dofile("/home/fozzyack/dotfiles/configs/gtk-widgets/hyprland-widgets.lua")
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -121,9 +124,9 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.config({
     general = {
         gaps_in          = 3,
-        gaps_out         = 5,
+        gaps_out         = 4,
 
-        border_size      = 2,
+        border_size      = 1,
 
         col              = {
             active_border   = { colors = { "#ff851b" } },
@@ -142,11 +145,11 @@ hl.config({
 
     decoration = {
         rounding         = 2,
-        rounding_power   = 4,
+        rounding_power   = 1,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
-        inactive_opacity = 0.9,
+        inactive_opacity = 0.95,
 
         shadow           = {
             enabled      = true,
@@ -160,6 +163,8 @@ hl.config({
             size     = 5,
             passes   = 3,
             vibrancy = 0.1696,
+            noise = 0.083,
+            brightness = 1.5,
         },
     },
 
@@ -405,5 +410,3 @@ hl.window_rule({
 
 hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")
 
--- dofile("/home/fozzyack/code/gtk-widgets/hyprland-widgets.lua")
-dofile("/home/fozzyack/dotfiles/configs/gtk-widgets/hyprland-widgets.lua")
