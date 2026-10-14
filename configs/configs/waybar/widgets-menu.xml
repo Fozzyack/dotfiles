@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkMenu" id="menu">
+    <child>
+      <object class="GtkMenuItem" id="widget-clock">
+        <property name="label">Clock</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="widget-calendar">
+        <property name="label">Calendar</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="widget-weather">
+        <property name="label">Weather</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="widget-system">
+        <property name="label">System monitor</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="widget-network">
+        <property name="label">Network visualiser</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="widget-pomodoro">
+        <property name="label">Pomodoro timer</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem"/>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="widget-media">
+        <property name="label">Media player</property>
+      </object>
+    </child>
+  </object>
+</interface>

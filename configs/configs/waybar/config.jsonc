@@ -19,6 +19,7 @@
   ],
   "modules-center": ["clock"],
   "modules-right": [
+    "custom/widgets",
     "idle_inhibitor",
     "bluetooth",
     "network",
@@ -33,6 +34,23 @@
     "tooltip-format": "SYSTEM CONSOLE\nLeft: application launcher\nRight: Ghostty terminal",
     "on-click": "rofi -show combi",
     "on-click-right": "ghostty"
+  },
+
+  "custom/widgets": {
+    "format": "WIDGETS ▾",
+    "tooltip-format": "DESKTOP WIDGETS\nClick to launch a widget",
+    "on-click": "",
+    "menu": "on-click",
+    "menu-file": "~/.config/waybar/widgets-menu.xml",
+    "menu-actions": {
+      "widget-clock": "python3 ~/.config/waybar/launch-widget.py clock",
+      "widget-calendar": "python3 ~/.config/waybar/launch-widget.py calendar",
+      "widget-weather": "python3 ~/.config/waybar/launch-widget.py weather",
+      "widget-system": "python3 ~/.config/waybar/launch-widget.py system",
+      "widget-network": "python3 ~/.config/waybar/launch-widget.py network",
+      "widget-pomodoro": "python3 ~/.config/waybar/launch-widget.py pomodoro",
+      "widget-media": "python3 ~/.config/waybar/launch-widget.py media"
+    }
   },
 
   "hyprland/workspaces": {

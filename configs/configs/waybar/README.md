@@ -8,6 +8,7 @@ readouts, matching Ghostty, WezTerm, and Starship. Colors live in `var.css`.
 | Module | Controls |
 | --- | --- |
 | `❯ SYS` | Click for Rofi; right-click for Ghostty |
+| `WIDGETS ▾` | Native dropdown to launch Clock, Calendar, Weather, System, Network, Pomodoro, or Media |
 | Workspaces | Click to switch; follows your Hyprland monitor assignments |
 | CPU / RAM | Click for btop in Ghostty |
 | Clock | Perth time; click to switch date format; hover for calendar; scroll to browse; right-click for month/year view |
@@ -19,6 +20,14 @@ readouts, matching Ghostty, WezTerm, and Starship. Colors live in `var.css`.
 | Battery | Click to switch percentage / remaining time |
 
 Uptime reads `/proc/uptime` directly. The system tray hosts application icons.
+The widget menu uses Waybar's built-in GTK menu support. Link this whole directory
+to `~/.config/waybar` so `widgets-menu.xml` and `launch-widget.py` are available.
+The launcher resolves the repository's `configs/gtk-widgets` directory through
+the symlink. Widgets run independently of Waybar, and selecting an already-open
+widget reuses its existing instance. Media remains excluded from widget
+autostart/restart; this menu launches it only when selected. Close widgets with
+their `[x]` button. Weather defaults to Perth; add `--city "City"` to its menu
+action to change that default. Logs go to `~/.local/state/retro-widgets/`.
 Hardware modules depend on the devices present; no battery or backlight name is
 hard-coded. CPU/RAM and battery alerts use static color changes.
 
