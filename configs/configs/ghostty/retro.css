@@ -1,0 +1,295 @@
+/* Ghostty's GTK interface. Colours mirror themes/retro-dark.
+ * GTK 4.16+ / libadwaita 1.6+; loaded only by Ghostty.
+ * Keep backgrounds on UI panels, not the transparent terminal surface.
+ */
+:root {
+  --retro-base: #090d0e;
+  --retro-deep: #040607;
+  --retro-panel: #202829;
+  --retro-cream: #e8d3a2;
+  --retro-bright: #fff0c7;
+  --retro-muted: #dcc89f;
+  --retro-orange: #ff851b;
+  --retro-teal: #66b2a5;
+  --retro-blue: #6f9fa6;
+  --retro-blue-bright: #93bec4;
+  --retro-selection: #315653;
+  --retro-bevel: inset 1px 1px alpha(#93bec4, 0.22),
+    inset -1px -1px var(--retro-deep);
+  --retro-pressed: inset 1px 1px var(--retro-deep),
+    inset -1px -1px alpha(#93bec4, 0.22);
+
+  --window-bg-color: var(--retro-base);
+  --window-fg-color: var(--retro-cream);
+  --view-bg-color: var(--retro-deep);
+  --view-fg-color: var(--retro-cream);
+  --headerbar-bg-color: var(--retro-base);
+  --headerbar-fg-color: var(--retro-cream);
+  --headerbar-backdrop-color: var(--retro-base);
+  --headerbar-shade-color: var(--retro-selection);
+  --headerbar-darker-shade-color: var(--retro-selection);
+  --popover-bg-color: var(--retro-panel);
+  --popover-fg-color: var(--retro-cream);
+  --dialog-bg-color: var(--retro-panel);
+  --dialog-fg-color: var(--retro-cream);
+  --card-bg-color: var(--retro-panel);
+  --card-fg-color: var(--retro-cream);
+  --sidebar-bg-color: var(--retro-base);
+  --sidebar-fg-color: var(--retro-cream);
+  --sidebar-backdrop-color: var(--retro-base);
+  --accent-bg-color: var(--retro-orange);
+  --accent-fg-color: var(--retro-deep);
+  --accent-color: var(--retro-orange);
+  --destructive-bg-color: #cf6b56;
+  --destructive-fg-color: var(--retro-deep);
+  --destructive-color: #ed8b6f;
+  --success-bg-color: #8fa878;
+  --success-fg-color: var(--retro-deep);
+  --success-color: #b0c795;
+  --warning-bg-color: #e88728;
+  --warning-fg-color: var(--retro-deep);
+  --warning-color: #ff9b38;
+  --error-bg-color: #cf6b56;
+  --error-fg-color: var(--retro-deep);
+  --error-color: #ed8b6f;
+
+  font-family: "Terminess Nerd Font Mono", monospace;
+}
+
+/* Bottom tabs: blue trim and an orange marker toward the terminal. */
+headerbar,
+tabbar {
+  background: var(--retro-base);
+  color: var(--retro-cream);
+  box-shadow: none;
+  border-bottom: 1px solid var(--retro-selection);
+}
+
+tabbar {
+  border-bottom: none;
+  border-top: 1px solid var(--retro-blue);
+}
+
+tabbar tabbox {
+  padding: 3px 4px;
+}
+
+tabbar tab {
+  background: var(--retro-base);
+  color: var(--retro-blue-bright);
+  border: 1px solid transparent;
+  border-radius: 2px;
+  margin: 0 2px;
+  padding: 4px 10px;
+  box-shadow: var(--retro-bevel);
+}
+
+tabbar tab button {
+  color: var(--retro-blue);
+}
+
+tabbar tab button:hover {
+  color: var(--retro-blue-bright);
+}
+
+tabbar tab:hover {
+  background: var(--retro-selection);
+  color: var(--retro-bright);
+  border-color: var(--retro-blue-bright);
+}
+
+tabbar tab:selected {
+  background: var(--retro-panel);
+  color: var(--retro-orange);
+  border-color: var(--retro-selection);
+  box-shadow: inset 0 2px var(--retro-orange), var(--retro-bevel);
+}
+
+tabbar tab:selected:hover {
+  border-color: var(--retro-blue-bright);
+}
+
+tabbar tab:backdrop {
+  color: var(--retro-blue);
+}
+
+tabbar tab:selected:backdrop {
+  color: var(--retro-muted);
+  box-shadow: inset 0 2px var(--retro-blue), var(--retro-bevel);
+}
+
+/* Menus, dialogs, tab overview and command palette use the colours above. */
+popover > contents,
+tooltip,
+toast,
+dialog > contents {
+  border: 1px solid var(--retro-selection);
+  border-radius: 3px;
+}
+
+tooltip,
+toast {
+  background: var(--retro-panel);
+  color: var(--retro-bright);
+}
+
+toast {
+  border-color: var(--retro-orange);
+  border-radius: 2px;
+  box-shadow: var(--retro-bevel);
+}
+
+button,
+entry,
+searchentry {
+  border-radius: 2px;
+}
+
+/* Inset edges give controls a bevel without changing their dimensions. */
+button:not(.flat),
+button.flat:hover {
+  box-shadow: var(--retro-bevel);
+}
+
+button:active,
+button:checked {
+  box-shadow: var(--retro-pressed);
+}
+
+button:disabled {
+  box-shadow: none;
+}
+
+button:hover {
+  background: var(--retro-selection);
+  color: var(--retro-bright);
+}
+
+button:checked,
+button:active,
+button.suggested-action {
+  background: var(--retro-orange);
+  color: var(--retro-deep);
+}
+
+button.suggested-action:hover {
+  background: #ff9b38;
+  color: var(--retro-deep);
+}
+
+button.destructive-action {
+  background: #cf6b56;
+  color: var(--retro-deep);
+}
+
+button.destructive-action:hover {
+  background: #ed8b6f;
+}
+
+button:disabled {
+  color: #64736e;
+}
+
+button:focus-visible,
+tabbar tab:focus-visible {
+  outline: 1px solid var(--retro-orange);
+  outline-offset: -2px;
+}
+
+entry,
+searchentry {
+  background: var(--retro-deep);
+  color: var(--retro-cream);
+  border: 1px solid var(--retro-selection);
+  box-shadow: none;
+  caret-color: var(--retro-orange);
+}
+
+entry:focus-within,
+searchentry:focus-within {
+  border-color: var(--retro-orange);
+  outline-color: var(--retro-orange);
+}
+
+searchentry:focus-within,
+.search-overlay entry:focus-within {
+  border-color: var(--retro-teal);
+  outline-color: var(--retro-teal);
+  box-shadow: inset 0 -1px var(--retro-teal);
+}
+
+entry selection,
+searchentry selection {
+  background: var(--retro-selection);
+  color: var(--retro-bright);
+}
+
+modelbutton:hover,
+listview row:hover,
+list row:hover {
+  background: var(--retro-selection);
+  color: var(--retro-bright);
+}
+
+listview row:selected,
+list row:selected {
+  background: var(--retro-selection);
+  color: var(--retro-bright);
+  box-shadow: inset 2px 0 var(--retro-orange);
+}
+
+shortcut key {
+  background: var(--retro-base);
+  color: var(--retro-blue-bright);
+  border: 1px solid var(--retro-selection);
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+/* Ghostty-specific overlays: find, leader keys, links and status. */
+.search-overlay,
+.key-state-overlay,
+label.url-overlay,
+label.resize-overlay,
+.surface .readonly_overlay {
+  background: var(--retro-panel);
+  color: var(--retro-cream);
+  border-radius: 2px;
+  outline: 1px solid var(--retro-teal);
+}
+
+.key-state-overlay,
+.surface .readonly_overlay {
+  color: var(--retro-orange);
+}
+
+label.url-overlay {
+  color: var(--retro-blue-bright);
+}
+
+.surface .bell-overlay {
+  border-color: var(--retro-orange);
+}
+
+.child-exited.normal revealer widget {
+  background-color: alpha(#8fa878, 0.5);
+}
+
+.child-exited.abnormal revealer widget,
+.surface progressbar.error trough progress {
+  background-color: alpha(#cf6b56, 0.5);
+}
+
+scrollbar slider {
+  background: var(--retro-selection);
+  border-radius: 2px;
+}
+
+scrollbar slider:hover,
+scrollbar slider:active {
+  background: var(--retro-teal);
+}
+
+progressbar trough progress {
+  background: var(--retro-orange);
+}

@@ -17,7 +17,12 @@ background-blur = true
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
-# window-theme = dark
+# Match the GTK interface to the terminal's retro palette.
+window-theme = ghostty
+gtk-custom-css = retro.css
+gtk-toolbar-style = flat
+gtk-tabs-location = bottom
+gtk-wide-tabs = false
 gtk-titlebar = false
 
 # Calm cursor and less visual noise.
