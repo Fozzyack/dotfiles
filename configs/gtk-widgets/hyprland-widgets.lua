@@ -11,7 +11,7 @@ end
 
 -- Only runs at compositor startup, not each configuration reload.
 hl.on("hyprland.start", function()
-    for _, script in ipairs({"clock.py", "calendar_widget.py", "weather.py", "system_load.py"}) do
+    for _, script in ipairs({"clock.py", "calendar_widget.py", "weather.py", "system_load.py", "network.py", "pomodoro.py"}) do
         local command = "env GDK_BACKEND=wayland python3 " .. quote(directory .. "/" .. script)
         if script == "weather.py" then
             command = command .. " --city " .. quote(city)

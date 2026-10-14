@@ -15,7 +15,16 @@ def main():
     parser.add_argument("--city", help="Override the weather city")
     args = parser.parse_args()
     root = Path(__file__).resolve().parent
-    scripts = ("clock.py", "calendar_widget.py", "weather.py", "system_load.py")
+    scripts = (
+        "clock.py",
+        "calendar_widget.py",
+        "weather.py",
+        "system_load.py",
+        "network.py",
+        "pomodoro.py",
+    )
+    # Stop the optional media deck on restart, but only launch it manually.
+    managed_scripts = (*scripts, "media_player.py")
     arguments = {}
     processes = []
     for proc in Path("/proc").iterdir():
@@ -31,7 +40,7 @@ def main():
             if not script.is_absolute():
                 script = proc.joinpath("cwd").resolve() / script
             script = script.resolve()
-            if script.parent != root or script.name not in scripts:
+            if script.parent != root or script.name not in managed_scripts:
                 continue
             arguments[script.name] = [arg for arg in command[2:] if arg]
             processes.append(int(proc.name))
