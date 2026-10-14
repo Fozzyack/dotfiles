@@ -124,7 +124,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.config({
     general = {
         gaps_in          = 3,
-        gaps_out         = 4,
+        gaps_out         = 10,
 
         border_size      = 1,
 

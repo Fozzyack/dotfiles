@@ -101,10 +101,14 @@ Add this to `~/.config/hypr/hyprland.lua`, adjusting the path if you move the pr
 dofile("/home/fozzyack/code/gtk-widgets/hyprland-widgets.lua")
 ```
 
-Set `city` and `directory` at the top of `hyprland-widgets.lua`. Reload with
+Set `city` at the top of `hyprland-widgets.lua`; its widget directory is resolved
+from the Lua file itself, so startup uses this checkout's sizing and CSS. Reload with
 `hyprctl reload`, then launch the widgets manually the first time. The
 `hl.on("hyprland.start", ...)` handler autostarts them on the next login, not on
 configuration reload.
+Network and Pomodoro are included in both startup and restart. Restart also
+stops known widget scripts from the former `~/code/gtk-widgets` directory to
+prevent older instances from retaining the same GTK application IDs.
 
 The media deck sits in a second column, 374px from the left and 80px from the
 top when launched manually. The network monitor is anchored 30px from the left

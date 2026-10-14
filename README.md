@@ -194,10 +194,11 @@ are configured in `configs/gtk-widgets/widget.py`. Colours and sizing live in
 `configs/gtk-widgets/clock.css`. Logs go to `~/.local/state/retro-widgets/` (or
 `$XDG_STATE_HOME/retro-widgets`).
 
-For Hyprland autostart, set `directory` and `city` in
+For Hyprland autostart, set `city` in
 `configs/gtk-widgets/hyprland-widgets.lua`, then load it from your Hyprland Lua
 configuration using its absolute path. The supplied path must be updated for
-your clone location. This starts the six enabled widgets on login, not on a
+your clone location; widget scripts are resolved beside the Lua file automatically.
+This starts the six enabled widgets, including Network and Pomodoro, on login, not on a
 configuration reload.
 
 Pomodoro defaults to **25/5/15 minutes**, with a long break after four focus

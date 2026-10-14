@@ -15,6 +15,10 @@ def main():
     parser.add_argument("--city", help="Override the weather city")
     args = parser.parse_args()
     root = Path(__file__).resolve().parent
+    # Older autostart configs used this copy. Stop only known widget scripts
+    # there as well, so their application IDs cannot keep the old UI alive.
+    legacy_root = (Path.home() / "code" / "gtk-widgets").resolve()
+    managed_roots = {root, legacy_root}
     scripts = (
         "clock.py",
         "calendar_widget.py",
@@ -40,9 +44,10 @@ def main():
             if not script.is_absolute():
                 script = proc.joinpath("cwd").resolve() / script
             script = script.resolve()
-            if script.parent != root or script.name not in managed_scripts:
+            if script.parent not in managed_roots or script.name not in managed_scripts:
                 continue
-            arguments[script.name] = [arg for arg in command[2:] if arg]
+            if script.parent == root or script.name not in arguments:
+                arguments[script.name] = [arg for arg in command[2:] if arg]
             processes.append(int(proc.name))
         except (OSError, UnicodeError):
             continue

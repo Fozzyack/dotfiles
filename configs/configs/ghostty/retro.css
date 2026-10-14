@@ -71,16 +71,16 @@ tabbar {
 }
 
 tabbar tabbox {
-  padding: 3px 4px;
+  padding: 0px 0px;
 }
 
 tabbar tab {
   background: var(--retro-base);
   color: var(--retro-blue-bright);
-  border: 1px solid transparent;
-  border-radius: 2px;
-  margin: 0 2px;
-  padding: 4px 10px;
+  border: 0.2px solid ;
+  border-radius: 0px;
+  margin: 0 0px;
+  padding: 2px 10px;
   box-shadow: var(--retro-bevel);
 }
 
