@@ -1,0 +1,72 @@
+/* Retro dark: only the background is translucent. */
+window.retro-clock {
+    background: rgba(4, 6, 7, 0.9);
+    color: #e8d3a2;
+    border: none;
+    border-left: 3px solid #66b2a5;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: "Terminess Nerd Font Mono", "IosevkaTerm Nerd Font Mono", monospace;
+    font-size: 14px;
+}
+.retro-clock * { border-radius: 0; }
+.retro-clock .body { padding: 18px 22px; }
+.retro-clock .muted { color: #66b2a5; font-size: 12px; letter-spacing: 1px; }
+.retro-clock .clock { color: #ff851b; font-size: 48px; font-weight: normal; font-feature-settings: "tnum" 1, "liga" 0; }
+.retro-clock .date { color: #e8d3a2; font-size: 13px; }
+.retro-clock .month { color: #fff0c7; font-weight: bold; }
+.retro-clock separator { background: #315653; min-height: 1px; }
+.retro-clock button {
+    background: transparent;
+    color: #66b2a5;
+    border: 1px solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 4px 10px;
+    min-height: 24px;
+}
+.retro-clock button:hover { background: #315653; color: #fff0c7; }
+.retro-clock button:active { background: #66b2a5; color: #040607; }
+.retro-clock button:focus-visible { outline: 2px solid #ff851b; outline-offset: 1px; }
+.retro-clock button:disabled { color: #64736e; }
+.retro-clock .weekday { color: #66b2a5; font-size: 12px; }
+.retro-clock .day { min-width: 34px; min-height: 32px; border-radius: 0; }
+.retro-clock .weekend { color: #b58b95; }
+.retro-clock .today { background: #e88728; color: #040607; font-weight: bold; }
+.retro-clock .metric { color: #ff851b; font-size: 24px; font-weight: normal; font-feature-settings: "tnum" 1, "liga" 0; }
+.retro-clock entry {
+    background: transparent;
+    color: #e8d3a2;
+    caret-color: #ff851b;
+    border: 1px solid #315653;
+    border-radius: 0;
+    padding: 6px;
+}
+.retro-clock entry:focus-within { outline: 2px solid #ff851b; }
+.retro-clock entry selection { background: #315653; color: #fff0c7; }
+.retro-clock progressbar trough { background: #202829; border-radius: 0; min-height: 8px; }
+.retro-clock progressbar progress { background: #e88728; border: none; border-radius: 0; min-height: 8px; min-width: 0; margin: 0; padding: 0; }
+.retro-clock link { color: #66b2a5; }
+
+/* Instrument panels: hard edges, compact labels, large terminal readouts. */
+.retro-clock .instrument { padding: 18px 20px; }
+.retro-clock .eyebrow { color: #66b2a5; font-size: 12px; letter-spacing: 1px; }
+.retro-clock .place { color: #fff0c7; font-size: 24px; }
+.retro-clock .region { color: #9aab9e; font-size: 12px; }
+.retro-clock .readout { color: #ff9b38; font-size: 64px; font-weight: normal; }
+.retro-clock .weather-art { color: #86d1bf; font-size: 16px; }
+.retro-clock .condition { color: #fff0c7; font-size: 14px; letter-spacing: 1px; }
+.retro-clock .stat-cell { border-left: 1px solid #315653; padding: 5px 10px; }
+.retro-clock .stat-value { color: #e8d3a2; font-size: 22px; }
+.retro-clock .panel-footer { color: #9aab9e; font-size: 12px; }
+.retro-clock .panel-footer.error { color: #ed8b6f; }
+.retro-clock .console-row { border-top: 1px solid #315653; padding-top: 10px; }
+.retro-clock .console-row entry { border: none; border-bottom: 1px solid #315653; padding: 4px; }
+.retro-clock .console-row button { border: 1px solid #315653; font-size: 12px; padding: 3px 8px; }
+.retro-clock .meter-value { color: #ff9b38; font-size: 36px; }
+.retro-clock .ram-value { color: #86d1bf; }
+.retro-clock .segment { background: #202829; min-height: 10px; min-width: 0; }
+.retro-clock .segment.active { background: #e88728; }
+.retro-clock .ram-meter .segment.active { background: #66b2a5; }
+.retro-clock .history { color: #e88728; font-size: 18px; letter-spacing: 1px; }

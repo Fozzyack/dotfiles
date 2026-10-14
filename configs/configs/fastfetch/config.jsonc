@@ -49,7 +49,7 @@
     },
     "modules": [
         {
-            "format": "{#title}▐ {#1}{user-name}{#separator} // {#title}{host-name}{#}",
+            "format": "{#title}{#1}{user-name}{#separator} // {#title}{host-name}{#}",
             "type": "title"
         },
         {

@@ -127,7 +127,8 @@ hl.config({
 
         col              = {
             active_border   = { colors = { "#ff851b" } },
-            inactive_border = "rgba(595959aa)",
+            inactive_border = "rgba(00000000)",
+            -- inactive_border = "rgba(595959aa)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -402,4 +403,7 @@ hl.window_rule({
     float = true,
 })
 
- hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")
+hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")
+
+-- dofile("/home/fozzyack/code/gtk-widgets/hyprland-widgets.lua")
+dofile("/home/fozzyack/dotfiles/configs/gtk-widgets/hyprland-widgets.lua")
