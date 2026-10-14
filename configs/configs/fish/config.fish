@@ -20,6 +20,13 @@ function dfile; ~/dotfiles/dfile/dfile $argv; end
 # Prompt manager
 starship init fish | source
 
+# Render after Fish initializes the terminal; startup screen switches can clear images.
+function fish_greeting
+    if isatty stdout; and command -q fastfetch
+        command fastfetch
+    end
+end
+
 # For GPG keys to work (git stuff)
 set -x GPG_TTY (tty)
 
