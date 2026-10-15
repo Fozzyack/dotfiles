@@ -58,6 +58,9 @@ The companion [Hyprland config](../hypr/README.md) also enables window blur.
 
 ## Controls and reload
 
+- **Ctrl+S**, release, then `a`, then `h` / `l` moves the current tab left / right.
+  Repeat the sequence for each move; **Esc** cancels. No arrow keys or extra
+  modifier chords are needed on a Corne keyboard.
 - **Shift+Enter** sends a literal newline (`\n`). How it is handled depends on
   the shell or application receiving it.
 - **Ctrl+Shift+,** reloads the config on Linux (Ghostty's default binding).

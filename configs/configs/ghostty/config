@@ -40,6 +40,11 @@ keybind = ctrl+s>ctrl+s=text:\x13
 keybind = ctrl+s>c=new_tab
 keybind = ctrl+s>n=next_tab
 keybind = ctrl+s>p=previous_tab
+# Corne-friendly tab movement: leader, a, then h/l (no held modifiers).
+keybind = ctrl+s>a>h=move_tab:-1
+keybind = ctrl+s>a>l=move_tab:1
+keybind = ctrl+s>a>escape=ignore
+keybind = ctrl+s>a>enter=ignore
 # Shift+5 is %, and Shift+' is double quote on a US keyboard.
 keybind = ctrl+s>shift+5=new_split:right
 keybind = ctrl+s>shift+'=new_split:down

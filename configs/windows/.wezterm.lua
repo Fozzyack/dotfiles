@@ -91,7 +91,13 @@ wezterm.on("update-status", function(window)
 end)
 
 -- All other WezTerm shortcuts keep their defaults.
+-- Corne-friendly tab movement: Ctrl+S, release, then a and h/l.
+config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
+    { key = "s", mods = "LEADER|CTRL", action = act.SendKey { key = "s", mods = "CTRL" } },
+    { key = "a", mods = "LEADER", action = act.ActivateKeyTable {
+        name = "move_tab", one_shot = true, timeout_milliseconds = 2000,
+    } },
     { key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
     { key = "d", mods = "CTRL|SHIFT", action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
     { key = "e", mods = "CTRL|SHIFT", action = act.SplitVertical { domain = "CurrentPaneDomain" } },
@@ -100,6 +106,15 @@ config.keys = {
     { key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection "Up" },
     { key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection "Right" },
     { key = "z", mods = "CTRL|SHIFT", action = act.TogglePaneZoomState },
+}
+
+config.key_tables = {
+    move_tab = {
+        { key = "h", action = act.MoveTabRelative(-1) },
+        { key = "l", action = act.MoveTabRelative(1) },
+        { key = "Escape", action = act.PopKeyTable },
+        { key = "Enter", action = act.PopKeyTable },
+    },
 }
 
 return config

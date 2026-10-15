@@ -10,6 +10,7 @@ Press **Ctrl+s**, release it, then press a command key within **two seconds**. T
 | --- | --- |
 | `c` | Create a tab in the current pane's domain |
 | `n` / `p` | Next / previous tab |
+| `a`, then `h` / `l` | Move the current tab left / right (Corne-friendly) |
 | `1`–`8` | Select tab 1–8 |
 | `9` | Select the last tab |
 | `%` | Split into top and bottom panes |

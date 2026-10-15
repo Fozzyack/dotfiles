@@ -107,6 +107,10 @@ config.keys = {
     { key = "c", mods = "LEADER", action = act.SpawnTab "CurrentPaneDomain" },
     { key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
     { key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
+    -- Corne-friendly tab movement: leader, a, then h/l.
+    { key = "a", mods = "LEADER", action = act.ActivateKeyTable {
+        name = "move_tab", one_shot = true, timeout_milliseconds = 2000,
+    } },
     { key = "%", mods = "LEADER|SHIFT", action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
     { key = "\"", mods = "LEADER|SHIFT", action = act.SplitVertical { domain = "CurrentPaneDomain" } },
     -- Select a labeled pane to swap positions, keeping focus on this pane.
@@ -139,6 +143,12 @@ end
 
 -- Resize repeatedly without holding modifiers; Escape or Enter exits.
 config.key_tables = {
+    move_tab = {
+        { key = "h", action = act.MoveTabRelative(-1) },
+        { key = "l", action = act.MoveTabRelative(1) },
+        { key = "Escape", action = act.PopKeyTable },
+        { key = "Enter", action = act.PopKeyTable },
+    },
     resize_pane = {
         { key = "h", action = act.AdjustPaneSize { "Left", 1 } },
         { key = "j", action = act.AdjustPaneSize { "Down", 1 } },
