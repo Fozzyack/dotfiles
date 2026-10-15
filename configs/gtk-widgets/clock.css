@@ -1,40 +1,40 @@
 /* Retro dark: only the background is translucent. */
 window.retro-clock {
-    background: rgba(4, 6, 7, 0.9);
+    background: rgba(9, 13, 14, 0.9);
     color: #e8d3a2;
-    border: none;
+    border: 1px solid #315653;
     border-left: 3px solid #66b2a5;
     border-radius: 0;
-    box-shadow: none;
+    box-shadow: inset 0 1px rgba(147, 190, 196, 0.22), inset 0 -1px #040607;
     font-family: "Terminess Nerd Font Mono", "IosevkaTerm Nerd Font Mono", monospace;
-    font-size: 14px;
+    font-size: 13px;
 }
 .retro-clock * { border-radius: 0; }
-.retro-clock .body { padding: 18px 22px; }
-.retro-clock .muted { color: #66b2a5; font-size: 12px; letter-spacing: 1px; }
-.retro-clock .clock { color: #ff851b; font-size: 48px; font-weight: normal; font-feature-settings: "tnum" 1, "liga" 0; }
-.retro-clock .date { color: #e8d3a2; font-size: 13px; }
+.retro-clock .body { padding: 15px 18px; }
+.retro-clock .muted { color: #93bec4; font-size: 11px; letter-spacing: 1px; }
+.retro-clock .clock { color: #ff851b; font-size: 42px; font-weight: normal; font-feature-settings: "tnum" 1, "liga" 0; }
+.retro-clock .date { color: #e8d3a2; font-size: 12px; }
 .retro-clock .month { color: #fff0c7; font-weight: bold; }
 .retro-clock separator { background: #315653; min-height: 1px; }
 .retro-clock button {
     background: transparent;
-    color: #66b2a5;
-    border: 1px solid transparent;
+    color: #93bec4;
+    border: 1px solid #315653;
     border-radius: 0;
-    box-shadow: none;
+    box-shadow: inset 1px 1px rgba(147, 190, 196, 0.18), inset -1px -1px #040607;
     text-shadow: none;
-    padding: 4px 10px;
-    min-height: 24px;
+    padding: 3px 8px;
+    min-height: 20px;
 }
 .retro-clock button:hover { background: #315653; color: #fff0c7; }
-.retro-clock button:active { background: #66b2a5; color: #040607; }
+.retro-clock button:active { background: #66b2a5; color: #040607; box-shadow: inset 1px 1px #040607; }
 .retro-clock button:focus-visible { outline: 2px solid #ff851b; outline-offset: 1px; }
 .retro-clock button:disabled { color: #64736e; }
-.retro-clock .weekday { color: #66b2a5; font-size: 12px; }
+.retro-clock .weekday { color: #93bec4; font-size: 12px; }
 .retro-clock .day { min-width: 34px; min-height: 32px; border-radius: 0; }
 .retro-clock .weekend { color: #b58b95; }
 .retro-clock .today { background: #e88728; color: #040607; font-weight: bold; }
-.retro-clock .metric { color: #ff851b; font-size: 24px; font-weight: normal; font-feature-settings: "tnum" 1, "liga" 0; }
+.retro-clock .metric { color: #ff851b; font-size: 21px; font-weight: normal; font-feature-settings: "tnum" 1, "liga" 0; }
 .retro-clock entry {
     background: transparent;
     color: #e8d3a2;
@@ -43,30 +43,112 @@ window.retro-clock {
     border-radius: 0;
     padding: 6px;
 }
-.retro-clock entry:focus-within { outline: 2px solid #ff851b; }
+.retro-clock entry:focus-within { outline: 1px solid #66b2a5; border-color: #66b2a5; }
 .retro-clock entry selection { background: #315653; color: #fff0c7; }
 .retro-clock progressbar trough { background: #202829; border-radius: 0; min-height: 8px; }
 .retro-clock progressbar progress { background: #e88728; border: none; border-radius: 0; min-height: 8px; min-width: 0; margin: 0; padding: 0; }
 .retro-clock link { color: #66b2a5; }
 
 /* Instrument panels: hard edges, compact labels, large terminal readouts. */
-.retro-clock .instrument { padding: 18px 20px; }
-.retro-clock .eyebrow { color: #66b2a5; font-size: 12px; letter-spacing: 1px; }
-.retro-clock .place { color: #fff0c7; font-size: 24px; }
-.retro-clock .region { color: #9aab9e; font-size: 12px; }
-.retro-clock .readout { color: #ff9b38; font-size: 64px; font-weight: normal; }
-.retro-clock .weather-art { color: #86d1bf; font-size: 16px; }
+.retro-clock .instrument { padding: 15px 16px; }
+.retro-clock .eyebrow { color: #66b2a5; font-size: 11px; letter-spacing: 1px; }
+.retro-clock .place { color: #fff0c7; font-size: 21px; }
+.retro-clock .region { color: #93bec4; font-size: 12px; }
+.retro-clock .readout { color: #ff9b38; font-size: 56px; font-weight: normal; }
+.retro-clock .weather-art { color: #86d1bf; font-size: 14px; }
 .retro-clock .condition { color: #fff0c7; font-size: 14px; letter-spacing: 1px; }
-.retro-clock .stat-cell { border-left: 1px solid #315653; padding: 5px 10px; }
-.retro-clock .stat-value { color: #e8d3a2; font-size: 22px; }
-.retro-clock .panel-footer { color: #9aab9e; font-size: 12px; }
+.retro-clock .stat-cell { border-left: 1px solid #315653; padding: 4px 8px; }
+.retro-clock .stat-value { color: #e8d3a2; font-size: 19px; }
+.retro-clock .panel-footer { color: #93bec4; font-size: 12px; }
 .retro-clock .panel-footer.error { color: #ed8b6f; }
 .retro-clock .console-row { border-top: 1px solid #315653; padding-top: 10px; }
 .retro-clock .console-row entry { border: none; border-bottom: 1px solid #315653; padding: 4px; }
 .retro-clock .console-row button { border: 1px solid #315653; font-size: 12px; padding: 3px 8px; }
-.retro-clock .meter-value { color: #ff9b38; font-size: 36px; }
+.retro-clock .meter-value { color: #ff9b38; font-size: 32px; }
 .retro-clock .ram-value { color: #86d1bf; }
-.retro-clock .segment { background: #202829; min-height: 10px; min-width: 0; }
+.retro-clock .segment { background: #202829; min-height: 8px; min-width: 0; }
 .retro-clock .segment.active { background: #e88728; }
 .retro-clock .ram-meter .segment.active { background: #66b2a5; }
-.retro-clock .history { color: #e88728; font-size: 18px; letter-spacing: 1px; }
+.retro-clock .history { color: #e88728; font-size: 16px; letter-spacing: 1px; }
+
+/* Clock: a compact desk instrument, sized to sit above the calendar. */
+.retro-clock .chronometer { padding: 10px 15px; }
+.retro-clock .clock-display {
+    background: #040607;
+    border: 1px solid #315653;
+    border-top-color: #6f9fa6;
+    padding: 0 12px;
+    box-shadow: inset 1px 1px #090d0e, inset -1px -1px #202829;
+}
+.retro-clock .chronometer .clock { font-size: 56px; }
+.retro-clock .seconds-panel { border-left: 1px solid #315653; padding-left: 12px; }
+.retro-clock .seconds {
+    color: #93bec4;
+    font-size: 24px;
+    font-feature-settings: "tnum" 1, "liga" 0;
+}
+.retro-clock .chronometer .date { color: #fff0c7; letter-spacing: 1px; }
+.retro-clock .clock-zone { color: #93bec4; font-size: 11px; }
+.retro-clock .clock-progress-label { color: #66b2a5; font-size: 11px; }
+.retro-clock .day-meter trough,
+.retro-clock .day-meter progress { min-height: 3px; }
+.retro-clock .day-meter progress { background: #66b2a5; }
+
+/* Datebook: tear-off today card above a six-week navigation matrix. */
+.retro-clock .datebook { padding: 13px 15px; }
+.retro-clock .today-card {
+    background: #040607;
+    border: 1px solid #315653;
+    border-top: 2px solid #e88728;
+    padding: 4px 12px;
+    box-shadow: inset 0 -1px #202829;
+}
+.retro-clock .today-number { color: #ff851b; font-size: 48px; }
+.retro-clock .today-weekday { color: #fff0c7; font-size: 16px; }
+.retro-clock .calendar-month { color: #fff0c7; font-size: 24px; }
+.retro-clock .month-navigation button { min-width: 24px; padding: 0 4px; }
+.retro-clock .calendar-grid { border-top: 1px solid #315653; padding-top: 8px; }
+.retro-clock .calendar-day {
+    min-width: 24px;
+    min-height: 24px;
+    padding: 1px;
+    border-color: transparent;
+    background: #202829;
+    color: #e8d3a2;
+    box-shadow: none;
+    font-feature-settings: "tnum" 1;
+}
+.retro-clock .calendar-day.weekend { color: #93bec4; background: #090d0e; }
+.retro-clock .calendar-day:hover { background: #315653; color: #fff0c7; border-color: #6f9fa6; }
+.retro-clock .calendar-day.today { background: #e88728; color: #040607; font-weight: bold; }
+.retro-clock .calendar-day.today:hover { background: #ff9b38; }
+.retro-clock .calendar-day.selected-day { border-color: #93bec4; box-shadow: inset 0 -2px #93bec4; }
+.retro-clock .calendar-day:focus-visible { outline: 1px solid #66b2a5; outline-offset: 1px; }
+.retro-clock .week-number { color: #6f9fa6; font-size: 11px; border-right: 1px solid #315653; }
+.retro-clock .empty-day { color: #315653; }
+.retro-clock .date-detail { border-left: 2px solid #66b2a5; padding: 6px 10px; background: #040607; }
+.retro-clock .selected-date { color: #fff0c7; font-size: 12px; }
+
+/* Media deck: sleeve art, inset display and physical transport keys. */
+.retro-clock .media-deck { padding: 13px 15px; }
+.retro-clock .media-record { background: #040607; padding: 12px; border: 1px solid #315653; border-top-color: #6f9fa6; }
+.retro-clock .record-icon { color: #6f9fa6; font-size: 62px; }
+.retro-clock .track-title { color: #fff0c7; font-size: 18px; }
+.retro-clock .track-artist { color: #93bec4; font-size: 14px; }
+.retro-clock .transport-play { background: #e88728; color: #040607; }
+.retro-clock .transport-play:hover { background: #ff9b38; }
+.retro-clock .media-deck dropdown button { background: #202829; color: #93bec4; }
+.retro-clock .media-deck dropdown popover contents { background: #202829; color: #e8d3a2; border: 1px solid #315653; }
+.retro-clock .network-panel { padding: 13px 15px; }
+.retro-clock .traffic-section { background: #040607; border: 1px solid #315653; padding: 6px 10px; }
+.retro-clock .traffic-rate { color: #ff9b38; font-size: 28px; font-feature-settings: "tnum" 1; }
+.retro-clock .traffic-trace { color: #e88728; font-size: 15px; }
+.retro-clock .network-tx .traffic-rate,
+.retro-clock .network-tx .traffic-trace { color: #93bec4; }
+.retro-clock .network-panel dropdown button { background: #202829; color: #93bec4; }
+.retro-clock .network-panel dropdown popover contents { background: #202829; color: #e8d3a2; border: 1px solid #315653; }
+.retro-clock .pomodoro-panel { padding: 12px 15px; }
+.retro-clock .pomodoro-time { color: #ff9b38; font-size: 48px; font-feature-settings: "tnum" 1; }
+.retro-clock .pomodoro-time.break-time { color: #93bec4; }
+.retro-clock .pomodoro-settings { padding-top: 8px; }
+.retro-clock .pomodoro-settings spinbutton { background: #040607; color: #e8d3a2; border: 1px solid #315653; }

@@ -2,7 +2,11 @@
 
 ## Standalone widgets
 
-After editing Python or CSS, restart all four with `./restart-widgets.sh`.
+After editing Python or CSS, restart the six enabled widgets with `./restart-widgets.sh`.
+The media deck is manual-launch only: it is excluded from autostart and is closed
+without relaunching by the restart script. Run `python3 media_player.py` to show it.
+You can also launch individual widgets from Waybar's **WIDGETS ▾** dropdown;
+see [Waybar setup](../configs/waybar/README.md).
 Running widgets retain their command-line options, including the weather city
 and units. Use `./restart-widgets.sh --city "Perth"` to set a city explicitly
 (if weather was closed, it otherwise starts with an empty city field).
@@ -13,14 +17,22 @@ python3 clock.py
 python3 calendar_widget.py
 python3 weather.py --city "Manchester"
 python3 system_load.py
+python3 media_player.py
+python3 network.py
+python3 pomodoro.py
 ```
 
 Run each command in a separate terminal, or use Hyprland autostart below.
 Each widget is an independent GTK 4 / Wayland desktop-layer surface:
 
-- **Clock:** live 24-hour time with seconds and local date.
-- **Calendar:** Monday-first month view, orange today highlight, previous/next
-  month arrows and a Today button. Updates at midnight.
+- **Clock:** inset 24-hour hours/minutes display, separate blue seconds readout,
+  local date and timezone, and a slim teal meter showing position in the local
+  24-hour day (wall-clock time, rather than elapsed duration across DST changes).
+- **Calendar:** retro datebook with a large today card, month/year heading,
+  Monday-first six-week grid and ISO week numbers. Click a date to inspect its
+  weekday, ISO week/year and day-of-year in the detail strip. Orange marks today;
+  blue marks the selected date. Month arrows preserve the selected day where
+  possible; **[ TODAY ]** resets selection. Updates at midnight.
 - **Weather:** current temperature, conditions, feels-like temperature, humidity
   and wind from Open-Meteo (no API key). Large temperature readout, ASCII weather
   illustration, and three separate metric columns. Enter a city and press Enter
@@ -35,13 +47,47 @@ Each widget is an independent GTK 4 / Wayland desktop-layer surface:
   trace, and 1/5/15-minute load averages. Load averages are task
   counts, not percentages; the logical CPU count is shown for context.
 
+- **Media:** MPRIS media deck with album art, title/artist/album, elapsed time,
+  orange progress meter, and previous/play-pause/next controls. Select a player
+  from the dropdown (Spotify, VLC, and browsers with MPRIS enabled). The first
+  available player is selected initially; your choice is kept until it exits.
+  Controls respect each player's advertised capabilities. Missing artwork uses
+  a record symbol; streams without a duration show `--:--`. Metadata is polled
+  every second over the session D-Bus in a worker thread. Local and HTTP(S)
+  artwork is supported, limited to 4 MiB. No extra Python packages or playerctl
+  are required. A media application must be running to populate the deck.
+
+- **Network:** orange download and blue upload rates, independently auto-scaled
+  30-sample traffic traces, and interface byte totals. Samples once per second
+  from `/proc/net/dev`, using actual elapsed time. Units are bytes/s, not bits/s;
+  totals are since interface creation/reset, not widget launch. AUTO selects the
+  lowest-metric IPv4 default route, falling back to the interface with the most
+  accumulated traffic. Use the dropdown for IPv6-only routes, VPNs or another
+  interface. Loopback is excluded. Switching interfaces or resetting counters
+  clears history. This measures interface traffic, including LAN transfers;
+  it does not test internet connectivity or link capacity. No extra dependencies.
+
+- **Pomodoro:** compact focus/break timer with start, pause and reset. Expand
+  **DURATIONS / MINUTES** to configure focus, short break and long break (1–180
+  minutes each), then **SAVE & RESET**. Defaults are 25/5/15 minutes, with a long
+  break after every four completed focus sessions. Each interval ends with a
+  desktop notification and waits for START before the next interval. Settings
+  persist in `$XDG_CONFIG_HOME/retro-widgets/pomodoro.json` (normally
+  `~/.config/retro-widgets/pomodoro.json`). Closing/restarting resets the timer
+  and completed-session count. Elapsed time uses a monotonic clock, excluding
+  system suspend. The timer starts idle on launch.
+
 Close any widget independently with **[x]**, or Escape after clicking it.
 Each has its own application ID, so launching the same
 widget again brings its existing window forward.
 
 The charcoal background uses **0.9 opacity**, while text stays fully opaque.
 Edit `clock.css` to change colours, fonts, or background alpha.
-All widgets use square corners, a teal left border, and the pixel-style
+Panels use compact sizing: 324px default width for clock/calendar/network/Pomodoro and 360px for
+the other widgets, with tighter padding and smaller readouts. GTK may grow a
+panel to fit its content. Default widths and body spacing are set in `widget.py`.
+All widgets use square corners, subtle beveled edges, a teal left border,
+muted blue secondary labels, orange readouts, and the pixel-style
 **Terminess Nerd Font Mono** (installed locally), falling back to IosevkaTerm
 and system monospace. Desktop-layer surfaces have no compositor window decorations.
 Restart the widgets after styling changes; reload Hyprland after rule changes.
@@ -55,11 +101,20 @@ Add this to `~/.config/hypr/hyprland.lua`, adjusting the path if you move the pr
 dofile("/home/fozzyack/code/gtk-widgets/hyprland-widgets.lua")
 ```
 
-Set `city` and `directory` at the top of `hyprland-widgets.lua`. Reload with
+Set `city` at the top of `hyprland-widgets.lua`; its widget directory is resolved
+from the Lua file itself, so startup uses this checkout's sizing and CSS. Reload with
 `hyprctl reload`, then launch the widgets manually the first time. The
 `hl.on("hyprland.start", ...)` handler autostarts them on the next login, not on
 configuration reload.
+Network and Pomodoro are included in both startup and restart. Restart also
+stops known widget scripts from the former `~/code/gtk-widgets` directory to
+prevent older instances from retaining the same GTK application IDs.
 
+The media deck sits in a second column, 374px from the left and 80px from the
+top when launched manually. The network monitor is anchored 30px from the left
+and bottom edges. Pomodoro sits in a second right-hand column, 410px from the
+right and 80px from the top, beside weather and system.
+Adjust their entries in `POSITIONS` for your monitor size.
 The clock and calendar are anchored to the left edge; weather and system are
 anchored to the right. All use the **bottom layer**, above wallpaper but below
 normal windows and terminals, on every workspace of their output. They reserve

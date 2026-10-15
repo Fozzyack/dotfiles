@@ -24,6 +24,7 @@ Personal dotfiles for an Arch Linux workflow built around Hyprland, Neovim, and 
 | Layer | Tools |
 | :--- | :--- |
 | **Desktop** | Hyprland · Hyprpaper · Waybar · Rofi |
+| **Desktop widgets** | Clock · Calendar · Weather · System · Network · Pomodoro · Media |
 | **Terminals** | Ghostty · Alacritty · WezTerm |
 | **Shell & sessions** | Fish · Starship · tmux |
 | **Editor** | Neovim |
@@ -84,6 +85,7 @@ Type a menu number and press Enter. Empty input exits the main menu or processes
 │   ├── configs/       → ~/.config/
 │   ├── home/          → ~/
 │   ├── windows/         Windows dotfiles for manual setup
+│   ├── gtk-widgets/      Retro GTK desktop widgets (manual setup)
 │   └── install.config   Dependency commands, one per line
 ├── other-configs/      Extra configs for manual setup
 ├── ff/                 Fuzzy file finder
@@ -132,6 +134,81 @@ Edit `configs/configs/hypr/hyprpaper.conf` to match your monitor names and wallp
 ### Neovim
 
 You may need to install language servers for the languages you use. In Neovim, run `:help lspconfig-all` for configuration guidance.
+
+### Retro desktop and Ghostty
+
+The desktop widgets, Waybar, and Ghostty share a charcoal, warm cream, orange,
+teal, and muted blue palette with **Terminess Nerd Font Mono** lettering.
+Ghostty has bottom tabs with orange active markers, blue inactive labels and
+subtle bevels, plus matching menus, dialogs, search fields and notifications.
+Its GTK styling requires GTK 4.16+ and libadwaita 1.6+.
+
+Link the whole [`configs/configs/ghostty/`](configs/configs/ghostty/) and
+[`configs/configs/waybar/`](configs/configs/waybar/) directories through Temperz
+so their themes, stylesheets and menu helpers remain together. Restart Ghostty
+after first enabling its stylesheet; subsequent config reloads use **Ctrl+Shift+,**.
+
+### Desktop widgets
+
+[`configs/gtk-widgets/`](configs/gtk-widgets/) contains independent GTK 4 / Wayland
+widgets. They sit above the wallpaper but behind normal windows, reserve no
+screen space, and can be closed individually with **[x]** or Escape when focused.
+
+| Widget | Features |
+| :--- | :--- |
+| **Clock** | Large 24-hour display, separate seconds, local date/timezone and day-progress meter |
+| **Calendar** | Today card, clickable Monday-first grid, ISO week numbers and selected-date details |
+| **Weather** | Open-Meteo conditions, ASCII artwork, temperature, humidity and wind; configurable city/units |
+| **System** | CPU/RAM meters, CPU history and load averages |
+| **Network** | Live download/upload rates, traffic histories, interface selector and byte totals |
+| **Pomodoro** | Start/pause/reset, saved focus/break durations and completion notifications |
+| **Media** | MPRIS player selector, album art, track details, progress and playback controls; manual-launch only |
+
+Install the widget dependencies on Arch:
+
+```bash
+sudo pacman -S python-gobject gtk4 gtk4-layer-shell
+```
+
+The widgets are outside Temperz's managed config directories. Run them from this
+repository, or use Waybar's **WIDGETS ▾** dropdown to launch any widget individually.
+The menu requires the Waybar directory to be linked to `~/.config/waybar`; its
+launcher resolves widget paths relative to the repository. Weather defaults to
+Perth in the menu; edit its action to change the city. Media needs a running
+MPRIS-compatible player such as Spotify or VLC.
+
+From the repository root, apply widget changes and reload Waybar:
+
+```bash
+configs/gtk-widgets/restart-widgets.sh
+pkill -SIGUSR2 -x waybar
+```
+
+The restart script launches the six enabled widgets, preserves running weather
+arguments, and closes media without relaunching it. Launch media separately with
+`python3 configs/gtk-widgets/media_player.py` or the Waybar menu.
+
+Clock/calendar/network/Pomodoro use 324px default widths; weather/system/media
+use 360px. Network is anchored to the bottom-left; the other positions and margins
+are configured in `configs/gtk-widgets/widget.py`. Colours and sizing live in
+`configs/gtk-widgets/clock.css`. Logs go to `~/.local/state/retro-widgets/` (or
+`$XDG_STATE_HOME/retro-widgets`).
+
+For Hyprland autostart, set `city` in
+`configs/gtk-widgets/hyprland-widgets.lua`, then load it from your Hyprland Lua
+configuration using its absolute path. The supplied path must be updated for
+your clone location; widget scripts are resolved beside the Lua file automatically.
+This starts the six enabled widgets, including Network and Pomodoro, on login, not on a
+configuration reload.
+
+Pomodoro defaults to **25/5/15 minutes**, with a long break after four focus
+sessions. Expand **DURATIONS / MINUTES** to customize and save settings in
+`~/.config/retro-widgets/pomodoro.json`. Each interval waits for START; restarting
+resets the countdown and session count, but retains saved durations.
+
+See the [widget guide](configs/gtk-widgets/README.md),
+[Waybar controls](configs/configs/waybar/README.md), and
+[Ghostty guide](configs/configs/ghostty/README.md) for details.
 
 ## Extra tools
 

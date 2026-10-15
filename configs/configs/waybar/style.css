@@ -76,6 +76,7 @@ window#waybar {
 
 /* Spacing separates the readouts without additional frames or dividers. */
 #custom-uptime,
+#custom-widgets,
 #cpu,
 #memory,
 #idle_inhibitor,
@@ -89,6 +90,7 @@ window#waybar {
 }
 
 #cpu:hover,
+#custom-widgets:hover,
 #memory:hover,
 #idle_inhibitor:hover,
 #bluetooth:hover,
@@ -101,6 +103,12 @@ window#waybar {
 
 #custom-uptime {
   color: @text-muted;
+}
+
+#custom-widgets {
+  color: @teal;
+  border-right: 1px solid @surface;
+  margin-right: 4px;
 }
 
 #cpu,
