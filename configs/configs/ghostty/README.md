@@ -51,7 +51,7 @@ separately if needed.
 | Unfocused split opacity | `0.85` |
 | Padding | Balanced, 4 on each axis |
 | Title bar | Hidden GTK title bar; `ghostty` window theme |
-| Tabs | Bottom, original text size and padding; blue inactive labels, orange top marker, subtle bevels |
+| Tabs | Bottom recessed rail, compact framed tabs, blue inactive labels; deep charcoal active background and thin orange top edge |
 | GTK interface | Terminess font, charcoal panels, cream labels, orange focus and blue secondary accents |
 
 `minimum-contrast = 1` preserves the theme colors without contrast adjustment.
