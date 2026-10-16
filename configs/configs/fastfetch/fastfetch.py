@@ -24,10 +24,12 @@ def image_protocol():
                 command, capture_output=True, text=True, timeout=2, check=True
             )
             terminal = result.stdout.strip().lower()
-            if terminal:
+            if "ghostty" in terminal:
                 # Fastfetch wraps kitty-direct for tmux passthrough, unlike its
                 # decoded Kitty renderer. The local host must access the PNG.
-                return "kitty-direct" if "ghostty" in terminal else "sixel"
+                return "kitty-direct"
+            if "wezterm" in terminal:
+                return "sixel"
         except (OSError, subprocess.SubprocessError):
             pass
 
@@ -37,7 +39,11 @@ def image_protocol():
         return "kitty-direct" if in_tmux else "kitty"
     if program != "wezterm" and os.environ.get("GHOSTTY_RESOURCES_DIR"):
         return "kitty-direct" if in_tmux else "kitty"
-    return "sixel"
+    if program == "wezterm" or "wezterm" in terminal:
+        return "sixel"
+    # Ghostty in a fresh VM may not expose its terminal identity. Do not send
+    # Sixel unless WezTerm was identified; use Kitty as the fallback instead.
+    return "kitty-direct" if in_tmux else "kitty"
 
 
 def main():
@@ -46,9 +52,12 @@ def main():
     # User options come last so they can override these defaults.
     command = [
         "fastfetch",
-        "--config", str(directory / "config.jsonc"),
-        "--logo", str(directory / "retro-anime-cyberpunk-portrait-terminal.png"),
-        "--logo-type", image_protocol(),
+        "--config",
+        str(directory / "config.jsonc"),
+        "--logo",
+        str(directory / "retro-anime-cyberpunk-portrait-terminal.png"),
+        "--logo-type",
+        image_protocol(),
         *sys.argv[1:],
     ]
     try:
