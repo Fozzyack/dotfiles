@@ -129,7 +129,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ### Hyprland wallpapers
 
-Edit `configs/configs/hypr/hyprpaper.conf` to match your monitor names and wallpaper paths. The referenced wallpapers under `~/wallpaper/` are not included in this repository.
+Edit `configs/configs/hypr/hyprpaper.conf` to match your monitor names and wallpaper paths. The referenced wallpapers under `~/wallpapers/` are not included in this repository.
 
 ### Neovim
 
