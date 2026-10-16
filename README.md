@@ -96,7 +96,7 @@ Type a menu number and press Enter. Empty input exits the main menu or processes
 
 Temperz preserves entry names; it does **not** add a leading dot. For example, `configs/home/wezterm.lua` becomes `~/wezterm.lua`, while `configs/configs/nvim/` becomes `~/.config/nvim/`.
 
-The dependency commands currently use `paru`, which must already be installed. Review `configs/install.config` before running it, and only use trusted commands.
+The dependency commands use `sudo pacman`; no AUR helper is required. Run `sudo pacman -Syu` first to avoid partial upgrades. Review `configs/install.config` before running it, and only use trusted commands.
 
 <details>
 <summary><strong>Build Temperz from source</strong></summary>
