@@ -40,6 +40,13 @@ hl.monitor({
     reserved_area = 70,
 })
 
+hl.monitor({
+    output   = "Virtual-1",
+    mode     = "1920x1200",
+    position = "0x0",
+    scale    = "auto",
+    disabled = false,
+})
 
 for i = 1, 11, 1 do
     if i % 2 == 0 then
@@ -82,6 +89,7 @@ local menu        = "rofi -show combi"
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar & hyprpaper")
+    hl.exec_cmd("wayland-vdagent")
 end)
 
 -- dofile("/home/fozzyack/code/gtk-widgets/hyprland-widgets.lua")
