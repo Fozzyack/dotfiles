@@ -17,6 +17,12 @@ A keyboard-first home for my desktop, terminals, and development tools.
 
 ---
 
+### Current Issues:
+
+The current issues pertain to having a polished hyprland setup replicatable across vm environments. While I can get it
+*almost* smooth, I am unable to get it perfect and replicatable across multiple environments. Most likely. This will be
+the host machines linux environment and I may create a separate VM repository with a very minimal config for a vm dev environemnt.
+
 Personal dotfiles for an Arch Linux workflow built around Hyprland, Neovim, and the terminal. Configurations stay in this repository, with symlinks putting them where they belong.
 
 ## The stack
