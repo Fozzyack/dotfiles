@@ -1,0 +1,103 @@
+# Lightweight X11 counterpart to hypr/hyprland.lua. Requires i3 >= 4.22.
+set $mod Mod1
+set $terminal ghostty -e fish
+set $menu rofi -show combi
+
+font pango:Terminess Nerd Font Mono 11
+floating_modifier $mod
+focus_follows_mouse yes
+workspace_auto_back_and_forth yes
+default_border pixel 1
+default_floating_border pixel 1
+hide_edge_borders none
+gaps inner 3
+gaps outer 10
+
+# class                 border  background text    indicator child_border
+client.focused          #ff851b #2b3e3e    #e5d5b7 #66b2a5   #ff851b
+client.focused_inactive #171c20 #171c20    #7c8b85 #171c20   #171c20
+client.unfocused        #171c20 #171c20    #7c8b85 #171c20   #171c20
+client.urgent           #cf6b56 #cf6b56    #e5d5b7 #cf6b56   #cf6b56
+client.background #171c20
+
+bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+c kill
+bindsym $mod+Shift+e exec --no-startup-id i3-nagbar -t warning -m 'Exit i3?' -B 'Exit' 'i3-msg exit'
+bindsym $mod+e exec --no-startup-id thunar
+bindsym $mod+v floating toggle
+bindsym $mod+r exec --no-startup-id $menu
+# No direct equivalent of Hyprland pseudo-tiling; toggle layouts instead.
+bindsym $mod+p layout toggle split tabbed
+bindsym $mod+Shift+j split toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+bindsym $mod+h focus left
+bindsym $mod+j focus right
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down move down
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+s scratchpad show
+bindsym $mod+Shift+s move scratchpad
+# i3 mouse bindings operate over windows (or the bar), not empty root space.
+bindsym --whole-window $mod+button4 workspace prev
+bindsym --whole-window $mod+button5 workspace next
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -e4 -n2 set 5%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -e4 -n2 set 5%-
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+# Run on login and i3 restart; missing wallpapers leave a solid charcoal root.
+exec_always --no-startup-id sh ~/.config/i3/wallpaper.sh
+exec --no-startup-id dunst
+
+bar {
+    status_command i3status
+    position bottom
+    tray_output primary
+    colors {
+        background #171c20
+        statusline #e5d5b7
+        separator #66b2a5
+        focused_workspace #ff851b #2b3e3e #ff851b
+        active_workspace #2b3e3e #171c20 #66b2a5
+        inactive_workspace #171c20 #171c20 #7c8b85
+        urgent_workspace #cf6b56 #cf6b56 #e5d5b7
+    }
+}

@@ -1,0 +1,98 @@
+# Keep the charcoal, orange, teal, and cream palette.
+theme = retro-dark
+
+# Keep theme colours exact rather than adjusting low-contrast text.
+minimum-contrast = 1
+
+# Retro monospace type with Nerd Font icons.
+font-family = Terminess Nerd Font Mono
+# font-size = 15
+# adjust-cell-height = 8%
+
+# Frosted glass without washing out the text.
+background-opacity = 0.7
+# Keep explicit cell backgrounds opaque, like WezTerm's text_background_opacity.
+background-opacity-cells = false
+background-blur = true
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+# Match the GTK interface to the terminal's retro palette.
+window-theme = ghostty
+gtk-custom-css = retro.css
+gtk-toolbar-style = flat
+gtk-tabs-location = bottom
+gtk-wide-tabs = false
+gtk-titlebar = false
+
+# Calm cursor and less visual noise.
+cursor-style = bar
+cursor-style-blink = true
+mouse-hide-while-typing = true
+unfocused-split-opacity = 0.85
+resize-overlay = never
+
+# Existing shell behavior.
+keybind = shift+enter=text:\n
+shell-integration = fish
+
+# WezTerm-style leader: press Ctrl+S, release it, then press the command key.
+# Ghostty sequences wait indefinitely rather than timing out after two seconds.
+# Keep other Ghostty shortcuts at their defaults.
+keybind = ctrl+s>ctrl+b=text:\x02
+# Send a literal Ctrl+S when needed (the leader otherwise consumes it).
+keybind = ctrl+s>ctrl+s=text:\x13
+keybind = ctrl+s>c=new_tab
+keybind = ctrl+s>n=next_tab
+keybind = ctrl+s>p=previous_tab
+# Corne-friendly tab movement: leader, a, then h/l (no held modifiers).
+keybind = ctrl+s>a>h=move_tab:-1
+keybind = ctrl+s>a>l=move_tab:1
+keybind = ctrl+s>a>escape=ignore
+keybind = ctrl+s>a>enter=ignore
+# Shift+5 is %, and Shift+' is double quote on a US keyboard.
+keybind = ctrl+s>shift+5=new_split:right
+keybind = ctrl+s>shift+'=new_split:down
+# Ghostty has no equivalent to WezTerm's labeled pane swap (leader+w).
+keybind = ctrl+s>h=goto_split:left
+keybind = ctrl+s>j=goto_split:down
+keybind = ctrl+s>k=goto_split:up
+keybind = ctrl+s>l=goto_split:right
+keybind = ctrl+s>z=toggle_split_zoom
+keybind = ctrl+s>x=close_surface
+# Match WezTerm's close confirmation, including when the shell is idle.
+confirm-close-surface = always
+
+keybind = ctrl+s>1=goto_tab:1
+keybind = ctrl+s>2=goto_tab:2
+keybind = ctrl+s>3=goto_tab:3
+keybind = ctrl+s>4=goto_tab:4
+keybind = ctrl+s>5=goto_tab:5
+keybind = ctrl+s>6=goto_tab:6
+keybind = ctrl+s>7=goto_tab:7
+keybind = ctrl+s>8=goto_tab:8
+keybind = ctrl+s>9=last_tab
+
+# Ghostty has no persistent resize key table: repeat Ctrl+S, r, direction.
+# Resize amounts are pixels, not WezTerm's cells; use a small 10px step.
+keybind = ctrl+s>r>h=resize_split:left,10
+keybind = ctrl+s>r>j=resize_split:down,10
+keybind = ctrl+s>r>k=resize_split:up,10
+keybind = ctrl+s>r>l=resize_split:right,10
+keybind = ctrl+s>r>left=resize_split:left,10
+keybind = ctrl+s>r>down=resize_split:down,10
+keybind = ctrl+s>r>up=resize_split:up,10
+keybind = ctrl+s>r>right=resize_split:right,10
+keybind = ctrl+s>r>escape=ignore
+keybind = ctrl+s>r>enter=ignore
+keybind = ctrl+s>escape=ignore
+
+# Direct shortcuts from WezTerm.
+keybind = alt+enter=toggle_fullscreen
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+shift+e=new_split:down
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+z=toggle_split_zoom

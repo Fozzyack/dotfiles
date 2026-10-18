@@ -1,0 +1,98 @@
+
+# Adding to the path
+export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$PATH:$HOME/.runnables/zen"
+export PATH="$HOME/.local/zig/0.17.0:$PATH" # Remove this when pacman gets new zig version
+export EDITOR=nvim
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# fzf setup -- fzf.fish (plugin required)
+fzf --fish | source
+fzf_configure_bindings --history=\cr --directory=\cf --variables=\cv --git_log=\ch --git_status=\cg
+
+#  extra things
+function ff; source ~/dotfiles/ff/ff.fish $argv; end
+function dfile; ~/dotfiles/dfile/dfile $argv; end
+
+# Prompt manager
+starship init fish | source
+
+# Render after Fish initializes the terminal; startup screen switches can clear images.
+function fish_greeting
+    if isatty stdout; and command -q fastfetch
+        fastfetch
+    end
+end
+
+# For GPG keys to work (git stuff)
+set -x GPG_TTY (tty)
+
+# ALIASES ---------------------
+
+# list
+alias ls exa # Uses exa instead of ls
+alias ll="exa -al"
+
+# grep
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+
+# Navigation
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias ....="cd ../../../../"
+
+# github
+alias gp="git push"
+alias gpl="git pull"
+alias ga="git add"
+alias gaa="git add ."
+alias gc="git commit"
+alias gs="git status"
+alias gss="git status -sb"
+alias gl="git log --oneline --graph --decorate"
+alias gd="git diff"
+alias gb="git branch"
+
+# github (cont - multirepo)
+
+function gf
+    git -C ~/code/hobby/squares/frontend $argv
+end
+
+function gb
+    git -C ~/code/hobby/squares/backend $argv
+end
+
+alias gfp="gf push"
+alias gfpl="gf pull"
+alias gfa="gf add"
+alias gfaa="gf add ."
+alias gfc="gf commit"
+alias gfs="gf status"
+alias gfss="gf status -sb"
+alias gfl="gf log --oneline --graph --decorate"
+alias gfd="gf diff"
+alias gfb="gf branch"
+
+alias gbp="gb push"
+alias gbpl="gb pull"
+alias gba="gb add"
+alias gbaa="gb add ."
+alias gbc="gb commit"
+alias gbs="gb status"
+alias gbss="gb status -sb"
+alias gbl="gb log --oneline --graph --decorate"
+alias gbd="gb diff"
+alias gbb="gb branch"
+
+
+# ALIASES END ----------------
+
+# opencode
+fish_add_path /home/fozzyack/.opencode/bin

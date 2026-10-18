@@ -1,0 +1,142 @@
+/* Retro console launcher, matching Ghostty, Starship, and Waybar. */
+
+configuration {
+    modes: [combi];
+    combi-modi: [drun, window, run, ssh];
+    display-combi: "❯ SYS";
+    icon-theme: "Papirus";
+    show-icons: true;
+    drun-display-format: "{name}";
+}
+
+* {
+    background:         #040607D9;
+    surface:            #2b3e3e;
+    accent:             #ff851b;
+    teal:               #66b2a5;
+    text:               #e5d5b7;
+    text-muted:         #7c8b85;
+    error:              #cf6b56;
+
+    background-color:   transparent;
+    text-color:         @text;
+    font:               "Terminess Nerd Font Mono 14";
+
+    margin:             0px;
+    padding:            0px;
+    spacing:            0px;
+}
+
+window {
+    location:           center;
+    anchor:             center;
+    width:              640px;
+    border:             1px;
+    border-color:       @surface;
+    border-radius:      2px;
+    background-color:   @background;
+}
+
+mainbox {
+    padding:            18px;
+    spacing:            14px;
+    children:           [inputbar, message, listview, textbox-hint];
+}
+
+inputbar {
+    padding:            8px 10px;
+    spacing:            12px;
+    border:             0px;
+    border-radius:      0px;
+    background-color:   transparent;
+    children:           [prompt, entry];
+}
+
+prompt {
+    text-color:         @teal;
+}
+
+entry {
+    placeholder:        "Search apps, windows, commands, SSH...";
+    placeholder-color:  @text-muted;
+    text-color:         @text;
+}
+
+message {
+    padding:            10px 14px;
+    border:             0px;
+    border-radius:      0px;
+    background-color:   @surface;
+}
+
+textbox {
+    text-color:         @text-muted;
+}
+
+textbox-hint {
+    str:                "↑↓ select   ·   ↵ launch   ·   esc close";
+    expand:             false;
+    padding:            6px 10px 0px;
+    text-color:         @text-muted;
+    font:               "Terminess Nerd Font Mono 12";
+}
+
+listview {
+    border:             0px;
+    lines:              7;
+    columns:            1;
+    spacing:            3px;
+    fixed-height:       true;
+    scrollbar:          false;
+    cycle:              true;
+    dynamic:            false;
+}
+
+element {
+    padding:            10px 12px;
+    spacing:            12px;
+    border:             0px;
+    border-radius:      0px;
+    background-color:   transparent;
+    children:           [element-icon, element-text];
+}
+
+element normal normal,
+element alternate normal {
+    background-color:   transparent;
+    text-color:         @text;
+}
+
+element normal active,
+element alternate active {
+    background-color:   transparent;
+    text-color:         @teal;
+}
+
+element normal urgent,
+element alternate urgent {
+    background-color:   transparent;
+    text-color:         @error;
+}
+
+element selected normal,
+element selected active {
+    background-color:   @surface;
+    text-color:         @accent;
+}
+
+element selected urgent {
+    background-color:   @surface;
+    text-color:         @error;
+}
+
+element-icon {
+    size:               22px;
+    background-color:   transparent;
+}
+
+element-text {
+    vertical-align:     0.5;
+    background-color:   transparent;
+    text-color:         inherit;
+}

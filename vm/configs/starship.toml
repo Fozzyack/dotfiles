@@ -1,0 +1,98 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Retro dark palette shared with configs/wezterm.lua.
+palette = "retro_dark"
+add_newline = true
+
+format = """
+[╭─](muted)\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$nodejs\
+$python\
+$rust\
+$golang\
+$php\
+$time\
+\n[╰─](muted)$character
+"""
+
+[palettes.retro_dark]
+base = "#090d0e"
+mantle = "#060909"
+surface = "#2b3e3e"
+muted = "#7c8b85"
+text = "#e5d5b7"
+accent = "#ff851b"
+teal = "#66b2a5"
+red = "#cf6b56"
+green = "#8fa878"
+
+[character]
+success_symbol = '[❯](bold accent)'
+error_symbol = '[❯](bold red)'
+vimcmd_symbol = '[❮](bold teal)'
+
+[directory]
+style = "bold fg:accent bg:surface"
+format = "[  $path]($style)[$read_only ]($read_only_style)"
+read_only = " 󰌾"
+read_only_style = "fg:red bg:surface"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = " "
+style = "bold teal"
+format = '[ · ](muted)[$symbol$branch]($style)'
+
+[git_status]
+style = "accent"
+format = '( [\[$all_status$ahead_behind\]]($style))'
+
+[git_state]
+style = "bold red"
+cherry_pick = "PICKING"
+merge = "MERGING"
+rebase = "REBASING"
+revert = "REVERTING"
+format = ' [\[$state( $progress_current/$progress_total)\]]($style)'
+
+[nodejs]
+symbol = " "
+style = "text"
+format = '[ · ](muted)[$symbol$version]($style)'
+
+[rust]
+symbol = " "
+style = "text"
+format = '[ · ](muted)[$symbol$version]($style)'
+
+[golang]
+symbol = " "
+style = "text"
+format = '[ · ](muted)[$symbol$version]($style)'
+
+[php]
+symbol = " "
+style = "text"
+format = '[ · ](muted)[$symbol$version]($style)'
+
+[python]
+symbol = " "
+style = "text"
+format = '[ · ](muted)[$symbol$version(  $virtualenv)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "muted"
+format = '[ · ](muted)[ $time]($style)'
