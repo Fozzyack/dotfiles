@@ -42,7 +42,7 @@ hl.monitor({
 
 hl.monitor({
     output   = "Virtual-1",
-    mode     = "1920x1200",
+    mode     = "2560x1440",
     position = "0x0",
     scale    = "auto",
     disabled = false,
@@ -419,5 +419,5 @@ hl.window_rule({
 hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")
 
 -- enable if opengl version is too low
--- hl.env("MESA_GL_VERSION_OVERRIDE", "4.3")
--- hl.env("MESA_GLSL_VERSION_OVERRIDE", "430")
+hl.env("MESA_GL_VERSION_OVERRIDE", "4.3")
+hl.env("MESA_GLSL_VERSION_OVERRIDE", "430")
