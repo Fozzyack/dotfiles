@@ -64,6 +64,11 @@ immediately in the current terminal without waiting for the next login.
 The installer leaves unrelated existing Fish configs alone and reports a setup
 error if `~/.config/fish` (or `$XDG_CONFIG_HOME/fish`) is not linked to the VM profile.
 
+The dependency menu also installs Bun into `~/.bun/bin` and OpenCode V2 into
+`~/.opencode/bin` using their official installers, without editing `config.fish`.
+Bun's PATH is already configured; OpenCode's per-user path is added through a
+Fish universal variable. Open a new Fish session after installation.
+
 If Fish is already preventing login, first restore Bash using a working terminal
 or root/recovery console (`chsh -s /bin/bash YOUR_USERNAME`, with `sudo` when
 running as a normal user). The installer cannot repair access to a locked-out
