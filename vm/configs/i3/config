@@ -87,6 +87,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 exec_always --no-startup-id sh ~/.config/i3/wallpaper.sh
 exec --no-startup-id dunst
 exec --no-startup-id picom --config ~/.config/i3/picom.conf
+exec --no-startup-id spice-vdagent
 
 bar {
     status_command i3status

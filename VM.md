@@ -70,23 +70,27 @@ takes precedence over Ghostty's own fullscreen shortcut; use Alt+F instead.
 ### Terminal transparency
 
 Picom starts with i3 and displays Ghostty's existing 70% background opacity
-without making text translucent. It uses XRender with no blur, shadows or fading
-to keep VM overhead low. Ghostty's config is unchanged; its blur setting does
-not enable compositor blur here.
+without making text translucent. It uses GLX with dual-Kawase background blur
+(strength 5), with shadows and fading disabled. Ghostty's config is unchanged.
+Blur requires working OpenGL in the VM; if it causes rendering problems, change
+`backend` to `"xrender"` and remove the `blur` block in
+`vm/configs/i3/picom.conf`.
 
 For an existing session, install `picom`, then run
 `picom --config ~/.config/i3/picom.conf` once, or log out and back in.
 
 ### Wallpapers
 
-Put PNG/JPEG/WebP images in `~/wallpapers/`. On login and i3 restart,
-`~/.config/i3/wallpaper.sh` runs **feh** to fill the screen with the first image
-found. No images are bundled; without them, the background is solid charcoal.
+On login and i3 restart, `~/.config/i3/wallpaper.sh` runs **feh** to fill the
+screen with `~/wallpapers/retro-anime-research-station-4k.png`.
+The image is not bundled; if it is missing, the background is solid charcoal.
 feh sets the wallpaper and exits rather than keeping a daemon running.
-Set `I3_WALLPAPER_DIR` in `.xinitrc` to use a different directory. Reapply after
-adding images with `sh ~/.config/i3/wallpaper.sh`.
+Edit the `wallpaper` path in the script to select another image. Reapply with
+`sh ~/.config/i3/wallpaper.sh`.
 
-For QEMU/SPICE, optionally install `spice-vdagent` for guest integration.
+For QEMU/SPICE, `spice-vdagent` is installed by the VM dependency menu and
+started with i3 for clipboard and display integration. The VM must expose a
+SPICE agent channel (`com.redhat.spice.0`).
 VirtualBox users should instead install the matching VirtualBox guest tools.
 
 ## Existing OpenGL troubleshooting notes
