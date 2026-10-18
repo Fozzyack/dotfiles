@@ -50,7 +50,10 @@ shell helpers still expect `~/dotfiles`.
 After **Setup VM**, **Install VM deps** updates the plugins listed in
 `vm/configs/fish/fish_plugins` with the bundled Fisher, clears stale universal
 function/completion search paths, and sets `/usr/bin/fish` as the current user's
-default login shell. Run Temperz as your normal user, not with `sudo`; the
+default login shell **only after** plugin setup and both login/interactive startup
+checks pass. `vm/setup-fish.sh` refuses root execution, checks `/etc/shells` and
+required commands, and leaves the login shell unchanged if a check fails.
+It does not edit `config.fish`. Run Temperz as your normal user, not with `sudo`; the
 individual commands request elevation when needed. Plugin updates require internet
 access and may modify the linked Fish files in this repository.
 
@@ -60,6 +63,12 @@ Log out and back in for the login-shell change to take effect. Check it with
 immediately in the current terminal without waiting for the next login.
 The installer leaves unrelated existing Fish configs alone and reports a setup
 error if `~/.config/fish` (or `$XDG_CONFIG_HOME/fish`) is not linked to the VM profile.
+
+If Fish is already preventing login, first restore Bash using a working terminal
+or root/recovery console (`chsh -s /bin/bash YOUR_USERNAME`, with `sudo` when
+running as a normal user). The installer cannot repair access to a locked-out
+account. After recovering, rerun `bash vm/setup-fish.sh` from this repository;
+do not manually switch back to Fish if its startup checks fail.
 
 ### Neovim dependencies
 
