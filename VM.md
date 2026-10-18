@@ -41,9 +41,25 @@ directories and unrelated symlinks untouched.
 Ghostty, Fish, Rofi, Starship and Fastfetch are independent copies of the existing
 configs. Changes to the main profile do not automatically update the VM copies.
 Fastfetch is installed and displayed by the existing Fish greeting. The Go
-package dependency and `exa` compatibility link support the unchanged Fish config.
-Ghostty explicitly launches Fish via the i3 terminal shortcut; the login shell
-is not changed. Optional personal shell helpers still expect `~/dotfiles`.
+package dependency and `exa` compatibility link support the Fish config.
+Ghostty explicitly launches Fish via the i3 terminal shortcut. Optional personal
+shell helpers still expect `~/dotfiles`.
+
+### Fish setup
+
+After **Setup VM**, **Install VM deps** updates the plugins listed in
+`vm/configs/fish/fish_plugins` with the bundled Fisher, clears stale universal
+function/completion search paths, and sets `/usr/bin/fish` as the current user's
+default login shell. Run Temperz as your normal user, not with `sudo`; the
+individual commands request elevation when needed. Plugin updates require internet
+access and may modify the linked Fish files in this repository.
+
+Log out and back in for the login-shell change to take effect. Check it with
+`getent passwd "$(id -un)" | cut -d: -f7` (from Bash) or
+`getent passwd (id -un) | cut -d: -f7` (from Fish). `exec fish -l` starts Fish
+immediately in the current terminal without waiting for the next login.
+The installer leaves unrelated existing Fish configs alone and reports a setup
+error if `~/.config/fish` (or `$XDG_CONFIG_HOME/fish`) is not linked to the VM profile.
 
 ### Neovim dependencies
 
