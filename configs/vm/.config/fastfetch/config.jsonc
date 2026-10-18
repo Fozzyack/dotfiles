@@ -1,0 +1,124 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    // fastfetch.py selects native Ghostty (Kitty) / WezTerm (Sixel) rendering.
+    // Direct invocations default to Kitty; use the Fish wrapper for detection.
+    // Fastfetch owns image sizing and text alignment; no raw-image cache is needed.
+    // Native Sixel/Kitty rendering needs Fastfetch's ImageMagick feature on Linux.
+    // tmux needs `set -g allow-passthrough on`.
+    // tmux + Sixel needs a Sixel-enabled tmux build; Kitty passthrough uses
+    // kitty-direct, which requires the host terminal to access the local PNG.
+    // Zellij receives native graphics; Ghostty's Kitty path requires Zellij 0.45+.
+    // Windows/WSL requires a recent WezTerm build with updated ConPTY support.
+    "logo": {
+        "type": "kitty",
+        "source": "\"${XDG_CONFIG_HOME:-$HOME/.config}/fastfetch/retro-anime-cyberpunk-portrait-terminal.png\"",
+        "width": 40,
+        "height": 18,
+        "position": "left",
+        "padding": {
+            "right": 3
+        }
+    },
+    "display": {
+        "separator": "  /  ",
+        "color": {
+            "keys": "#ff851b",
+            "title": "#ff9b38",
+            "output": "#e8a15b",
+            "separator": "#66b2a5"
+        },
+        "bar": {
+            "width": 8,
+            "char": {
+                "elapsed": "■",
+                "total": "·"
+            },
+            "border": {
+                "left": "[",
+                "right": "]"
+            },
+            "color": {
+                "elapsed": "#ff851b",
+                "total": "#315653",
+                "border": "#66b2a5"
+            }
+        },
+        "percent": {
+            "type": 2,
+            "color": {
+                "green": "#ff851b",
+                "yellow": "#ff9b38",
+                "red": "#cf6b56"
+            }
+        }
+    },
+    "modules": [
+        {
+            "format": "{#title}{#1}{user-name}{#separator} // {#title}{host-name}{#}",
+            "type": "title"
+        },
+        {
+            "type": "custom",
+            "format": "{#title}▀▀ {#1}S Y S T E M {#separator}─────────────────{#}"
+        },
+        {
+            "key": "OS    ",
+            "type": "os"
+        },
+        {
+            "key": "KERNEL",
+            "type": "kernel"
+        },
+        {
+            "key": "UPTIME",
+            "type": "uptime"
+        },
+        {
+            "key": "WM    ",
+            "type": "wm"
+        },
+        {
+            "key": "TERM  ",
+            "type": "terminal"
+        },
+        {
+            "key": "SHELL ",
+            "type": "shell"
+        },
+        {
+            "type": "custom",
+            "format": "{#title}▀▀ {#1}H A R D W A R E {#separator}─────────────{#}"
+        },
+        {
+            "key": "CPU   ",
+            "type": "cpu",
+            "showPeCoreCount": true,
+            "temp": true
+        },
+        {
+            "key": "GPU   ",
+            "type": "gpu",
+            "format": "{name}"
+        },
+        {
+            "key": "RAM   ",
+            "type": "memory",
+            "format": "{percentage-bar} {#output}{used} / {total}"
+        },
+        {
+            "key": "DISK  ",
+            "type": "disk",
+            "folders": "/",
+            "format": "{size-percentage-bar} {#output}{size-used} / {size-total}"
+        },
+        {
+            "key": "NET   ",
+            "type": "localip",
+            "format": "{ipv4} ({ifname})"
+        },
+        {
+            "type": "custom",
+            "format": "{#title}▄▄▄▄ {#keys}▄▄▄▄ {#output}▄▄▄▄ {#separator}▄▄▄▄ {##315653}▄▄▄▄{#}"
+        }
+    ]
+}

@@ -22,8 +22,8 @@ Personal dotfiles for an Arch Linux workflow built around Hyprland, Neovim, and 
 ### Current Issues:
 
 The current issues pertain to having a polished hyprland setup replicatable across vm environments. While I can get it
-*almost* smooth, I am unable to get it perfect and replicatable across multiple environments. Most likely. This will be
-the host machines linux environment and I may create a separate VM repository with a very minimal config for a vm dev environemnt.
+ *almost* smooth, I am unable to get it perfect and replicatable across multiple environments. The lightweight
+[i3 VM profile](VM.md) provides an X11 alternative with Ghostty, Fish and Fastfetch.
 
 ## The stack
 
@@ -65,7 +65,9 @@ mkdir -p ~/.config
   [2]  Remove configs        Unlink your dotfiles
   [3]  Install dependencies  Set up your dev tools
   [4]  Pull updates          Sync this repository
-  [5]  Exit
+  [5]  Setup VM              Link your VM dotfiles
+  [6]  Install VM deps       Set up your VM tools
+  [7]  Exit
 
   +--------------------------------------------------+
   READY >
@@ -77,6 +79,8 @@ mkdir -p ~/.config
 | **Remove configs** | Remove corresponding home-directory paths; keep repository sources. Missing paths are skipped. |
 | **Install dependencies** | Run one or all commands from `configs/install.config`. Batch installation stops at the first failure. |
 | **Pull updates** | Run `git pull` in the current repository. |
+| **Setup VM** | Link the separate `configs/vm/` profile into `~/`; existing paths are skipped. See [VM setup](VM.md). |
+| **Install VM deps** | Run commands from `configs/install-vm.config` for the lightweight Arch/i3 desktop. |
 
 Type a menu number and press Enter. Empty input exits the main menu or processes all items in a config/dependency submenu. Set `NO_COLOR=1` to disable colors.
 
@@ -90,9 +94,11 @@ Type a menu number and press Enter. Empty input exits the main menu or processes
 ├── configs/
 │   ├── configs/       → ~/.config/
 │   ├── home/          → ~/
+│   ├── vm/            → ~/ (VM menu only; includes .config/ and .xinitrc)
 │   ├── windows/         Windows dotfiles for manual setup
 │   ├── gtk-widgets/      Retro GTK desktop widgets (manual setup)
-│   └── install.config   Dependency commands, one per line
+│   ├── install.config   Dependency commands, one per line
+│   └── install-vm.config VM-only dependency commands
 ├── other-configs/      Extra configs for manual setup
 ├── ff/                 Fuzzy file finder
 ├── dfile/              File information tool
