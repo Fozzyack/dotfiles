@@ -10,23 +10,8 @@ return {
                 install_dir = vim.fn.stdpath("data") .. "/site",
             })
 
-            nts.install({
-                "javascript",
-                "typescript",
-                "tsx",
-                "html",
-                "css",
-                "json",
-                "lua",
-                "vim",
-                "vimdoc",
-                "go",
-                "python",
-                "bash",
-                "c",
-                "cpp",
-                "sql"
-            })
+            -- The dependency installer waits for these before exiting headless Neovim.
+            nts.install(require("FozzyConfig.parsers"))
 
             vim.api.nvim_create_autocmd("FileType", {
                 callback = function(args)

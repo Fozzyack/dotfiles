@@ -15,8 +15,8 @@ mkdir -p ~/.config
 ./temperz
 ```
 
-1. Select **6 — Install VM deps**, then Enter to install all commands.
-2. Select **5 — Setup VM**, then Enter to select all and confirm the preview.
+1. Select **5 — Setup VM**, then Enter to select all and confirm the preview.
+2. Select **6 — Install VM deps**, then Enter to install all commands.
 3. From a local VM console, run `startx`. With an existing display manager,
    select its i3 session instead; no display manager is installed by this profile.
 
@@ -44,6 +44,25 @@ Fastfetch is installed and displayed by the existing Fish greeting. The Go
 package dependency and `exa` compatibility link support the unchanged Fish config.
 Ghostty explicitly launches Fish via the i3 terminal shortcut; the login shell
 is not changed. Optional personal shell helpers still expect `~/dotfiles`.
+
+### Neovim dependencies
+
+Run Setup VM **before** Install VM deps: the final dependency command checks that
+`~/.config/nvim` (or `$XDG_CONFIG_HOME/nvim`) links to this VM profile so it cannot
+accidentally bootstrap an unrelated editor config. Run Temperz from this repository's root.
+
+The dependency list includes compilers, archive/download tools, Node/npm, Python
+with pip/virtualenv, Go, Zig, .NET, CMake, the Tree-sitter CLI, ripgrep and the
+X11 clipboard provider (`xclip`). The final command synchronizes Lazy plugins,
+installs configured language servers and formatters through Mason (including
+Roslyn, but excluding `rzls`), and waits for the configured Tree-sitter parsers to compile.
+Internet access is required; this can take several minutes and uses additional
+disk space beyond the lightweight desktop. Failed tool installs stop the command;
+check `:MasonLog`, fix the reported issue and rerun the final dependency command.
+
+After installation, use `:checkhealth`, `:Mason` and `:ConformInfo` to inspect the
+editor. NeoCodeium authentication remains manual (`:NeoCodeium auth`) if you
+choose to enable that optional plugin.
 
 ### Shortcuts and styling
 
