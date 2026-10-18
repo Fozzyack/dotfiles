@@ -86,6 +86,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 # Run on login and i3 restart; missing wallpapers leave a solid charcoal root.
 exec_always --no-startup-id sh ~/.config/i3/wallpaper.sh
 exec --no-startup-id dunst
+exec --no-startup-id picom --config ~/.config/i3/picom.conf
 
 bar {
     status_command i3status

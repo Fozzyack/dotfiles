@@ -3,7 +3,7 @@
 This profile targets an existing **Arch Linux** VM with networking, a normal
 user, and `sudo` configured. Suggested starting size: **2 vCPUs, 2–4 GiB RAM,
 20 GiB disk**. It uses Xorg/i3, Ghostty, Fish, Rofi, Thunar, i3bar/i3status,
-Dunst and feh. No compositor, Hyprland, Waybar or GTK widgets are started.
+Dunst, feh and Picom. No Hyprland, Waybar or GTK widgets are started.
 
 ## Setup with Temperz
 
@@ -66,6 +66,16 @@ charcoal/cream/teal colours, 3px inner gaps and 10px outer gaps match the deskto
 palette. i3 has no direct pseudo-tiling equivalent. Split toggling uses
 Alt+Shift+J to avoid Hyprland's duplicate Alt+J binding. i3's Alt+Enter binding
 takes precedence over Ghostty's own fullscreen shortcut; use Alt+F instead.
+
+### Terminal transparency
+
+Picom starts with i3 and displays Ghostty's existing 70% background opacity
+without making text translucent. It uses XRender with no blur, shadows or fading
+to keep VM overhead low. Ghostty's config is unchanged; its blur setting does
+not enable compositor blur here.
+
+For an existing session, install `picom`, then run
+`picom --config ~/.config/i3/picom.conf` once, or log out and back in.
 
 ### Wallpapers
 
