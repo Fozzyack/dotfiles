@@ -418,3 +418,6 @@ hl.window_rule({
 
 hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")
 
+-- enable if opengl version is too low
+-- hl.env("MESA_GL_VERSION_OVERRIDE", "4.3")
+-- hl.env("MESA_GLSL_VERSION_OVERRIDE", "430")
