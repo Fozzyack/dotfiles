@@ -151,8 +151,8 @@ Currently - due to OpenGL limits on windows QEMU the OpenGL version seems to be 
 A workaround to this is to set:
 
 ```
-MESA_GL_VERSION_OVERRIDE 4.3
-MESA_GLSL_VERSION_OVERRIDE 430
+MESA_GL_VERSION_OVERRIDE=4.3
+MESA_GLSL_VERSION_OVERRIDE=430
 ```
 
 You can set it in hyprland or in `~/.profile` (though it depends on how you start the desktop env / window manager)

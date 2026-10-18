@@ -26,6 +26,11 @@ for dependency in curl tar go fzf fd bat eza starship fastfetch python; do
     fi
 done
 
+"$fish_shell" --no-config --no-execute "$fish_config/config.fish" || {
+    echo 'Fish config syntax check failed. Login shell unchanged.' >&2
+    exit 1
+}
+
 # Do this separately: --no-config skips loading Fisher's universal state.
 "$fish_shell" --no-config -c 'set --erase --universal fish_function_path; set --erase --universal fish_complete_path; true'
 
@@ -92,7 +97,8 @@ for interactive in (False, True):
         reader.join(timeout=2)
         os.close(master)
     text = output.decode(errors="replace")
-    if result.returncode != 0 or marker not in text:
+    startup_error = "called during startup" in text or "Unknown command" in text
+    if result.returncode != 0 or marker not in text or startup_error:
         print(text, file=sys.stderr)
         raise SystemExit("Fish startup check failed. Login shell unchanged.")
 print("Fish login and interactive startup checks passed.")
