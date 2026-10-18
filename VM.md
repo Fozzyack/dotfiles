@@ -16,4 +16,4 @@ MESA_GL_VERSION_OVERRIDE 4.3
 MESA_GLSL_VERSION_OVERRIDE 430
 ```
 
-You can set it in hyprland or in `~/.profile`
+You can set it in hyprland or in `~/.profile` (though it depends on how you start the desktop env / window manager)
