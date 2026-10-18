@@ -11,6 +11,7 @@ Dunst and feh. No compositor, Hyprland, Waybar or GTK widgets are started.
 git clone https://github.com/Fozzyack/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 sudo pacman -Syu
+mkdir -p ~/.config
 ./temperz
 ```
 
@@ -19,13 +20,23 @@ sudo pacman -Syu
 3. From a local VM console, run `startx`. With an existing display manager,
    select its i3 session instead; no display manager is installed by this profile.
 
-The VM menu links `configs/vm/.config` to `~/.config` and `.xinitrc` to
-`~/.xinitrc`. **Do not create `~/.config` before VM setup.** Temperz skips
-existing paths instead of merging or replacing them. If either already exists,
-review it and move it to a backup before setup, or manually copy only the wanted
-subdirectories from `configs/vm/.config/` into your existing configuration.
+The VM menu links each entry in `vm/configs/` into `~/.config/`, and
+`vm/home/.xinitrc` to `~/.xinitrc`. Dependencies come from `vm/install.config`.
+Create `~/.config` before setup; its existing contents are preserved. Temperz
+skips existing destination entries (such as `~/.config/fish` or `~/.xinitrc`)
+instead of merging or replacing them. Review and back up only the conflicting
+entries if you want to replace them with the VM profile.
 Also check for an older `~/.i3/config`, which takes precedence over the new config.
 Keep this repository in place because the installed paths are symlinks.
+
+Use a Temperz build supporting `vm/home/` and `vm/configs/`; older builds scan
+`configs/vm/` instead and will not find this profile.
+
+If you installed the old layout, existing links into `configs/vm/` now point at
+the old location. Check them with `readlink ~/.config` and `readlink ~/.xinitrc`.
+Only if they are symlinks into that old profile, unlink those symlinks (not their
+targets), recreate `~/.config` as a directory, and run Setup VM again. Leave real
+directories and unrelated symlinks untouched.
 
 Ghostty, Fish, Rofi, Starship and Fastfetch are independent copies of the existing
 configs. Changes to the main profile do not automatically update the VM copies.

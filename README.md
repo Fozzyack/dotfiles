@@ -79,8 +79,8 @@ mkdir -p ~/.config
 | **Remove configs** | Remove corresponding home-directory paths; keep repository sources. Missing paths are skipped. |
 | **Install dependencies** | Run one or all commands from `configs/install.config`. Batch installation stops at the first failure. |
 | **Pull updates** | Run `git pull` in the current repository. |
-| **Setup VM** | Link the separate `configs/vm/` profile into `~/`; existing paths are skipped. See [VM setup](VM.md). |
-| **Install VM deps** | Run commands from `configs/install-vm.config` for the lightweight Arch/i3 desktop. |
+| **Setup VM** | Link `vm/home/` entries into `~/` and `vm/configs/` entries into `~/.config/`; existing entries are skipped. See [VM setup](VM.md). |
+| **Install VM deps** | Run commands from `vm/install.config` for the lightweight Arch/i3 desktop. |
 
 Type a menu number and press Enter. Empty input exits the main menu or processes all items in a config/dependency submenu. Set `NO_COLOR=1` to disable colors.
 
@@ -94,11 +94,13 @@ Type a menu number and press Enter. Empty input exits the main menu or processes
 ├── configs/
 │   ├── configs/       → ~/.config/
 │   ├── home/          → ~/
-│   ├── vm/            → ~/ (VM menu only; includes .config/ and .xinitrc)
 │   ├── windows/         Windows dotfiles for manual setup
 │   ├── gtk-widgets/      Retro GTK desktop widgets (manual setup)
-│   ├── install.config   Dependency commands, one per line
-│   └── install-vm.config VM-only dependency commands
+│   └── install.config   Dependency commands, one per line
+├── vm/                 Separate profile for Temperz's VM menus
+│   ├── home/          → ~/ (includes .xinitrc)
+│   ├── configs/       → ~/.config/ (one link per app)
+│   └── install.config   VM-only dependency commands
 ├── other-configs/      Extra configs for manual setup
 ├── ff/                 Fuzzy file finder
 ├── dfile/              File information tool
