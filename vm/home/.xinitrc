@@ -8,6 +8,4 @@ fi
 export XCURSOR_SIZE=24
 # Also makes the existing Ghostty config use Fish without changing login shells.
 export SHELL=/usr/bin/fish
-xset r rate 150 50
-xset s off
 exec i3

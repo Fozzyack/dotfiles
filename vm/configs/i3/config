@@ -88,6 +88,8 @@ exec_always --no-startup-id sh ~/.config/i3/wallpaper.sh
 exec --no-startup-id dunst
 exec --no-startup-id picom --config ~/.config/i3/picom.conf
 exec --no-startup-id spice-vdagent
+exec --no-startup-id xset r rate 150 50
+exec --no-startup-id xset s off
 
 bar {
     status_command i3status
