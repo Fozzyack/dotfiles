@@ -3,6 +3,7 @@
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.runnables/zen"
 export PATH="$HOME/.local/zig/0.17.0:$PATH" # Remove this when pacman gets new zig version
+export PATH="$HOME/.local/zls/zig-out/bin/:$PATH" # Remove this when zls gets updated
 export EDITOR=nvim
 
 # bun
