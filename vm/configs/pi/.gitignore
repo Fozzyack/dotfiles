@@ -6,5 +6,7 @@
 !settings.json
 !keybindings.json
 !themes/
-themes/*
+!extensions/
+!extensions/** 
 !themes/retro-dark.json
+**logs*
