@@ -23,5 +23,13 @@
   "lastChangelogVersion": "1.4.0",
   "deviceId": "c58fe92d-d316-4300-9df0-a540eaa8bfa9",
   "defaultProvider": "openai",
-  "defaultModel": "gpt-6.1-sol"
+  "defaultModel": "gpt-6.1-sol",
+  "packages": [
+    "npm:pi-btw@0.8.0",
+    "npm:@juicesharp/rpiv-todo@2.15.0",
+    "npm:pi-web-access@0.44.0",
+    "npm:pi-powerline-footer@0.21.0",
+    "npm:@plannotator/pi-extension@0.28.30",
+    "npm:@gotgenes/pi-permission-system@41.0.0"
+  ]
 }
