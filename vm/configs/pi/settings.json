@@ -2,7 +2,7 @@
   "$schema": "https://pi.dev/schemas/settings.schema.json",
   "theme": "retro-dark",
   "defaultThinkingLevel": "medium",
-  "hideThinkingBlock": false,
+  "hideThinkingBlock": true,
   "externalEditor": "nvim",
   "doubleEscapeAction": "tree",
   "defaultProjectTrust": "ask",
@@ -30,6 +30,6 @@
     "npm:pi-web-access@0.44.0",
     "npm:pi-powerline-footer@0.21.0",
     "npm:@plannotator/pi-extension@0.28.30",
-    "npm:@gotgenes/pi-permission-system@41.0.0"
+    "npm:@gotgenes/pi-permission-system"
   ]
 }
