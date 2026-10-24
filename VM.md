@@ -75,6 +75,26 @@ running as a normal user). The installer cannot repair access to a locked-out
 account. After recovering, rerun `bash vm/setup-fish.sh` from this repository;
 do not manually switch back to Fish if its startup checks fail.
 
+### Pi terminal agent
+
+Select **pi** and **fish** in Temperz's **Setup VM** menu (or install all).
+Temperz links the [retro-dark configuration](vm/configs/pi/README.md) to
+`~/.config/pi`; Fish's `conf.d/pi.fish` sets `PI_CODING_AGENT_DIR` to that location.
+No separate setup script or `~/.pi` config link is needed. Open a new Fish session
+before starting Pi. **Install VM deps** installs the Pi executable with Bun.
+
+Session transcripts go to `~/.local/state/pi/sessions` (respecting `XDG_STATE_HOME`).
+Pi still stores credentials and other agent state inside `~/.config/pi`, which
+points into this repository; a restrictive `.gitignore` excludes everything
+except the shared config files. Existing `~/.pi/agent` credentials/sessions are
+not migrated automatically. See the config README for migration and other shells.
+
+The interface matches OpenCode/Ghostty's charcoal, cream, orange and teal palette.
+Use `/login` to authenticate, `Ctrl+F` to pick a model, `Ctrl+G` to edit a prompt in
+Neovim, and `Ctrl+Q` to queue a follow-up without conflicting with i3's Alt+Enter.
+See the config README for all shortcuts and the permission-policy differences
+from OpenCode. No provider/model is hardcoded.
+
 ### Neovim dependencies
 
 Run Setup VM **before** Install VM deps: the final dependency command checks that
