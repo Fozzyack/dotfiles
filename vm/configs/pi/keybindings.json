@@ -1,0 +1,12 @@
+{
+  "$schema": "https://pi.dev/schemas/keybindings.schema.json",
+  "app.model.select": ["ctrl+f", "ctrl+l"],
+  "tui.editor.cursorRight": "right",
+  "app.session.new": "ctrl+n",
+  "app.session.resume": "ctrl+r",
+  "app.editor.external": "ctrl+g",
+  "app.message.followUp": "ctrl+q",
+  "tui.input.newLine": ["shift+enter", "ctrl+j"],
+  "tui.select.up": ["up", "ctrl+k"],
+  "tui.select.down": ["down", "ctrl+j"]
+}
