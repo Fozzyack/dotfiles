@@ -1,0 +1,27 @@
+{
+  "$schema": "https://pi.dev/schemas/settings.schema.json",
+  "theme": "retro-dark",
+  "defaultThinkingLevel": "medium",
+  "hideThinkingBlock": false,
+  "externalEditor": "nvim",
+  "doubleEscapeAction": "tree",
+  "defaultProjectTrust": "ask",
+  "tuiMode": "fullscreen",
+  "fullscreenScrollbar": "hidden",
+  "showHardwareCursor": true,
+  "editorPaddingX": 1,
+  "autocompleteMaxVisible": 8,
+  "quietStartup": "header",
+  "collapseChangelog": true,
+  "enableInstallTelemetry": false,
+  "enableAnalytics": false,
+  "compaction": {
+    "enabled": true,
+    "reserveTokens": 16384,
+    "keepRecentTokens": 20000
+  },
+  "lastChangelogVersion": "1.4.0",
+  "deviceId": "c58fe92d-d316-4300-9df0-a540eaa8bfa9",
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-6.1-sol"
+}
