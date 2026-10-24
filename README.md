@@ -133,6 +133,15 @@ cd ~/dotfiles
 
 Windows-specific dotfiles are available in [`configs/windows/`](configs/windows/), including `.glzr/`, `alacritty/`, and `.wezterm.lua`. These are **not installed by Temperz** and require manual setup on Windows.
 
+### Pi (VM profile)
+
+Use Temperz's **Setup VM** menu to select **pi** and **fish** (or install all).
+Pi's configuration lives at `~/.config/pi`; the VM Fish config exports
+`PI_CODING_AGENT_DIR` so Pi finds it without a separate setup script.
+**Install VM deps** installs Pi with Bun. Open a new Fish session afterward.
+See the [Pi config guide](vm/configs/pi/README.md) for shortcuts, other shells,
+and private-state storage caveats.
+
 ### tmux
 
 Install the tmux Plugin Manager (TPM):
