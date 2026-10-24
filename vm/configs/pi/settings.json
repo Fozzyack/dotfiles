@@ -2,7 +2,7 @@
   "$schema": "https://pi.dev/schemas/settings.schema.json",
   "theme": "retro-dark",
   "defaultThinkingLevel": "medium",
-  "hideThinkingBlock": true,
+  "hideThinkingBlock": false,
   "externalEditor": "nvim",
   "doubleEscapeAction": "tree",
   "defaultProjectTrust": "ask",
