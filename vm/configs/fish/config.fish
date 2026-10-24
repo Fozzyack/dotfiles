@@ -97,3 +97,6 @@ alias gbb="gb branch"
 
 # opencode
 fish_add_path /home/fozzyack/.opencode/bin
+
+# uv
+fish_add_path "/home/fozzyack/.local/bin"
