@@ -1,0 +1,10 @@
+# Pi's agent directory also contains credentials, packages and runtime state.
+# Only explicitly allow the shared configuration to enter Git.
+*
+!.gitignore
+!README.md
+!settings.json
+!keybindings.json
+!themes/
+themes/*
+!themes/retro-dark.json
