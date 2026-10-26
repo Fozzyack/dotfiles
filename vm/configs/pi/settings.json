@@ -30,6 +30,7 @@
     "npm:pi-web-access@0.44.0",
     "npm:pi-powerline-footer@0.21.0",
     "npm:@plannotator/pi-extension@0.28.30",
-    "npm:@gotgenes/pi-permission-system"
+    "npm:@gotgenes/pi-permission-system",
+    "npm:pi-subagents"
   ]
 }
