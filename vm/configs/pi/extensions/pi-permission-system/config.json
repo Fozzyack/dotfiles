@@ -1,4 +1,7 @@
 {
+  "debugLog": false,
+  "permissionReviewLog": true,
+  "yoloMode": true,
   "permission": {
     "*": "allow",
     "path": {
@@ -7,10 +10,10 @@
       "*.env.*": "deny",
       "*.env.example": "allow"
     },
+    "external_directory": "ask",
     "bash": {
       "rm -rf *": "ask",
       "sudo *": "ask"
-    },
-    "external_directory": "ask"
+    }
   }
 }
