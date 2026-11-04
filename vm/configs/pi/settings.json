@@ -20,7 +20,7 @@
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
   },
-  "lastChangelogVersion": "1.4.0",
+  "lastChangelogVersion": "1.5.0",
   "deviceId": "c58fe92d-d316-4300-9df0-a540eaa8bfa9",
   "defaultProvider": "openai",
   "defaultModel": "gpt-6.1-sol",
@@ -32,5 +32,11 @@
     "npm:@plannotator/pi-extension@0.28.30",
     "npm:@gotgenes/pi-permission-system",
     "npm:pi-subagents"
-  ]
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-web-access@0.44.0\",\"scope\":\"user\"}": "0.44.0",
+    "{\"source\":\"npm:pi-powerline-footer@0.21.0\",\"scope\":\"user\"}": "0.21.0",
+    "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.0.0",
+    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.84.0"
+  }
 }
